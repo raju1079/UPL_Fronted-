@@ -1,0 +1,168 @@
+{   
+    "Testimonials": [
+      {
+        "id": 1,
+        "img": "/img/students/muddanag.jpg",
+        "text": "Obtaining the certification changed my life, and now I'm living my dream.",
+        "name": "Mudanna Gouda",
+        "job": "Test Engineer"
+      },
+      {
+        "id": 2,
+        "img": "/img/students/mohamada.jpg",
+        "text": "I am proud to say that after a few months of taking this course...",
+        "name": "Mohamad Abubkar",
+        "job":"Frontend Engineer"
+      },
+      {
+        "id": 3,
+        "img": "/img/students/kirank.jpg",
+        "text": "I highly recommend this course for all budding data scientists.",
+        "name": "Kiran Kumar K",
+        "job":"Frontend Developer"
+      },
+      {
+        "id": 4,
+        "img": "/img/students/mahesh.jpg",
+        "text": "One of the best courses on IT, I have come across so far Would help anyone become a better resource.",
+        "name": "Mahesh M",
+        "job":"Java Developer"
+      }
+    ],
+    "Team": [
+      {
+        "img": "img/team/01.jpg",
+        "name": "John Doe",
+        "job": "Director"
+      },
+      {
+        "img": "img/team/02.jpg",
+        "name": "Mike Doe",
+        "job": "Senior Designer"
+      },
+      {
+        "img": "img/team/03.jpg",
+        "name": "Jane Doe",
+        "job": "Senior Designer"
+      },
+      {
+        "img": "img/team/04.jpg",
+        "name": "Karen Doe",
+        "job": "Project Manager"
+      }
+    ],
+    "Contact": {
+      "address": "4321 California St, San Francisco, CA 12345 ",
+      "phone": "+1 123 456 1234",
+      "email": "info@company.com",
+      "facebook": "fb.com",
+      "twitter": "twitter.com",
+      "youtube": "youtube.com"
+    },
+    "Features": [
+      {
+        "icon": "fa fa-anchor",
+        "title": "ADDRESS",
+        "text": "#123, 70Th Cross, 2Nd Floor, SVA Arcade, 5Th Block Rajajinagara, Bengaluru - 560010"
+      },
+      {
+        "icon": "fa fa-phone",
+        "title": "Phone number",
+        "text": "+91 080 23100098"
+      },
+      {
+        "icon": "fa fa-envelope",
+        "title": "Email",
+        "text": "info@uplsnipe.com"
+      }
+    ],
+    "Programs": [
+      {
+        "program_name": "Coding Bootcamp Program",
+        "program_id": 1,
+        "duration": "4 TO 6 MONTHS,",
+        "cost":"30000",
+        "target_audience": "Fresher & Experienced",
+        "category": "Virtual Program",
+        "program_coverage": "2 Months training in a relevant discipline, 1 capstoneproject & followed by involving in live project for duration 4 months.",
+        "career_opportunities": "The best jobs you can secure after completingone of these programs such as, Technical Support Specialist, DigitalMarketer, Junior Developer, Data Analyst, Web Developer, ProjectManager, User Interface/Xxperience (UI/UX) designer, ApplicationDeveloper, Product Manager, Software Engineer, Full Stack Developer,Data Scientist, Development Operations (DevOps) Engineer, Back EndEeveloper, Teach Others, also Freelancer",
+        "courses": "JAVA FULL STACK, FULL STACK Csharp DOTNET, FRONT END DEVELOPER IN(REACT or ANGULAR), MEAN STACK, PYTHON, DATA-SCIENCE, AUTOMATION TESTING WITH JAVA, UI/UX DESIGN, DIGITAL MARKETING, JENKINS",
+        "outcome":"Build their careers feature strong growth projections &lucrative salaries",
+        "program_details": "program_details",
+        "registration_charge": "Rs. 100",
+        "gst":"gst charge",
+        "imgpath": "img/programs/codeBootCamp.jpg"
+      },
+      {
+        "program_name": "Certification Courses",
+        "program_id": 2,
+        "duration": "3 sem 1 yr course",
+        "cost":"25000/semester",
+        "target_audience": "Fresher & Experienced",
+        "category": "Virtual Program",
+        "program_coverage": "2 Months training in a relevant discipline, 1 capstoneproject & followed by involving in live project for duration 4 months.",
+        "career_opportunities": "The best jobs you can secure after completingone of these programs such as, Technical Support Specialist, DigitalMarketer, Junior Developer, Data Analyst, Web Developer, ProjectManager, User Interface/Xxperience (UI/UX) designer, ApplicationDeveloper, Product Manager, Software Engineer, Full Stack Developer,Data Scientist, Development Operations (DevOps) Engineer, Back EndEeveloper, Teach Others, also Freelancer",
+        "courses": "JAVA FULLSTACK, FULL STACK C# .NET, FRONT END DEVELOPER IN ( REACT/ANGULAR), MEAN STACK, PYTHON, DATA-SCIENCE, AUTOMATION TESTING WITH JAVA, UI/UX DESIGN, DIGITAL MARKETING, JENKINS",
+        "outcome":"Build their careers feature strong growth projections &lucrative salaries",
+        "program_details": "program_details",
+        "registration_charge": "Rs. 100",
+        "gst":"gst charge",
+        "imgpath": "img/programs/certificateCourse.jpg"
+      },
+      {
+        "program_name": "Career Bridge Program",
+        "program_id": 3,
+        "duration": "3 MONTHS",
+        "cost":"50000",
+        "target_audience": "Fresher & Experienced",
+        "category": "Virtual Program",
+        "program_coverage": "2 Months training in a relevant discipline, 1 capstoneproject & followed by involving in live project for duration 4 months.",
+        "career_opportunities": "The best jobs you can secure after completingone of these programs such as, Technical Support Specialist, DigitalMarketer, Junior Developer, Data Analyst, Web Developer, ProjectManager, User Interface/Xxperience (UI/UX) designer, ApplicationDeveloper, Product Manager, Software Engineer, Full Stack Developer,Data Scientist, Development Operations (DevOps) Engineer, Back EndEeveloper, Teach Others, also Freelancer",
+        "courses": "JAVA FULLSTACK, FULL STACK C# .NET, FRONT END DEVELOPER IN ( REACT/ANGULAR), MEAN STACK, PYTHON, DATA-SCIENCE, AUTOMATION TESTING WITH JAVA, UI/UX DESIGN, DIGITAL MARKETING, JENKINS",
+        "outcome":"Build their careers feature strong growth projections &lucrative salaries",
+        "program_details": "program_details",
+        "registration_charge": "Rs. 100",
+        "gst":"gst charge",
+        "imgpath": "img/programs/careerBridge.jpg"
+      },
+      {
+        "program_name": "Industry Readiness Program",
+        "program_id": 4,
+        "duration": "3 MONTHS",
+        "cost":"20000",
+        "target_audience": "Fresher & Experienced",
+        "category": "Virtual Program",
+        "program_coverage": "2 Months training in a relevant discipline, 1 capstoneproject & followed by involving in live project for duration 4 months.",
+        "career_opportunities": "The best jobs you can secure after completingone of these programs such as, Technical Support Specialist, DigitalMarketer, Junior Developer, Data Analyst, Web Developer, ProjectManager, User Interface/Xxperience (UI/UX) designer, ApplicationDeveloper, Product Manager, Software Engineer, Full Stack Developer,Data Scientist, Development Operations (DevOps) Engineer, Back EndEeveloper, Teach Others, also Freelancer",
+        "courses": "JAVA FULLSTACK, FULL STACK C# .NET, FRONT END DEVELOPER IN ( REACT/ANGULAR), MEAN STACK, PYTHON, DATA-SCIENCE, AUTOMATION TESTING WITH JAVA, UI/UX DESIGN, DIGITAL MARKETING, JENKINS",
+        "outcome":"Build their careers feature strong growth projections &lucrative salaries",
+        "program_details": "program_details",
+        "registration_charge": "Rs. 100",
+        "gst":"gst charge",
+        "imgpath": "img/programs/industryReady.jpg"
+      }
+    ],
+    "PopularCourses": [
+      {
+        "courseid":1,
+        "coursename": "Java full stack",
+        "duration": "3 sem 1 yr course",
+        "cost":"25000/semester",
+        "instructor": "SNIPE UPL"
+      },
+      {
+        "courseid":2,
+        "coursename": "Reactjs",
+        "duration": "4 TO 6 MONTHS,",
+        "cost":"50000",
+        "instructor": "SNIPE UPL"
+      },
+      {
+        "courseid":3,
+        "coursename": "MERN stack Development",
+        "duration": "4 TO 6 MONTHS,",
+        "cost":"25000",
+        "instructor": "SNIPE UPL"
+      }
+    ]
+  }
