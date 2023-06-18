@@ -20,7 +20,7 @@ const ProgramCard = (props) => {
                     <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" key={eachItem.program_id}>
                     <div className="team-item bg-light">
                         <div className="overflow-hidden">
-                            <img className="img-fluid" src={`img/programs/${eachItem.program_name.replaceAll(" ", "")}.jpg`} alt={eachItem.program_name} />
+                            <img className="img-fluid" src={`img/programs/${eachItem.program_name.toLowerCase().replaceAll(" ", "")}.jpg`} alt={eachItem.program_name.toLowerCase()} />
                         </div>
                         <div className="position-relative d-flex justify-content-center" style={{marginTop: "-23px"}}>
                             <div className="bg-light d-flex justify-content-center pt-2 px-1">
