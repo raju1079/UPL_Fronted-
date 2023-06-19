@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getEmailId } from '../redux/actions/Actions'
-import { Button, TextField } from '@mui/material'
+import { Box, Button, Grid, TextField } from '@mui/material'
 import { register } from '../redux/auth/authActions'
 
 const Footer = () => {
     const[mail,setMail] = useState('')
     const dispatch = useDispatch()
     const[formData, setFormData] = useState([])
-     /* set default values for public visitors who wants to download lessons. same time email id will add in DB users table */
-     const phoneNumberFormat = Math.floor(100000000 + Math.random() * 900000000);
+    const[mobile,setMobile] = useState('')
+     
      const visitorData = {
         username:"",
         email: mail,
         password: "qwe",
-        phone_number: phoneNumberFormat,
+        phone_number: mobile,
           role_id: "2"
       }
       useEffect(()=>{
@@ -25,7 +25,8 @@ const Footer = () => {
         e.preventDefault()
        //console.log("enter mail id is", mail)
         dispatch(register(formData))
-        setMail("")        
+        setMail("")
+        setMobile("")        
       }
   return (
     <>
@@ -54,20 +55,37 @@ const Footer = () => {
                     </div>
                 </div>
                 
-                <div className="col-lg-3 col-md-6">
+                <div className="col-lg-5 col-md-6">
                     <h4 className="text-white mb-3">Newsletter</h4>
                     <p>Subscribe here to get Latest courses and offers</p>
-                    <div className="position-relative mx-auto" style={{maxWidth: "400px"}}>
+                    <div className="position-relative mx-auto" >
                         <form onSubmit={handleSubmit}>
-                        <TextField 
-                        type="email"
-                        required
-                        name="Enter Your Email id"
-                        placeholder='Enter Your Email id'
-                        value={mail}
-                        onChange={(e)=>setMail(e.target.value)}
-                        style={{backgroundColor: "white"}}
-                        />
+                        <Box mb={2}>
+                            <Grid container spacing={2}>
+                                <Grid item md={6} xs={12} sm={12}>
+                                <TextField 
+                                type="email"
+                                required
+                                name="Enter Your Email id"
+                                placeholder='Enter Your Email id'
+                                value={mail}
+                                onChange={(e)=>setMail(e.target.value)}
+                                style={{backgroundColor: "white"}}
+                                />                                
+                                </Grid>
+                                <Grid item md={6} xs={12} sm={12}>
+                                <TextField 
+                                type="tel"
+                                required
+                                name="Enter Your Mobile Number"
+                                placeholder='Enter Mobile Number'
+                                value={mobile}
+                                onChange={(e)=>setMobile(e.target.value)}
+                                style={{backgroundColor: "white"}}
+                                />
+                                </Grid>
+                            </Grid>
+                        </Box>
                         
                         <Button className="btn btn-primary py-2 mx-3 top-0 end-0 mt-2 me-2" type='sybmit' >Subscribe</Button>
                         </form>

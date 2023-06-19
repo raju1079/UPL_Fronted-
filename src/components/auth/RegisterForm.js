@@ -6,20 +6,7 @@ import { Button, Container, FormControl, Grid, InputLabel, MenuItem, Paper, Sele
 import TextfieldCustom from '../common/TextfieldCustom';
 import { getRoles } from '../redux/actions/Actions';
 
-const roles = [
-  {
-    role_id: 1,
-    role_name: "Admin"
-  },
-  {
-    role_id: 2,
-    role_name: "Visitor"
-  },
-  {
-    role_id: 3,
-    role_name: "Executor"
-  }
-]
+
 const RegisterForm = () => {
 //  const { isAuthenticated, user } = useSelector((state) => state.auth);
 const allRole = useSelector((state)=>state.getAllRoles.roles)
@@ -47,7 +34,7 @@ const [roleId, setRoleId] = useState([])
     password: formData.password,
     email: formData.email,
     phone_number: formData.phone_number,
-    role_id: roleName
+    role_id: 2
   }
 
   const handleSubmit = (e) => {
@@ -106,30 +93,6 @@ const [roleId, setRoleId] = useState([])
              name="phone_number" 
              required
              value={phone_number} onChange={handleChange} placeholder="Phone Number" />            
-           </Grid>
-          {/* <Grid item xs={12}>
-             <TextfieldCustom
-             type="text"
-             name="role" 
-             value={role} onChange={handleChange} placeholder="Role" />            
-           </Grid> */}
-          <Grid item xs={12}>
-            <FormControl variant="outlined" style={{ minWidth: '100%' }}>
-              <InputLabel>Role Name</InputLabel>
-              <Select
-                name="roleName"
-                label="Role Name"
-                value={roleName}
-                onChange={handleRoleChange}
-                options={roleId}
-              >
-                {roleId.map((eachRoleName) => (
-                  <MenuItem key={eachRoleName.role_id} value={eachRoleName.role_id}>
-                    {eachRoleName.role_name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>        
            </Grid>
            <Grid item xs={12}>
                  <Button variant="contained" style={{backgroundColor: '#3251A3', borderColor: '#FF5E14'}} 

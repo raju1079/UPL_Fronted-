@@ -42,7 +42,7 @@ const ProgramDetail = () => {
     useEffect(()=>{
       dispatch(fetchProgramById(id))
       dispatch(fetchCourseList())
-   },  [dispatch])
+   },  [dispatch,id])
    //console.log('selected course name by id is', fetchProgramsById)
    //console.log("courses list for selected Program code is", fetchCourses)
    const selectedProgram = fetchProgramsById[0]

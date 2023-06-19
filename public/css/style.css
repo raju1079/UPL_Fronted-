@@ -523,3 +523,6 @@
 .CookieConsent a{
     color: #3251A3;
 }
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover{
+    background-color: rgb(6, 187, 204) !important;
+}

@@ -8,17 +8,15 @@ import { register } from '../redux/auth/authActions';
 
 const DownloadLesson = () => {
     const[mail,setMail] = useState('')
+    const[mobile,setMobile] = useState('')
     const[formData, setFormData] = useState([])
     const dispatch = useDispatch()
 
-    /* set default values for public visitors who wants to download lessons. same time email id will add in DB users table */
-    const phoneNumberFormat = Math.floor(100000000 + Math.random() * 900000000);
-   //console.log('random mobile', phoneNumberFormat+"1")
     const visitorData = {
       username:"",
       email: mail,
       password: "qwe",
-      phone_number: phoneNumberFormat,
+      phone_number: mobile,
         role_id: "2"
     }
     useEffect(()=>{
@@ -29,7 +27,8 @@ const DownloadLesson = () => {
         console.log("enter mail id is", formData)
         dispatch(register(formData))
         setMail("")
-        if(mail !== ""){
+        setMobile("")
+        if(mail !== "" && mobile != ""){
           saveAs("/files/testFile.docx", "testFile.docx");
         }
         
@@ -63,6 +62,16 @@ const DownloadLesson = () => {
                             placeholder='Enter Your Email id'
                             value={mail}
                             onChange={(e)=>setMail(e.target.value)}
+                            />
+                          </Grid>
+                          <Grid item xs={12}>
+                          <TextField 
+                            type="tel"
+                            required
+                            name="Enter Your Mobile Number"
+                            placeholder='Enter Your Mobile Number'
+                            value={mobile}
+                            onChange={(e)=>setMobile(e.target.value)}
                             />
                           </Grid>
                           <Grid item xs={12}>
