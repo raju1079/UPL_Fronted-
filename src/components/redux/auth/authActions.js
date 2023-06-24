@@ -9,6 +9,7 @@ import {
   LOGIN_FAILURE,
   LOGOUT,
 } from './authTypes';
+import securedInstance from '../../../api/securedInstance';
 
 // Register user
 export const register = (userData) => async (dispatch) => {
@@ -29,7 +30,7 @@ export const register = (userData) => async (dispatch) => {
 // Login user
 export const login = (userData) => async (dispatch) => {
   // try {
-    const res = await axiosinstance.post('/api/auth/login', userData);
+    const res = await securedInstance.post('/api/auth/login', userData);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,

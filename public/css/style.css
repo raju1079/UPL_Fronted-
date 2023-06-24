@@ -526,3 +526,22 @@
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover{
     background-color: rgb(6, 187, 204) !important;
 }
+.signUp{
+    cursor: pointer;
+}
+.signUp:hover{
+    text-decoration: underline;
+}
+.addbutton{
+    width: 100%;
+    text-align: right;
+    padding: 5px;
+}
+.addbutton .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+    font-family: inherit !important;
+    color: #3251A3 !important;
+}
+.addbutton .css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover{
+    background-color: transparent !important;
+    text-decoration: underline;
+}

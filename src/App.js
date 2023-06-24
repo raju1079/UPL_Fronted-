@@ -14,16 +14,19 @@ import AboutPage from './components/about/AboutPage';
 import Courses from './components/course/Courses';
 import Contact from './components/Contact';
 import ShowHeader from './components/common/ShowHeader';
-import ExecutorDashboard from './components/salesExecutors/ExecutorDashboard';
-import {CookieConsent} from 'react-cookie-consent'
-import { useState } from 'react';
-import { Close, CloseRounded } from '@mui/icons-material';
+import CookieBanner from './CookieBanner';
+import AddNewProgram from './components/auth/addprogram/AddNewProgram';
+import CreateNewUser from './components/auth/adduser/CreateNewUser';
+import AdminDashBoard from './components/auth/admin/AdminDashBoard';
+import AllPrograms from './components/auth/admin/allprograms/AllPrograms';
+import UpdateProgram from './components/auth/addprogram/UpdateProgram';
+import ExecutorDashboard from './components/auth/salesExecutors/ExecutorDashboard';
+import UpdateVisitor from './components/auth/visitors/UpdateVisitor';
+import UpdateUser from './components/auth/admin/UpdateUser';
 
 function App() {
   //const authData = useSelector((state) => state.auth);
-  const[showCookieBar,setShowCookieBar] = useState(true)
-  
-//console.log("auth", authData)
+  //console.log("auth", authData)
   return (
     <div className="App learningapp">
         <BrowserRouter>
@@ -43,36 +46,23 @@ function App() {
           <Route exact path='/welcome' element={<Welcome />}></Route>
           <Route exact path='/download' element={<DownloadLesson />} />
           <Route exact path='/contact' element={<Contact />} />
-          <Route exact path='/ExecutorDashboard' element={<ExecutorDashboard />} />
+          
+          <Route path='/auth' >
+            <Route  path='ExecutorDashboard' element={<ExecutorDashboard />} />
+            <Route  path='AdminDashboard' element={<AdminDashBoard />} />
+            <Route  path='createNewUser' element={<CreateNewUser />} />
+            <Route  path='addNewProgram' element={<AddNewProgram />} />
+            <Route  path='allPrograms' element={<AllPrograms />} />
+            <Route  path='updateProgram/:id' element={<UpdateProgram />} />
+            <Route  path='updateUser/:id' element={<UpdateUser />} />
+          </Route>
+         
+          
         </Routes>
       <Footer />
       </BrowserRouter>
-      {
-        showCookieBar && <div className='container'>
-          <CookieConsent
-        debug={true}
-        location="bottom"
-        style={{backgroundColor: "#06BBCC", color:"#181d38", fontWeight: "bold"}}
-        buttonStyle={{backgroundColor: "#3251A3", color: "#fff", borderRadius: "25px", padding: "10px"}}
-        expires={1}
-        buttonText="Ok Got it!!!"
-        >
-        We use cookies to ensure you have the best browsing experience on our website. Please read <a href='#'>Cookie Policy & Privacy Policy</a>
-        
-        <CloseRounded
-        style={{
-          backgroundColor: "white",
-          marginLeft: "10px",
-          cursor: "pointer"
-        }}
-          
-          onClick={() => {
-            setShowCookieBar(false)
-          }}
-        />
-        </CookieConsent>
-        </div>
-      }
+      {/* coockie consent */}
+      <CookieBanner />
     </div>
   );
 }

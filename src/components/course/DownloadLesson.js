@@ -5,19 +5,23 @@ import { Button, Container, Grid, Paper, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { getEmailId } from '../redux/actions/Actions';
 import { register } from '../redux/auth/authActions';
+import { useLocation } from 'react-router-dom';
 
 const DownloadLesson = () => {
+  const location = useLocation()
+  const [courseInterested, setCourseInterested] = useState(location.state.interestedCourse)
     const[mail,setMail] = useState('')
     const[mobile,setMobile] = useState('')
     const[formData, setFormData] = useState([])
     const dispatch = useDispatch()
-
+  //console.log('course interested to download is',courseInterested)
     const visitorData = {
       username:"",
       email: mail,
       password: "qwe",
       phone_number: mobile,
-        role_id: "2"
+        role_id: "2",
+        course_interest: courseInterested
     }
     useEffect(()=>{
       setFormData(visitorData)
@@ -29,7 +33,7 @@ const DownloadLesson = () => {
         setMail("")
         setMobile("")
         if(mail !== "" && mobile != ""){
-          saveAs("/files/testFile.docx", "testFile.docx");
+          //saveAs("/files/testFile.docx", "testFile.docx");
         }
         
       }

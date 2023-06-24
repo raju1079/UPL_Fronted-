@@ -9,6 +9,11 @@ import FetchCourseById from './reducers/FetchCourseById.js';
 import GetMailReducer from './reducers/GetMailReducer.js';
 import { GetVisitors } from './reducers/GetVisitors.js';
 import { GetRole } from './reducers/GetRole.js';
+import { GetUsers } from './reducers/GetUsers.js';
+import { UploadProgram } from './reducers/UploadProgram.js';
+import { UpdateProgramReducer } from './reducers/UpdateProgramReducer.js';
+import GetVisitorById from './reducers/GetVisitorById.js';
+import GetUserById from './reducers/GetUserById.js';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -18,7 +23,12 @@ const rootReducer = combineReducers({
   fetchCourseById: FetchCourseById,
   getMailId: GetMailReducer,
   getAllVisitors: GetVisitors,
-  getAllRoles: GetRole
+  getVisitorsById: GetVisitorById,
+  getAllRoles: GetRole,
+  getAllUsers: GetUsers,
+  getUsersById: GetUserById,
+  addNewProgram: UploadProgram,
+  editProgram:UpdateProgramReducer
 });
 
 export default rootReducer;

@@ -9,10 +9,11 @@ const CourseDetail = () => {
     const fetchCourseById = useSelector((state)=> state.fetchCourseById.courseById)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    //console.log("course id", id)
+    console.log("course id", id)
 
     const onDownload = () => {
-      navigate('/download')
+      //navigate('/download')
+      navigate('/download', {state: {interestedCourse}})
     };
 
     useEffect(()=>{
@@ -20,6 +21,8 @@ const CourseDetail = () => {
     }, [])
     //console.log("Course Details", fetchCourseById)
     const selectedCourse = fetchCourseById[0]
+    const interestedCourse = selectedCourse?.course_name
+    //console.log("interestedCourse Details", interestedCourse)
 
   return (
     <>

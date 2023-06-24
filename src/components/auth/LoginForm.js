@@ -66,8 +66,10 @@ const LoginForm = () => {
   
   useEffect(()=>{
     if(userId === 3){
-      navigate("/ExecutorDashboard") /* if it is executor, it will take to executor dashboard */
-    }else if(userId === 2 || userId === 1 || userId === 4 || userId === null){ /* other users: future admin/marketing will have seperate dashborad. then split up the condition */
+      navigate("/auth/ExecutorDashboard") /* if it is executor, it will take to executor dashboard */
+    }else if(userId === 1){
+      navigate("/auth/AdminDashboard")
+    }else if(userId === 2 || userId === 4 || userId === null){ /* other users: future admin/marketing will have seperate dashborad. then split up the condition */
       navigate("/welcome")
     }else{
       navigate("/login")
@@ -91,9 +93,6 @@ const LoginForm = () => {
   return (
     <>
     <form onSubmit={handleSubmit}>
-      {/* <input type="text" name="identifier" value={identifier} onChange={handleChange} placeholder="Email or Username" />
-      <input type="password" name="password" value={password} onChange={handleChange} placeholder="Password" />
-      <button type="submit">Login</button> */}
       <Container maxWidth="sm" className=" d-flex" >
     
     <Grid
@@ -147,24 +146,14 @@ const LoginForm = () => {
                  fullWidth type="submit">
                    LOGIN
                  </Button>
-               </Grid>
-               <Grid item xs={12}>
-                   <Grid item xs={12} className="mb-3" >
-                   <FacebookLoginButton style={{fontSize:"14px"}}  onClick={() => alert("FB Login")} />
-                   </Grid>
-                   <Grid item xs={12}>
-                     <GoogleLoginButton style={{fontSize:"14px"}}  onClick={() => alert("Google Login")} />
-                   </Grid>
-                   
-             </Grid>
-             
+               </Grid>             
                <Grid item xs={6}>
                  <span>Don't have an account? </span>
                  <Link
                    variant="contained"
                    onClick={handleSignUp}
                    underline="none"
-                   sx={{color: '#FF5E14', fontWeight:'bold'}}
+                  className='signUp'
                  >
                    SignUp
                  </Link>

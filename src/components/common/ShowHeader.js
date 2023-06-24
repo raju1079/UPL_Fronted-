@@ -11,10 +11,13 @@ const ShowHeader = ({children}) => {
         if(location.pathname === "/welcome"){
             setShowHeader(false)
             setShowTopBar(true)
-        }else if( location.pathname === "/ExecutorDashboard"){
+        }else if( location.pathname.startsWith("/auth")){
             setShowHeader(false)
             setShowTopBar(true)
-        } else{
+        }else if( location.pathname.startsWith("/AdminDashboard/")){
+            setShowHeader(false)
+            setShowTopBar(true)
+        }else{
             setShowHeader(true)
             setShowTopBar(false)
         }

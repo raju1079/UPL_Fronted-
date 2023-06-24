@@ -7,7 +7,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import TopbarUser from '../common/TopbarUser.js';
-import Visitors from '../visitors/Visitors.js';
+import WelcomeMenus from './WelcomeMenus.js';
+import AdminDashBoard from './admin/AdminDashBoard.js';
+import ExecutorDashboard from './salesExecutors/ExecutorDashboard.js';
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -56,6 +59,9 @@ const userAccountMenus = [
         
          {/*  <h1>Welcome, {user.username} <span> {user.role_id} </span></h1>
           <LogoutButton /> */}
+          {
+            userId === 1 ? <AdminDashBoard /> : userId === 3 ? <ExecutorDashboard /> : ""
+          }
           <div className='container'>
             <h2>Your Account</h2>
             <div className="container-xxl py-5">
@@ -81,20 +87,7 @@ const userAccountMenus = [
         </>
       ) : (
         <>
-        <div className="container-xxl py-5">
-                <div className="container">
-                  <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-                      <h6 className="section-title bg-white text-center text-primary px-3">Welcome to UPL</h6>
-                      <h1 className="mb-5">Please click any of the links below</h1>
-                  </div>
-                  <div className='row'>
-                  <Link to={"/"}><h1>Home</h1> </Link>
-                  <Link to={"/registerform"}><h1>Register</h1> </Link>
-                
-                <Link to={"/login"}><h1>Login</h1></Link>
-                  </div>
-                  </div>
-            </div>  
+        <WelcomeMenus />  
           
         </>
       )}

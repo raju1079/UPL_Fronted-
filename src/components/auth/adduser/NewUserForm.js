@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../redux/auth/authActions';
-import { useNavigate } from 'react-router-dom';
+import { register } from '../../redux/auth/authActions';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Paper, Select } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import TextfieldCustom from '../common/TextfieldCustom';
-import { getRoles } from '../redux/actions/Actions';
+import TextfieldCustom from '../../common/TextfieldCustom';
+import { getRoles } from '../../redux/actions/Actions';
 
 
-const RegisterForm = () => {
-//  const { isAuthenticated, user } = useSelector((state) => state.auth);
+const NewUserForm = () => {
+const { isAuthenticated, user } = useSelector((state) => state.auth);
+const userId = user?.role_id
 const allRole = useSelector((state)=>state.getAllRoles.roles)
 const [roleId, setRoleId] = useState([])
   const [roleName, setRoleName] = useState('')
@@ -40,7 +41,7 @@ const [roleId, setRoleId] = useState([])
     password: formData.password,
     email: formData.email,
     phone_number: formData.phone_number,
-    role_id: 2
+    role_id: roleName
   }
 
   const handleSubmit = (e) => {
@@ -49,11 +50,22 @@ const [roleId, setRoleId] = useState([])
       alert('Password and Confirm Password Should Match')
     }else{
       dispatch(register(registerData));
-      navigate("/")
+      //navigate("/auth/AdminDashboard")
       //console.log("formdata", registerData)
     }
         
   };
+  const handleCreateUser = () =>{
+    if(userId === 1){
+        if(formData.password !== formData.confirmPassword){
+            alert('Password and Confirm Password Should Match')
+          }else{
+           // dispatch(register(registerData));
+            //navigate("//AdminDashboard")
+            console.log("formdata", registerData)
+          }
+    }
+  }
 
   const handleRoleChange = (e) => {
     //console.log('roleId', e.target.value)
@@ -87,7 +99,8 @@ const [roleId, setRoleId] = useState([])
     >
        <div style={{ width: "inherit"}}>
       <Paper elevation={2} sx={{ padding: 5 }} style={{ marginTop: '50px' }}>
-      <h3>Register here</h3>
+      <h3>Add New User Form</h3>
+      <Button onClick={()=>navigate(-1)}>Back</Button>
       <Grid container  spacing={2} sx={{border: '1px solid rgba(0,0,0,0.125', zIndex:"3"}} style={{padding: "30px"}}>
           <Grid item xs={12}>
              <TextfieldCustom
@@ -151,9 +164,27 @@ const [roleId, setRoleId] = useState([])
              value={phone_number} onChange={handleChange} placeholder="Phone Number" />            
            </Grid>
            <Grid item xs={12}>
+            <FormControl variant="outlined" style={{ minWidth: '100%' }}>
+              <InputLabel>Role Name</InputLabel>
+              <Select
+                name="roleName"
+                label="Role Name"
+                value={roleName}
+                onChange={handleRoleChange}
+                options={roleId}
+              >
+                {roleId.map((eachRoleName) => (
+                  <MenuItem key={eachRoleName.role_id} value={eachRoleName.role_id}>
+                    {eachRoleName.role_name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>        
+           </Grid>
+           <Grid item xs={12}>
                  <Button variant="contained" style={{backgroundColor: '#3251A3', borderColor: '#FF5E14'}} 
                  fullWidth type="submit">
-                   Register
+                   Create New User
                  </Button>
                </Grid>
            <Grid item xs={12}>
@@ -170,4 +201,4 @@ const [roleId, setRoleId] = useState([])
   );
 };
 
-export default RegisterForm;
+export default NewUserForm

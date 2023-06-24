@@ -11,6 +11,7 @@ const TextfieldCustom = (props) => {
     onChange={props.onChange}
     InputProps={props.InputProps}
     required={props.required}
+    disabled={props.disabled}
     />
   )
 }
