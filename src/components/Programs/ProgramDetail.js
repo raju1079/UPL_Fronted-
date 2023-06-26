@@ -95,25 +95,20 @@ const ProgramDetail = () => {
             </div>
             <div className="row g-4">
             {
-              fetchCourses.map((eachItem)=>(
+              fetchCourses.map((eachItem,index)=>(
                 <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s" key={eachItem.course_id}>
                     <div className="team-item bg-light">
                         <div className="overflow-hidden coursename">
-                            {/* <img className="img-fluid" src='/img/courses/frontenddeveloperin(reactorangular).png' alt={eachItem.course_name.replaceAll(" ", "")} /> */}
-                            <Avatar variant='square' >
-                            <Folder />
-                            </Avatar>
+                        <img className="img-fluid" src={`/img/courses/${eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")}.png`} alt={eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")} />
                         </div>
                         <div className="position-relative d-flex justify-content-center" style={{marginTop: "-23px"}}>
                             <div className="bg-light d-flex justify-content-center pt-2 px-1">
                                 <Link className="btn btn-sm-square btn-primary mx-1" to={`/courses/${eachItem.course_id}`}><i className="fab fa-readme"></i></Link>
                                  <Link className="btn btn-sm-square btn-primary mx-1" to={"/registerform"}><i className="fab fa-dochub"></i></Link>
-                               {/* <a className="btn btn-sm-square btn-primary mx-1" href=""><i className="fab fa-instagram"></i></a> */}
                             </div>
                         </div>
                         <div className="text-center p-4">
                             <h5 className="mb-0">{eachItem.course_name}</h5>
-                           {/*  <small>Designation</small> */}
                         </div>
                     </div>
                 </div>

@@ -145,21 +145,21 @@
     "PopularCourses": [
       {
         "courseid":1,
-        "coursename": "Java full stack",
+        "coursename": "JAVA FULLSTACK",
         "duration": "3 sem 1 yr course",
         "cost":"25000/semester",
         "instructor": "SNIPE UPL"
       },
       {
         "courseid":2,
-        "coursename": "Reactjs",
+        "coursename": "DATA-SCIENCE",
         "duration": "4 TO 6 MONTHS,",
         "cost":"50000",
         "instructor": "SNIPE UPL"
       },
       {
         "courseid":3,
-        "coursename": "MERN stack Development",
+        "coursename": "MEAN STACK",
         "duration": "4 TO 6 MONTHS,",
         "cost":"25000",
         "instructor": "SNIPE UPL"
