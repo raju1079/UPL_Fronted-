@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import jsondata from '../../data/data.json'
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProgramList } from "../redux/actions/Actions";
 
 const Navbar = () => {
+    const fetchPrograms = useSelector((state)=> state.fetchAllPrograms.programs)
+    const dispatch = useDispatch()
     const [programs, setPrograms] = useState([])
   useEffect(()=>{
-    setPrograms(jsondata.Programs)
-  
-    }, [])
-
+    dispatch(fetchProgramList())
+    //setPrograms(jsondata.Programs)
+    }, [dispatch])
+console.log('menus loaded from DB',fetchPrograms)
   return (
     <>
     <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0 pb-3">
@@ -27,7 +31,7 @@ const Navbar = () => {
                     <div className="dropdown-menu fade-down m-0">
                         <Link to={"/programs"} className="dropdown-item" >All Programs</Link>
                     {
-                        programs.map((eachItem)=>(
+                        fetchPrograms.map((eachItem)=>(
                         
                             <Link to={`/programDetail/${eachItem.program_id}`} className="dropdown-item" key={eachItem.program_id}>{eachItem.program_name}</Link>
                         

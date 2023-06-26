@@ -33,8 +33,8 @@ const ProgramDetail = () => {
     const [item, setItem] = useState([]);
 
     useEffect(() => {
-        setItem(jsondata.Programs[id-1])
-        setCourses(item.courses)
+        setItem(jsondata.Programs[1])
+        setCourses(item?.courses)
     }, [item]);
     const result = courses?.split(',')
     //console.log('selected course by id',item);
