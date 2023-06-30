@@ -6,7 +6,7 @@ import { Button, Container, FormControl, Grid, IconButton, InputAdornment, Input
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import TextfieldCustom from '../../common/TextfieldCustom';
-import { getRoles, getUserById, getVisitorById } from '../../redux/actions/Actions';
+import { getRoles, getUserById, getVisitorById, updateUserById } from '../../redux/actions/Actions';
 
 const statusList = ['Registered','Pending','Completed']
 
@@ -47,13 +47,13 @@ const UpdateUserForm = () => {
       email: formData.email,
       phone_number: formData.phone_number,
       role_id: selectedUser?.role_id,
-      user_status: userStatus
+     // user_status: userStatus
     }
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      //dispatch(register(registerData));
-        //navigate("/auth/AdminDashboard")
+      dispatch(updateUserById(updatedData, id));
+      navigate("/auth/AdminDashboard")
       console.log("formdata", updatedData)        
     };
    

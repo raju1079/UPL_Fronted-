@@ -17,7 +17,7 @@ const ProgramsList = () => {
 
     useEffect(()=>{
         dispatch(fetchProgramList())
-     },  [dispatch])
+     },  [dispatch, fetchPrograms])
 
      function formatDate(dt){
         const getYear = new Date(dt).getFullYear()

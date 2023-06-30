@@ -158,6 +158,41 @@ export const getUserById = (id) =>async (dispatch)=>{
     
 }
 
+/* update user */
+export const updateUserById = (updatedUserData, id) => async (dispatch) => {
+    
+    try {
+        const response = await securedInstance.put(`/api/allUsers/${id}`, updatedUserData)
+        .then((res)=>{   
+            const listData = res.data
+          // console.log("user loaded", listData)
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.UPDATE_USER,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+  /* delete User by id */
+  export const deleteUserById = (id) => async (dispatch) => {    
+    try {
+        const response = await securedInstance.delete(`/api/allUsers/${id}`)
+        .then((res)=>{
+           console.log(`User deleted with Id:${id}`)            
+        })
+        dispatch({
+            type: ActionTypes.DELETE_USER,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
 //Upload new program
 export const uploadNewProgram = (newProgramData) => async (dispatch) => {
     

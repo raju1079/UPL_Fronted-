@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUsersList } from '../../redux/actions/Actions';
+import { deleteUserById, getUsersList } from '../../redux/actions/Actions';
 import { Box, FormControl, IconButton, InputLabel, MenuItem, Select } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +19,7 @@ const UserList = () => {
 
     useEffect(()=>{
         dispatch((getUsersList()))
-     },  [dispatch])
+     },  [dispatch,fetchUsersList])
 
      function formatDate(dt){
         const getYear = new Date(dt).getFullYear()
@@ -30,6 +30,7 @@ const UserList = () => {
     }
 
     const handleDelete = (id) =>{
+        dispatch(deleteUserById(id))
         console.log('clicked User is', id)
     }
 
