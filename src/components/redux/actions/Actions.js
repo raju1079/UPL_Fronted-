@@ -22,7 +22,7 @@ export const fetchProgramList = () =>async (dispatch)=>{
 /* GET PROGRAM BY ID */
 export const fetchProgramById = (id) =>async (dispatch)=>{
    
-    const response = await axiosinstance.get(`/api/program/${id}`)
+    const response = await axiosinstance.get(`/api/category/all/${id}`)
     .then((res)=>{   
         const listData = res.data
        // console.log("programs selected", listData)

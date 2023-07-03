@@ -19,7 +19,7 @@ const dispatch = useDispatch()
 
  
   
- console.log('programlist from db', fetchPrograms)
+ //console.log('programlist from db', fetchPrograms)
   //console.log('json ', programs)
   return (
     <>

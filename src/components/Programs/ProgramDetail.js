@@ -9,6 +9,7 @@ import SubHero from '../common/SubHero';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCourseList, fetchProgramById, fetchProgramList } from '../redux/actions/Actions';
 import { Assignment, Folder } from '@mui/icons-material';
+import GoBackLink from '../common/GoBackLink';
 
 const ExpandMore = styled((props) => {
     
@@ -28,24 +29,33 @@ const ProgramDetail = () => {
   const dispatch = useDispatch()
     const { id } = useParams()
     const navigate = useNavigate()
-    const [courses,setCourses] = useState('')
+    const [courses,setCourses] = useState([])
 
     const [item, setItem] = useState([]);
 
-    useEffect(() => {
-        setItem(jsondata.Programs[1])
-        setCourses(item?.courses)
-    }, [item]);
-    const result = courses?.split(',')
-    //console.log('selected course by id',item);
-    //console.log('courses list', result)
+    /* useEffect(() => {
+      fetchProgramsById.map((eachCourse, index)=>(
+        console.log('courses from courselink',eachCourse.course_id)
+        //setCourses(eachCourse)
+      ))
+    }, [courses,fetchProgramsById]); */
+    
+    
+    
     useEffect(()=>{
       dispatch(fetchProgramById(id))
       dispatch(fetchCourseList())
    },  [dispatch,id])
-   //console.log('selected course name by id is', fetchProgramsById)
-   //console.log("courses list for selected Program code is", fetchCourses)
+   //console.log('selected Program name by id is', fetchProgramsById)
+   //console.log("courses list for selected course code is", courses)
    const selectedProgram = fetchProgramsById[0]
+   const interestedProgram = selectedProgram?.program_name
+
+   useEffect(()=>{
+    setItem(fetchProgramsById)
+   }, [item,fetchProgramsById])
+
+   //console.log("new", interestedProgram)
 
   return (
     <div className=''>
@@ -56,6 +66,7 @@ const ProgramDetail = () => {
                 <h6 className="section-title bg-white text-center text-primary px-3">Details</h6>
                 <h1 className="mb-5">{selectedProgram?.program_name}</h1>
             </div>
+            <GoBackLink />
             <div className='row'>
             <table className="table table-hover">
           <thead>
@@ -95,15 +106,15 @@ const ProgramDetail = () => {
             </div>
             <div className="row g-4">
             {
-              fetchCourses.map((eachItem,index)=>(
+              item.map((eachItem,index)=>(
                 <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s" key={eachItem.course_id}>
                     <div className="team-item bg-light">
                         <div className="overflow-hidden coursename">
-                        <img className="img-fluid" src={`/img/courses/${eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")}.png`} alt={eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")} />
+                        <img className="img-fluid" src={`/img/courses/${selectedProgram?.program_name}/${eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")}.png`} alt={eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")} />
                         </div>
                         <div className="position-relative d-flex justify-content-center" style={{marginTop: "-23px"}}>
                             <div className="bg-light d-flex justify-content-center pt-2 px-1">
-                                <Link className="btn btn-sm-square btn-primary mx-1" to={`/courses/${eachItem.course_id}`}><i className="fab fa-readme"></i></Link>
+                                <Link className="btn btn-sm-square btn-primary mx-1" to={`/courses/${eachItem.course_id}`} state={{interestedProgram}}><i className="fab fa-readme"></i></Link>
                                  <Link className="btn btn-sm-square btn-primary mx-1" to={"/registerform"}><i className="fab fa-dochub"></i></Link>
                             </div>
                         </div>

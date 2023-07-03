@@ -6,10 +6,12 @@ import { useDispatch } from 'react-redux';
 import { getEmailId } from '../redux/actions/Actions';
 import { register } from '../redux/auth/authActions';
 import { useLocation } from 'react-router-dom';
+import GoBackLink from '../common/GoBackLink';
 
 const DownloadLesson = () => {
   const location = useLocation()
   const [courseInterested, setCourseInterested] = useState(location.state.interestedCourse)
+  const[programInterested, setProgramInterested] = useState(location.state.programInterested)
     const[mail,setMail] = useState('')
     const[mobile,setMobile] = useState('')
     const[formData, setFormData] = useState([])
@@ -28,12 +30,12 @@ const DownloadLesson = () => {
     },[visitorData])
       const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log("enter mail id is", formData)
+        //console.log("enter mail id is", formData)
         dispatch(register(formData))
         setMail("")
         setMobile("")
         if(mail !== "" && mobile != ""){
-          //saveAs("/files/testFile.docx", "testFile.docx");
+          saveAs(`materials/${programInterested}/${courseInterested}.pdf`, `${courseInterested}.pdf`);
         }
         
       }
@@ -43,10 +45,11 @@ const DownloadLesson = () => {
     <div className="container-xxl py-5">
         <div className="container">
             <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 className="section-title bg-white text-center text-primary px-3">Enter You email Id</h6>
+                <h6 className="section-title bg-white text-center text-primary px-3">{`You are at: ${programInterested} / ${courseInterested}`}</h6>
                 <h1 className="mb-5">Enter and Download full portions</h1>
 
                 <form onSubmit={handleSubmit}>
+                  <GoBackLink />
                 <Container maxWidth="sm" className=" d-flex" >    
                     <Grid
                       container

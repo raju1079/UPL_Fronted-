@@ -12,7 +12,7 @@ const Navbar = () => {
     dispatch(fetchProgramList())
     //setPrograms(jsondata.Programs)
     }, [dispatch])
-console.log('menus loaded from DB',fetchPrograms)
+//console.log('menus loaded from DB',fetchPrograms)
   return (
     <>
     <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0 pb-3">
