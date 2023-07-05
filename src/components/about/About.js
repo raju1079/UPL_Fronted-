@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const About = () => {
   return (
@@ -37,7 +38,7 @@ and minimize the gap between students with IT industries’ expectations. This o
                             <p className="mb-0"><i className="fa fa-arrow-right text-primary me-2"></i>Issue Certificate</p>
                         </div>
                     </div>
-                    <a className="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                    <Link className="btn btn-primary py-3 px-5 mt-2" to="/programs">Read More</Link>
                 </div>
             </div>
         </div>

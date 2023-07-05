@@ -20,7 +20,7 @@ const Popular = () => {
                     item.map((eachItem)=>(
                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" key={eachItem.courseid}>
                     <div className="course-item bg-light">
-                        <div className="position-relative overflow-hidden">
+                        <div className="position-relative overflow-hidden popularimg-wrapper">
                             <img className="img-fluid" src={`/img/courses/${eachItem?.coursename.replaceAll("(", "")}.png`} alt={eachItem?.coursename} />
                             <div className="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
                                 <Link to="/programs" className="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style={{borderRadius: "30px 0 0 30px"}}>Read More</Link>

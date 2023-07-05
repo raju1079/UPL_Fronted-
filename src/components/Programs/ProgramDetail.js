@@ -58,7 +58,7 @@ const ProgramDetail = () => {
    //console.log("new", interestedProgram)
 
   return (
-    <div className=''>
+    <div className='programdetail-wrapper'>
       <SubHero />
       <div className="container-xxl py-5">
         <div className="container">
@@ -107,7 +107,7 @@ const ProgramDetail = () => {
             <div className="row g-4">
             {
               item.map((eachItem,index)=>(
-                <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s" key={eachItem.course_id}>
+                <div className="col-lg-3 col-md-6 wow fadeInUp courseslist-wrapper" data-wow-delay="0.3s" key={eachItem.course_id}>
                     <div className="team-item bg-light">
                         <div className="overflow-hidden coursename">
                         <img className="img-fluid" src={`/img/courses/${selectedProgram?.program_name}/${eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")}.png`} alt={eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")} />

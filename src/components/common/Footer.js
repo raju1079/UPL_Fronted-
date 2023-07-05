@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { getEmailId } from '../redux/actions/Actions'
 import { Box, Button, Grid, TextField } from '@mui/material'
 import { register } from '../redux/auth/authActions'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     const[mail,setMail] = useState('')
@@ -35,11 +36,11 @@ const Footer = () => {
             <div className="row g-5">
                 <div className="col-lg-3 col-md-6">
                     <h4 className="text-white mb-3">Quick Link</h4>
-                    <a className="btn btn-link" href="">About Us</a>
-                    <a className="btn btn-link" href="">Courses</a>
-                    <a className="btn btn-link" href="">Pricing</a>
-                    <a className="btn btn-link" href="">Downloads</a>
-                    <a className="btn btn-link" href="">FAQs & Help</a>
+                    <Link className="btn btn-link" to="/about">About Us</Link>
+                    <Link className="btn btn-link" to="/programs">Programs</Link>
+                    <Link className="btn btn-link" to="/contact">Pricing</Link>
+                    <Link className="btn btn-link" to="programs">Downloads</Link>
+                    <Link className="btn btn-link" to="/">FAQs & Help</Link>
                 </div>
                 <div className="col-lg-3 col-md-6">
                     <h4 className="text-white mb-3">Contact</h4>
@@ -48,10 +49,11 @@ const Footer = () => {
                     <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+91 080 23100098</p>
                     <p className="mb-2"><i className="fa fa-envelope me-3"></i>info@uplsnipe.com</p>
                     <div className="d-flex pt-2">
-                        <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-twitter"></i></a>
-                        <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-facebook-f"></i></a>
-                        <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-youtube"></i></a>
-                        <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-linkedin-in"></i></a>
+                        {/* <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-twitter"></i></a> */}
+                        <a className="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=100091713887746" target='_blank'><i className="fab fa-facebook-f"></i></a>
+                        <a className="btn btn-outline-light btn-social" href="https://youtube.com/@uplsnipe" target='_blank'><i className="fab fa-youtube" ></i></a>
+                        <a className="btn btn-outline-light btn-social" href="https://www.linkedin.com/company/upl-snipe/" target='_blank'><i className="fab fa-linkedin-in" ></i></a>
+                        <a className="btn btn-outline-light btn-social" href="https://www.instagram.com/uplsnipe/?igshid=NjIwNzIyMDk2Mg%3D%3D" target='_blank'><i className="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 

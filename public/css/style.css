@@ -545,3 +545,38 @@
     background-color: transparent !important;
     text-decoration: underline;
 }
+.homeHero .owl-carousel .owl-item .heroImgBg{
+    height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #0b346b;
+    background-position: top center;
+}
+.homeHero .slideone{
+    background: url(../img/hero/1.png);
+}
+.homeHero .slidetwo{
+    background: url(../img/hero/3.png);
+}
+.homeHero a{
+    font-size: 1.5rem;
+}
+.homeHero .btn{
+    border: 1px solid white;
+}
+.popularimg-wrapper{
+    border-radius: 50%;
+    border: 5px solid #06BBCC;
+    padding: 5px;
+}
+.course-item .popularimg-wrapper img{
+    border-radius: 50%;
+}
+.programdetail-wrapper .courseslist-wrapper .coursename{
+    border-radius: 50%;
+    border: 5px solid #06BBCC;
+    padding: 5px;
+}
+.programdetail-wrapper .courseslist-wrapper .team-item .coursename img{
+    border-radius: 50%;
+}
