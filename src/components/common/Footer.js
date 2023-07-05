@@ -4,12 +4,22 @@ import { getEmailId } from '../redux/actions/Actions'
 import { Box, Button, Grid, TextField } from '@mui/material'
 import { register } from '../redux/auth/authActions'
 import { Link } from 'react-router-dom'
+import PopUpModal from './PopUpModal'
 
 const Footer = () => {
     const[mail,setMail] = useState('')
     const dispatch = useDispatch()
     const[formData, setFormData] = useState([])
     const[mobile,setMobile] = useState('')
+
+    //pop up modal
+    const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    if(mail !== "" && mobile !== ""){
+        setOpen(true)
+    }
+  }
+  const handleClose = () => setOpen(false);
      
      const visitorData = {
         username:"",
@@ -25,7 +35,9 @@ const Footer = () => {
       const handleSubmit = (e)=>{
         e.preventDefault()
        //console.log("enter mail id is", mail)
-        dispatch(register(formData))
+        if(mail !== "" && mobile !== ""){
+            dispatch(register(formData))
+        }
         setMail("")
         setMobile("")        
       }
@@ -89,7 +101,16 @@ const Footer = () => {
                             </Grid>
                         </Box>
                         
-                        <Button className="btn btn-primary py-2 mx-3 top-0 end-0 mt-2 me-2" type='sybmit' >Subscribe</Button>
+                        {/* <Button className="btn btn-primary py-2 mx-3 top-0 end-0 mt-2 me-2" type='sybmit' >Subscribe</Button> */}
+                        <PopUpModal 
+                        buttonname={"Subscribe"} 
+                        buttonClassName="btn btn-primary py-2 mx-3 top-0 end-0 mt-2 me-2"
+                        buttonType="submit"
+                        open={open}
+                        setOpen={setOpen}
+                        handleClose={handleClose}
+                        handleOpen={handleOpen}
+                        />
                         </form>
                     </div>
                 </div>

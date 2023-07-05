@@ -580,3 +580,28 @@
 .programdetail-wrapper .courseslist-wrapper .team-item .coursename img{
     border-radius: 50%;
 }
+.css-1wnsr1i{
+    background-color: #06BBCC !important;
+    border: 3px solid white !important;
+    color: #3251A3 !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    width: 355px !important;
+}
+.css-1wnsr1i h2{
+    color: #0b346b !important;
+    font-weight: bold !important;
+    font-size: 2rem !important;
+    font-family: inherit !important;
+}
+.css-1wnsr1i p{
+    color: #0b346b !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+}
+.css-1wnsr1i .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+    background-color: #0b346b !important;
+    color: white !important;
+}
