@@ -4,6 +4,7 @@ import SubHero from '../common/SubHero'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCoursesById } from '../redux/actions/Actions';
 import GoBackLink from '../common/GoBackLink';
+import CourseHero from '../common/CourseHero';
 
 const CourseDetail = () => {
     const { id } = useParams()
@@ -29,7 +30,7 @@ const CourseDetail = () => {
 
   return (
     <>
-      <SubHero />
+      <CourseHero />
       <div className="container-xxl py-5">
         <div className="container">
             <div className="text-center wow fadeInUp" data-wow-delay="0.1s">

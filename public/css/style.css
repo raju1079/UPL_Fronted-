@@ -197,10 +197,11 @@
 }
 
 .page-header {
-    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(../img/carousel-1.jpg);
+    background-color: #0B346B !important;
+    /* background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(../img/hero/1.png);
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 }
 
 .page-header-inner {
@@ -604,4 +605,19 @@
 .css-1wnsr1i .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
     background-color: #0b346b !important;
     color: white !important;
+}
+@media only screen and (max-width: 600px)  {
+    .section-title{
+        font-size: 11px;
+    }
+}
+.subHero .card{
+    background-color: transparent !important;
+    color: white !important;
+    
+}
+.subHero .card h6, .subHero .card p{
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-family: inherit;
 }

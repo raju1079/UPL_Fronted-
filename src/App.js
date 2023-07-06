@@ -23,6 +23,7 @@ import UpdateProgram from './components/auth/addprogram/UpdateProgram';
 import ExecutorDashboard from './components/auth/salesExecutors/ExecutorDashboard';
 import UpdateVisitor from './components/auth/visitors/UpdateVisitor';
 import UpdateUser from './components/auth/admin/UpdateUser';
+import RouteTop from './RouteTop';
 
 function App() {
   //const authData = useSelector((state) => state.auth);
@@ -33,6 +34,7 @@ function App() {
         <ShowHeader>
           <Navbar />
         </ShowHeader>      
+        <RouteTop>
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path="/about" element={<AboutPage />} />     
@@ -59,6 +61,7 @@ function App() {
          
           
         </Routes>
+        </RouteTop>
       <Footer />
       </BrowserRouter>
       {/* coockie consent */}
