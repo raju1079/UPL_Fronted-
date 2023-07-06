@@ -22,8 +22,8 @@ const DownloadLesson = () => {
       email: mail,
       password: "qwe",
       phone_number: mobile,
-        role_id: "2",
-        course_interest: courseInterested
+        role_id: "2"
+      //  course_interest: courseInterested
     }
     useEffect(()=>{
       setFormData(visitorData)
@@ -35,7 +35,7 @@ const DownloadLesson = () => {
         setMail("")
         setMobile("")
         if(mail !== "" && mobile != ""){
-          saveAs(`materials/${programInterested}/${courseInterested}.pdf`, `${courseInterested}.pdf`);
+          saveAs(`materials/${programInterested}/${courseInterested.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")}.pdf`, `${courseInterested}.pdf`);
         }
         
       }
