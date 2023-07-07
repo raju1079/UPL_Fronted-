@@ -7,7 +7,7 @@ import { Link, useNavigate, useParams, } from 'react-router-dom'
 import jsondata from '../../data/data.json'
 import SubHero from '../common/SubHero';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCourseList, fetchProgramById, fetchProgramList } from '../redux/actions/Actions';
+import { fetchCourseList, fetchProgramById, fetchProgramId, fetchProgramList } from '../redux/actions/Actions';
 import { Assignment, Folder } from '@mui/icons-material';
 import GoBackLink from '../common/GoBackLink';
 
@@ -25,6 +25,7 @@ const ExpandMore = styled((props) => {
 
 const ProgramDetail = () => {
   const fetchProgramsById = useSelector((state)=> state.fectchProgramById.programById)
+  const fetchProgramsdetail = useSelector((state)=> state.getProgramsId.programsId)
   const fetchCourses = useSelector((state)=> state.fetchAllCourses.courses)
   const dispatch = useDispatch()
     const { id } = useParams()
@@ -45,10 +46,13 @@ const ProgramDetail = () => {
     useEffect(()=>{
       dispatch(fetchProgramById(id))
       dispatch(fetchCourseList())
+      dispatch(fetchProgramId(id))
    },  [dispatch,id])
    //console.log('selected Program name by id is', fetchProgramsById)
    //console.log("courses list for selected course code is", courses)
-   const selectedProgram = fetchProgramsById[0]
+   console.log('program details id is', fetchProgramsdetail)
+   //const selectedProgram = fetchProgramsById[0]
+   const selectedProgram = fetchProgramsdetail[0]
    const interestedProgram = selectedProgram?.program_name
 
    useEffect(()=>{

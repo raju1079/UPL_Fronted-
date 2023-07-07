@@ -20,6 +20,37 @@ export const fetchProgramList = () =>async (dispatch)=>{
     
 }
 /* GET PROGRAM BY ID */
+export const fetchProgramId = (id) =>async (dispatch)=>{
+   
+    const response = await axiosinstance.get(`/api/program/${id}`)
+    .then((res)=>{   
+        const listData = res.data
+       // console.log("programs selected", listData)
+        return listData;
+    })
+    //console.log("test")
+    dispatch({
+        type: ActionTypes.FETCH_PROGRAM_ID,
+        payload: response
+    })  
+    
+}
+/* GET PROGRAM BY ID from programCourseLinking */
+export const fetchProgramswithCourses = () =>async (dispatch)=>{
+   
+    const response = await axiosinstance.get(`/api/category/all/`)
+    .then((res)=>{   
+        const listData = res.data
+       // console.log("programs selected", listData)
+        return listData;
+    })
+    //console.log("test")
+    dispatch({
+        type: ActionTypes.FETCH_PROGRAMS_WITH_COURSE,
+        payload: response
+    })  
+    
+}
 export const fetchProgramById = (id) =>async (dispatch)=>{
    
     const response = await axiosinstance.get(`/api/category/all/${id}`)

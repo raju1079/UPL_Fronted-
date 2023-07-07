@@ -15,6 +15,8 @@ import { UpdateProgramReducer } from './reducers/UpdateProgramReducer.js';
 import GetVisitorById from './reducers/GetVisitorById.js';
 import GetUserById from './reducers/GetUserById.js';
 import { UpdateUserReducer } from './reducers/UpdateUserReducer.js';
+import FetchProgramId from './reducers/FetchProgramId.js';
+import { FetchProgramWithCourse } from './reducers/FetchProgramWithCourse.js';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -30,7 +32,9 @@ const rootReducer = combineReducers({
   getUsersById: GetUserById,
   addNewProgram: UploadProgram,
   editProgram:UpdateProgramReducer,
-  editUser:UpdateUserReducer
+  editUser:UpdateUserReducer,
+  getProgramsId: FetchProgramId,
+  getProgramsWithCourse: FetchProgramWithCourse
 });
 
 export default rootReducer;

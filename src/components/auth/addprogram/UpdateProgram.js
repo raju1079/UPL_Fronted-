@@ -4,21 +4,21 @@ import { register } from '../../redux/auth/authActions';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Paper, Select } from '@mui/material';
 import TextfieldCustom from '../../common/TextfieldCustom';
-import { fetchCourseList, fetchProgramById, updateProgramById, uploadNewProgram } from '../../redux/actions/Actions';
+import { fetchCourseList, fetchProgramById, fetchProgramId, updateProgramById, uploadNewProgram } from '../../redux/actions/Actions';
 
 
 const UpdateProgram = () => {
   const { isAuthenticated, user } = useSelector((state) => state.auth);
   const userId = user?.role_id
-  const fetchProgramsById = useSelector((state)=> state.fectchProgramById.programById)
+  const fetchProgramsById = useSelector((state)=> state.getProgramsId.programsId)
   const dispatch = useDispatch()
   const { id } = useParams()
   const navigate = useNavigate()
    
     useEffect(()=>{
-      dispatch(fetchProgramById(id))
+      dispatch(fetchProgramId(id))
    },  [dispatch,id])
-   //console.log('selected course name by id is', fetchProgramsById)
+   console.log('selected course name by id is', fetchProgramsById)
    
    const selectedProgram = fetchProgramsById[0]
    
