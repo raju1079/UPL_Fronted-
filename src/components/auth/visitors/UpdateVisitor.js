@@ -6,9 +6,9 @@ import { Button, Container, FormControl, Grid, IconButton, InputAdornment, Input
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import TextfieldCustom from '../../common/TextfieldCustom';
-import { getRoles, getVisitorById } from '../../redux/actions/Actions';
+import { getRoles, getVisitorById, updateVisitorStatusById } from '../../redux/actions/Actions';
 
-const statusList = ['Registered','Pending','Completed']
+const statusList = ['Registered', 'Indiscussion', 'Joined', 'Rejected', 'Staff']
 
 const UpdateVisitor = () => {
 const { isAuthenticated, user } = useSelector((state) => state.auth);
@@ -32,7 +32,7 @@ const [roleId, setRoleId] = useState([])
     email: '',
     phone_number: '',
     role_id:'',
-    user_status:''
+    status:''
   });
 
   const { username, password, email, phone_number,role_id  } = formData;
@@ -41,20 +41,20 @@ const [roleId, setRoleId] = useState([])
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const updatedData = {
-    username: formData.username,
-    password: formData.password,
-    email: formData.email,
-    phone_number: formData.phone_number,
-    role_id: selectedUser?.role_id,
-    user_status: userStatus
+  const updatedStatus = {
+    // username: formData.username,
+    // password: formData.password,
+    // email: formData.email,
+    // phone_number: formData.phone_number,
+    // role_id: selectedUser?.role_id,
+    status: userStatus
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //dispatch(register(registerData));
-      //navigate("/auth/ExecutorDashboard")
-    console.log("formdata", updatedData)        
+    dispatch(updateVisitorStatusById(updatedStatus, id));
+    navigate("/auth/ExecutorDashboard")
+    //console.log("formdata", updatedStatus)        
   };
  
   //console.log('role id is', roleName)
@@ -77,8 +77,9 @@ useEffect(()=>{
         password: selectedUser?.password,
         email: selectedUser?.email,
         phone_number: selectedUser?.phone_number,        
-        user_status:''
+        status:selectedUser?.status
       })
+      setUserStatus(selectedUser?.status)
     //console.log('selected userr name by id is', selectedUser)
  }, [selectedUser])
 
@@ -130,6 +131,7 @@ useEffect(()=>{
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={userStatus}
+                defaultValue={userStatus}
                 label="Status"
                 onChange={handleStatusChange}
                 >

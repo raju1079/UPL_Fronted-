@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Box, FormControl, IconButton, InputLabel, MenuItem, Select } from '@mui/material';
-import { getVisitors } from '../../redux/actions/Actions';
+import { getVisitorByStatus, getVisitors } from '../../redux/actions/Actions';
 import { Delete, Edit } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
 const statusList = ['Registered','Pending','Completed']
 
-const Visitors = () => {
+const Visitors = (props) => {
     const fetchVisitors = useSelector((state)=> state.getAllVisitors.visitors)
+    const fetchVisitorsByStatus = useSelector((state)=> state.getVisitorsByStatus.visitorByStatus)
     const { isAuthenticated, user } = useSelector((state) => state.auth);
     const[userStatus,setUserStatus]=useState('')
+    const[data,setData] = useState('')
   const userId = user?.role_id
     const dispatch = useDispatch()
     const navigate = useNavigate()
     useEffect(()=>{
+        setUserStatus(props.status)
+        dispatch(getVisitorByStatus(userStatus))
         dispatch((getVisitors()))
-     },  [dispatch])
+     },  [dispatch,fetchVisitorsByStatus])
         
-    // console.log('students from db', fetchVisitors)
+    //console.log('students from db', fetchVisitorsByStatus)
     function formatDate(dt){
     const getYear = new Date(dt).getFullYear()
     const getMonth = new Date(dt).getMonth() + 1
@@ -31,7 +35,14 @@ const handleStatusChange = (e) =>{
     setUserStatus(e.target.value)
 }
 
+useEffect(()=>{
+    if(userStatus === 'all'){
+        setData(fetchVisitors)
+    }else{
+        setData(fetchVisitorsByStatus)
+    }
 
+}, [userStatus,fetchVisitors,fetchVisitorsByStatus])
 
   return (
     <>
@@ -52,33 +63,14 @@ const handleStatusChange = (e) =>{
                 </thead>
                 <tbody>
                     {
-                        fetchVisitors.map((eachItem, index)=>(
+                        (data.length !== 0 ) ?
+                         data.map((eachItem, index)=>(
                             <tr key={index}>
                             <th scope="row">{index+1}</th>
                             <td>Course Name</td>
                             <td>{eachItem.email}</td>
                             <td>{eachItem.phone_number}</td>
-                            <td> Registered
-                            {/* <Box sx={{ minWidth: 120 }}>
-                                <FormControl fullWidth>
-                                    <InputLabel id="demo-simple-select-label">Status</InputLabel>
-                                    <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={userStatus[index]}
-                                    label="Status"
-                                    
-                                    onChange={(ev) => setUserStatus({[ev.target.name]:ev.target.value})}
-                                    >
-                                        {
-                                            statusList.map((eachStatus,i)=>(
-                                                <MenuItem key={i} value={eachStatus}>{eachStatus}</MenuItem>
-                                            ))
-                                        }
-                                    </Select>
-                                </FormControl>
-                                </Box> */}
-                            </td>
+                            <td> {eachItem.status}</td>
                             <td> {formatDate(eachItem.modify_date)} </td>
                             <td>
                                 <IconButton onClick={()=>navigate(`/auth/updateUser/${eachItem.user_id}`)}>
@@ -86,7 +78,10 @@ const handleStatusChange = (e) =>{
                                 </IconButton>
                             </td>
                             </tr>
-                        ))
+                        )) :
+                        <tr>
+                            <td colspan='6'><h2>No users found with this status {userStatus}</h2></td>
+                        </tr>
                     }
                 </tbody>
                 </table>

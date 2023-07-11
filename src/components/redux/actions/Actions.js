@@ -141,6 +141,53 @@ export const getEmailId = (email) => async (dispatch) => {
     })  
     
 }
+  export const getVisitorByStatus = (status) =>async (dispatch)=>{
+   
+    const response = await securedInstance.get(`/api/visitor/visitorByStatus/${status}` )
+    .then((res)=>{   
+        const listData = res.data
+       //console.log("selected user data", listData)
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_VISITORS_BY_STATUS,
+        payload: response
+    })  
+    
+}
+//Update Visitor status
+export const updateVisitorStatusById = (updatedStatus, id) => async (dispatch) => {
+    
+    try {
+        const response = await securedInstance.put(`/api/visitor/${id}/status`, updatedStatus)
+        .then((res)=>{   
+            const listData = res.data
+          // console.log("user loaded", listData)
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.UPDATE_STATUS,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+  /* GET STATUS lIST */
+  export const getStatusList = () =>async (dispatch)=>{
+   
+    const response = await axiosinstance.get('/api/visitor/statusList' )
+    .then((res)=>{   
+        const listData = res.data
+       //console.log("roles loaded", listData)
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_STATUS_LIST,
+        payload: response
+    })  
+    
+}
   /* GET ROLES */
   export const getRoles = () =>async (dispatch)=>{
    
@@ -188,6 +235,21 @@ export const getUserById = (id) =>async (dispatch)=>{
     })  
     
 }
+//get user by status
+export const fetchUserByStatus = (status) =>async (dispatch)=>{
+   
+    const response = await securedInstance.get(`/api/allusers/userByStatus/${status}` )
+    .then((res)=>{   
+        const listData = res.data
+       //console.log("selected user data", listData)
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_USER_BY_STATUS,
+        payload: response
+    })  
+    
+}
 
 /* update user */
 export const updateUserById = (updatedUserData, id) => async (dispatch) => {
@@ -201,6 +263,24 @@ export const updateUserById = (updatedUserData, id) => async (dispatch) => {
         })
         dispatch({
             type: ActionTypes.UPDATE_USER,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+/* update user */
+export const updateUserStatusById = (updatedStatus, id) => async (dispatch) => {
+    
+    try {
+        const response = await securedInstance.put(`/api/allUsers/${id}`, updatedStatus)
+        .then((res)=>{   
+            const listData = res.data
+          // console.log("user loaded", listData)
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.UPDATE_STATUS,
             payload: response
         }) 
     } catch (error) {

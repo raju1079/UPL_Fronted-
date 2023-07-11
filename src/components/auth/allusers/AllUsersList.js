@@ -49,7 +49,7 @@ const AllUsersList = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  //console.log('tab is',value)
   return (
     <div className="container-xxl py-5">
         <div className="container">
@@ -65,21 +65,25 @@ const AllUsersList = () => {
                 <Paper sx={{ width: '100%', mb: 2 }}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
-                    <Tab label="All Records" {...a11yProps(0)} />
-                    <Tab label="Pending" {...a11yProps(1)} />
-                    <Tab label="Completed" {...a11yProps(2)} />
+                    <Tab label="all" {...a11yProps(0)} />
+                    <Tab label="Registered" {...a11yProps(2)} />
+                    <Tab label="Indiscussion" {...a11yProps(2)} />
+                    <Tab label="Joined" {...a11yProps(3)} />
                     
                     </Tabs>
                     
                 </Box>
                 <TabPanel value={value} index={0} >
-                    <UserList />
+                    <UserList status='all' />
                 </TabPanel>
-                <TabPanel value={value} index={1}>
-                    <UserList />
+                <TabPanel value={value} index={1} >
+                    <UserList status='Registered' />
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                    <UserList />
+                    <UserList status='Indiscussion' />
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    <UserList status='Joined' />
                 </TabPanel>
                 
                </Paper> 

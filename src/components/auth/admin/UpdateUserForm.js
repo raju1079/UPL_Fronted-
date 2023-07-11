@@ -8,7 +8,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import TextfieldCustom from '../../common/TextfieldCustom';
 import { getRoles, getUserById, getVisitorById, updateUserById } from '../../redux/actions/Actions';
 
-const statusList = ['Registered','Pending','Completed']
+const statusList = ['Registered', 'Indiscussion', 'Joined', 'Rejected', 'Staff']
 
 const UpdateUserForm = () => {
   const { isAuthenticated, user } = useSelector((state) => state.auth);
@@ -47,7 +47,7 @@ const UpdateUserForm = () => {
       email: formData.email,
       phone_number: formData.phone_number,
       role_id: selectedUser?.role_id,
-     // user_status: userStatus
+     status: userStatus
     }
   
     const handleSubmit = (e) => {
@@ -77,8 +77,9 @@ const UpdateUserForm = () => {
           password: selectedUser?.password,
           email: selectedUser?.email,
           phone_number: selectedUser?.phone_number,        
-          user_status:''
+          status:''
         })
+        setUserStatus(selectedUser?.status)
       //console.log('selected userr name by id is', selectedUser)
    }, [selectedUser])
   
@@ -130,6 +131,7 @@ const UpdateUserForm = () => {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={userStatus}
+                  defaultValue={userStatus}
                   label="Status"
                   onChange={handleStatusChange}
                   >

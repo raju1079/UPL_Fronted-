@@ -61,18 +61,22 @@ export default function DataTabs() {
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" >
                     <Tab label="All Records" {...a11yProps(0)} />
-                    <Tab label="Pending" {...a11yProps(1)} />
-                    <Tab label="Completed" {...a11yProps(2)} />
+                    <Tab label="Registered" {...a11yProps(1)} />
+                    <Tab label="Indiscussion" {...a11yProps(2)} />
+                    <Tab label="Joined" {...a11yProps(3)} />
                     </Tabs>
                 </Box>
                 <TabPanel value={value} index={0} >
-                    <Visitors />
+                    <Visitors status='all' />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <Visitors />
+                    <Visitors status='Registered' />
                 </TabPanel>
                 <TabPanel value={value} index={2}>
-                    <Visitors />
+                    <Visitors status='Indiscussion' />
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    <Visitors status='Joined' />
                 </TabPanel>
                </Paper> 
             </Box>            
