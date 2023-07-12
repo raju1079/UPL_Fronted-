@@ -1,34 +1,76 @@
 {   
-    "Testimonials": [
-      {
-        "id": 1,
-        "img": "/img/students/muddanag.jpg",
-        "text": "Obtaining the certification changed my life, and now I'm living my dream.",
-        "name": "Mudanna Gouda",
-        "job": "Test Engineer"
-      },
-      {
-        "id": 2,
-        "img": "/img/students/mohamada.jpg",
-        "text": "I am proud to say that after a few months of taking this course...",
-        "name": "Mohamad Abubkar",
-        "job":"Frontend Engineer"
-      },
-      {
-        "id": 3,
-        "img": "/img/students/kirank.jpg",
-        "text": "I highly recommend this course for all budding data scientists.",
-        "name": "Kiran Kumar K",
-        "job":"Frontend Developer"
-      },
-      {
-        "id": 4,
-        "img": "/img/students/mahesh.jpg",
-        "text": "One of the best courses on IT, I have come across so far Would help anyone become a better resource.",
-        "name": "Mahesh M",
-        "job":"Java Developer"
-      }
-    ],
+  "Testimonials": [
+    {
+      "id": 1,
+      "img": "/img/students/muddanag.jpg",
+      "text": "Obtaining the certification changed my life, and now I'm living my dream.",
+      "name": "Mudanna Gouda",
+      "job": "Test Engineer"
+    },
+    {
+      "id": 2,
+      "img": "/img/students/Srikanth K.jpg",
+      "text": "While it's true that you only get better at interviewing by interviewing, some more concrete guidance would have helped immensely, as some lectures felt a little vague..",
+      "name": "Srikanth K",
+      "job":"Devops Lead"
+    },
+    {
+      "id": 3,
+      "img": "/img/students/kirank.jpg",
+      "text": "I highly recommend this course for all budding data scientists.",
+      "name": "Kiran Kumar K",
+      "job":"Frontend Developer"
+    },
+    {
+      "id": 4,
+      "img": "/img/students/mahesh.jpg",
+      "text": "One of the best courses on IT, I have come across so far Would help anyone become a better resource.",
+      "name": "Mahesh M",
+      "job":"Java Developer"
+    },
+    {
+      "id": 5,
+      "img": "/img/students/Amrutha N.jpg",
+      "text": "From my experience all I can say is - Don't give up. My transition from a graduate to a Software Developer, that too in a pandemic, I am lucky to stand at par with my colleagues at Instamojo who come from premier institutes like the IITs. UPLSnipe has shaped my professional career..",
+      "name": "Amrutha Nanjannavar",
+      "job":"Java Developer"
+    },
+    {
+      "id": 6,
+      "img": "/img/students/Jagadeesh.jpg",
+      "text": "I have completed my java career Bridge program in 4 months so I can say that UPLSnipe is completely transparent.",
+      "name": "Jagadeesha V",
+      "job":"Java Developer"
+    },
+    {
+      "id": 7,
+      "img": "/img/students/Deepanjali.jpg",
+      "text": "I'm happy I am part of the UPLSnipe family, not because they helped me but because of their mission to help other lost..",
+      "name": "Deepanjali H T",
+      "job":"Frontend Developer"
+    },
+    {
+      "id": 8,
+      "img": "/img/students/Shreekanth.jpg",
+      "text": "I left a job at top mnc to learn coding. UPLSnipe helped me to get more salary package in a product-based company.",
+      "name": "Shreekanth",
+      "job":"Java Developer"
+    },
+    {
+      "id": 9,
+      "img": "/img/students/Kavana.jpg",
+      "text": "UPL@Snipe gives the opportunity to work in a team, which gives a real experience of the corporate world.",
+      "name": "Kavana",
+      "job":"Java Developer"
+    },
+    {
+      "id": 10,
+      "img": "/img/students/mohamada.jpg",
+      "text": "I am proud to say that after a few months of taking this course...",
+      "name": "Mohamad Abubkar",
+      "job":"Frontend Engineer"
+    }
+  ],
     "Team": [
       {
         "img": "img/team/01.jpg",
