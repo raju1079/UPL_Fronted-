@@ -77,7 +77,7 @@ const Testimonials = () => {
                 />
                 <h5 className="mb-0">{eachItem.name}</h5>
                 <p>{eachItem.job}</p>
-                <div className="testimonial-text bg-light text-center p-4">
+                <div className="testimonial-text text-center p-4">
                   <div className="testi-text">
                     <p className="mb-0 review">
                       {truncateText(eachItem.text, 3)}

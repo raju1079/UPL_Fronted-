@@ -14,8 +14,8 @@ const Navbar = () => {
     }, [dispatch])
 //console.log('menus loaded from DB',fetchPrograms)
   return (
-    <>
-    <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0 pb-3">
+    <div className="fixed-top">
+    <nav className="navbar navbar-expand-lg bg-white navbar-light pb-3">
         <Link to={"/"} className="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <img src='/img/upllogo.png' alt='unlimited power of learning' />
         </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link to={"/registerform"} className="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Enroll Now<i className="fa fa-arrow-right ms-3"></i></Link>
         </div>
     </nav>
-    </>
+    </div>
   )
 }
 

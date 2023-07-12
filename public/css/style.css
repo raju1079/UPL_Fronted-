@@ -255,13 +255,69 @@
 
 /*** Service ***/
 .service-item {
-    background: var(--light);
+    background: none;
     transition: .5s;
+    position: relative;
+    color: white;
+    border-radius: 20px;
 }
 
+.servicesCardWrapper .servicesCard:nth-child(1) .service-item{
+    background-color: #0f8cff;
+    /* background: linear-gradient(to bottom, #0f8cff, #a768d7); */
+}
+.servicesCardWrapper .servicesCard:nth-child(2) .service-item{
+    background-color: #5cdb57;
+}
+.servicesCardWrapper .servicesCard:nth-child(3) .service-item{
+    background-color: #fca733;
+}
+.servicesCardWrapper .servicesCard:nth-child(4) .service-item{
+    background-color: #4c96e5;
+}
+.servicesCardWrapper .servicesCard:nth-child(5) .service-item{
+    background-color: #a768d7;
+}
+.servicesCardWrapper .servicesCard:nth-child(6) .service-item{
+    background-color: #ea576f;
+}
+.service-item-badge-container{
+    position: absolute;
+    width: 5rem;
+    height: 10rem;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+}
+.service-item-badge-container .service-item-badge {
+    background-color: white;
+    height: 2rem;
+    width: 5rem;
+    -webkit-transform: rotate(40deg);
+    transform: rotate(270deg);
+}
+.servicesCardWrapper .servicesCard:nth-child(6) .service-item-badge{
+    background-color: #0f8cff;
+}
+.servicesCardWrapper .servicesCard:nth-child(5) .service-item-badge{
+    background-color: #ea576f
+}
+.servicesCardWrapper .servicesCard:nth-child(4) .service-item-badge{
+    background-color: #fca733;
+}
+.servicesCardWrapper .servicesCard:nth-child(3) .service-item-badge{
+    background-color: #4c96e5;
+}
+.servicesCardWrapper .servicesCard:nth-child(2) .service-item-badge{
+    background-color: #a768d7;
+}
+.servicesCardWrapper .servicesCard:nth-child(1) .service-item-badge{
+    background-color: #5cdb57;
+}
 .service-item:hover {
-    margin-top: -10px;
-    background: var(--primary);
+    /* margin-top: -10px; */
+    background: none;
+    cursor: default;
 }
 
 .service-item * {
@@ -366,10 +422,22 @@
     background: var(--primary);
     border-color: var(--primary);
 }
+.Testimonials .react-multi-carousel-track{
+    padding: 20px;    
+}
 .testimonial-item {
     text-align: center;
+    background-color: #fff;
+    margin-right: 20px;
+    padding: 10px;
+    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: .5s;
   }
-  
+  .testimonial-item:hover{
+    transform: scale(1.1);
+    transition: .5s;
+  }
   .testimonial-item img {
     width: 80px; 
     height:80px; 
@@ -383,14 +451,15 @@
   }
   
   .testimonial-item .testimonial-text {
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
     text-align: center;
     padding: 16px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     height: 100px !important;
   }
   
   .testimonial-item .testimonial-text p {
+    border-top: 5px solid #0f8cff;
     color: black;
     text-align: justify;
   }
@@ -649,4 +718,39 @@
     color: white !important;
     font-size: 1.5rem !important;
     font-family: inherit;
+}
+.hero-common-bg{
+    background: linear-gradient(to bottom, #0f8cff, #3251A3);
+}
+.hero-img-wrapper{
+    /* background: url(../img/hero/hero5.jpg);
+    height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center; */
+}
+.hero-register-form-wrapper{
+    margin-right: 10px;
+}
+.hero-register-form-wrapper h6{
+    color: #ea576f;
+}
+.hero-register-form-wrapper form{
+    padding: 10px;
+}
+.border-radius-btn{
+    border-radius: 20px;
+}
+.homeHero .react-multi-carousel-item{
+    
+    top: 100px;
+    margin-bottom: 80px;
+}
+.homeHero .css-1mbunh-MuiPaper-root{
+    border-radius: 25px;
+}
+@media (min-width: 500px) {
+    .homeHero .react-multi-carousel-item {
+        width: 100% !important;
+    }
 }
