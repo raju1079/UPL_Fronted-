@@ -1,4 +1,5 @@
 import axiosinstance from '../../../api/axiosinstance'
+import { toast } from "react-toastify"
 // authActions.js
 
 import axios from 'axios';
@@ -19,7 +20,9 @@ export const register = (userData) => async (dispatch) => {
       type: REGISTER_SUCCESS,
       payload: res.data,
     });
+    toast.success("You have Registered Successfully")
   } catch (error) {
+    toast.error(error.response.data.error + " "+ 'Please TRY again')
     dispatch({
       type: REGISTER_FAILURE,
       payload: error.response.data.error,
@@ -29,19 +32,22 @@ export const register = (userData) => async (dispatch) => {
 
 // Login user
 export const login = (userData) => async (dispatch) => {
-  // try {
+   try {
     const res = await securedInstance.post('/api/auth/login', userData);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
     });
     console.log('Logged in As',res.data);
-  // } catch (error) {
-  //   dispatch({
-  //     type: LOGIN_FAILURE,
-  //     payload: error.response.data.error,
-  //   });
-  // }
+    toast.success("You have successfully LoggedIn")
+  } catch (error) {
+    console.log('Message',error.response.data)
+    toast.error(error.response.data.error)
+    dispatch({
+      type: LOGIN_FAILURE,
+      payload: error.response.data.error,
+    });
+  }
 };
 
 // Logout user

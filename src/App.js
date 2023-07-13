@@ -24,12 +24,14 @@ import ExecutorDashboard from './components/auth/salesExecutors/ExecutorDashboar
 import UpdateVisitor from './components/auth/visitors/UpdateVisitor';
 import UpdateUser from './components/auth/admin/UpdateUser';
 import RouteTop from './RouteTop';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  //const authData = useSelector((state) => state.auth);
-  //console.log("auth", authData)
+  
   return (
     <div className="App learningapp">
+      <ToastContainer theme='colored' position='top-center'></ToastContainer>
         <BrowserRouter>
         <ShowHeader>
           <Navbar />

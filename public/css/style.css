@@ -758,6 +758,12 @@
     color: white !important;
     font-family: inherit;
 }
+.css-1lymaxv-MuiDataGrid-root{
+    font-family: inherit !important;
+}
+.css-zqcytf-MuiButtonGroup-root .MuiButtonGroup-grouped{
+    font-family: inherit !important;
+}
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {
         width: 100% !important;

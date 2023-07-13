@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Box, FormControl, IconButton, InputLabel, MenuItem, Select } from '@mui/material';
 import { getVisitorByStatus, getVisitors } from '../../redux/actions/Actions';
+import { Box, Button, FormControl, IconButton, InputLabel, MenuItem, Select, Stack } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
 const statusList = ['Registered','Pending','Completed']
 
@@ -12,7 +13,7 @@ const Visitors = (props) => {
     const fetchVisitorsByStatus = useSelector((state)=> state.getVisitorsByStatus.visitorByStatus)
     const { isAuthenticated, user } = useSelector((state) => state.auth);
     const[userStatus,setUserStatus]=useState('')
-    const[data,setData] = useState('')
+    const[data,setData] = useState([])
   const userId = user?.role_id
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -44,47 +45,99 @@ useEffect(()=>{
 
 }, [userStatus,fetchVisitors,fetchVisitorsByStatus])
 
+const columns = [
+    { field: 'id', headerName: 'Id', width: 60, disableColumnMenu: true, sortable: false },
+    { field: 'role', headerName: 'Role', width: 60, sortable: false, disableColumnMenu: true },
+    { field: 'email', headerName: 'Email', width: 160, disableColumnMenu: true },
+    { field: 'phone_number', headerName: 'Phone Number', width: 160, disableColumnMenu: true },
+    { field: 'status', headerName: 'Status', width: 140, disableColumnMenu: true, sortable: false },
+    { field: 'date', headerName: 'Date', width: 140, disableColumnMenu: true },
+    {
+        field: 'action',
+        headerName: 'Actions',
+        width: 180,
+        sortable: false,
+        disableClickEventBubbling: true,
+        
+        renderCell: (params) => {
+            const onClick = (e) => {
+              const currentRow = params.row;
+              //return alert(JSON.stringify(currentRow, null, 4));
+              navigate(`/auth/updateUser/${currentRow.user_id}`)
+            };
+                        
+            return (
+              <Stack direction="row" spacing={2}>
+                <IconButton onClick={onClick}>
+                    <Edit />
+                </IconButton>
+                
+              </Stack>
+            );
+        },
+      }
+  ];
+  const rows = data?.map((row, index) => {
+    return {
+      ...row,
+      id: index + 1,
+      role: row.role_id,
+      email: row.email,
+      phone_number: row.phone_number,
+      status: row.status,
+      date: formatDate(row.modify_date)
+
+    }
+  });
+  function NoRowsOverlay() {
+    return (
+      <Stack height="100%" alignItems="center" justifyContent="center">
+        No rows in DataGrid
+        <pre>(rows=&#123;[]&#125;)</pre>
+      </Stack>
+    );
+  }
+  
+  function NoResultsOverlay() {
+    return (
+      <Stack height="100%" alignItems="center" justifyContent="center">
+        No results in DataGrid
+        <pre>(rows=&#123;rowData&#125;)</pre>
+        But local filter returns no result
+      </Stack>
+    );
+  }
+
   return (
     <>
     { 
         userId === 3 ? 
         (<>
-        <table className="table table-striped">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Course name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Submitted Date</th>
-                    <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
                     {
                         (data.length !== 0 ) ?
-                         data.map((eachItem, index)=>(
-                            <tr key={index}>
-                            <th scope="row">{index+1}</th>
-                            <td>Course Name</td>
-                            <td>{eachItem.email}</td>
-                            <td>{eachItem.phone_number}</td>
-                            <td> {eachItem.status}</td>
-                            <td> {formatDate(eachItem.modify_date)} </td>
-                            <td>
-                                <IconButton onClick={()=>navigate(`/auth/updateUser/${eachItem.user_id}`)}>
-                                    <Edit />
-                                </IconButton>
-                            </td>
-                            </tr>
-                        )) :
-                        <tr>
-                            <td colspan='6'><h2>No users found with this status {userStatus}</h2></td>
-                        </tr>
+                        <DataGrid
+                        rows={rows}
+                        columns={columns}
+                        initialState={{
+                        pagination: {
+                            paginationModel: { page: 0, pageSize: 5 },
+                        },
+                        }}
+                        pageSizeOptions={[5, 10]}
+                        checkboxSelection
+                    />:
+                    <DataGrid
+                        rows={rows}
+                        columns={columns}
+                        components={{ NoRowsOverlay, NoResultsOverlay }}
+                        initialState={{
+                        pagination: {
+                            paginationModel: { page: 0, pageSize: 5 },
+                        },
+                        }}
+                        
+                    />
                     }
-                </tbody>
-                </table>
         </>) : ""
     }
     </>
