@@ -35,6 +35,7 @@ function App() {
           <Navbar />
         </ShowHeader>      
         <RouteTop>
+        <div className='content-top-margin'>
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path="/about" element={<AboutPage />} />     
@@ -61,6 +62,7 @@ function App() {
          
           
         </Routes>
+        </div>
         </RouteTop>
       <Footer />
       </BrowserRouter>

@@ -743,11 +743,20 @@
 }
 .homeHero .react-multi-carousel-item{
     
-    top: 100px;
-    margin-bottom: 80px;
+    /* top: 100px;
+    margin-bottom: 80px; */
+}
+.content-top-margin{
+    margin-top: 100px;
 }
 .homeHero .css-1mbunh-MuiPaper-root{
     border-radius: 25px;
+}
+.homeHero .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+    background-color: #dc3545;
+    border-radius: 25px !important;
+    color: white !important;
+    font-family: inherit;
 }
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {

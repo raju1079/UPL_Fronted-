@@ -5,6 +5,7 @@ import { Container, Grid, Paper } from '@mui/material';
 import { Button } from 'react-bootstrap';
 import { register } from '../redux/auth/authActions';
 import { useDispatch } from 'react-redux';
+import PopUpModal from './PopUpModal';
 
 const MentorshipProgramForm = () => {
     const dispatch = useDispatch()
@@ -18,6 +19,16 @@ const MentorshipProgramForm = () => {
     
       const { username, email, phone_number  } = formData;
       //console.log('roles', allRole)
+
+
+       //pop up modal
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+      if(email !== "" && phone_number !== ""){
+          setOpen(true)
+      }
+    }
+    const handleClose = () => setOpen(false);
     
       const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -45,8 +56,8 @@ const MentorshipProgramForm = () => {
     <>
         <form onSubmit={handleSubmit} className='mb-3'>
                         <Paper elevation={2} className='p-3'>
-                            <h5>Mentorship Program</h5>
-                            <h6>Book your slot!!! FREE!!!</h6>
+                            <h5>Register for latest PROGRAMS</h5>
+                            <h6>FREE!!!</h6>
                             <Grid container  spacing={2} sx={{border: '1px solid rgba(0,0,0,0.125', zIndex:"3"}}>
                                 <Grid item xs={12}>
                                     <TextfieldCustom
@@ -70,10 +81,19 @@ const MentorshipProgramForm = () => {
                                     value={phone_number} onChange={handleChange} placeholder="Phone Number" />            
                                 </Grid>
                                 <Grid item xs={12} className='text-end'>
-                                        <Button variant="contained" className='btn-danger py-md-3 animated slideInRight border-radius-btn'
+                                        {/* <Button variant="contained" className='btn-danger py-md-3 animated slideInRight border-radius-btn'
                                         type="submit">
                                         Book Now
-                                        </Button>
+                                        </Button> */}
+                                        <PopUpModal 
+                                        buttonname={"Book Now"} 
+                                        buttonClassName="btn btn-danger py-md-3 animated slideInRight"
+                                        buttonType="submit"
+                                        open={open}
+                                        setOpen={setOpen}
+                                        handleClose={handleClose}
+                                        handleOpen={handleOpen}
+                                        />
                                 </Grid>
                                 <Grid item xs={12} className='text-end'>
                                     <Button variant="contained"  onClick={()=>navigate("/login")}>

@@ -16,10 +16,10 @@ const Contact = () => {
                     <h1 className="mb-4">Contact us here</h1>
                     
                     <h4 className="text-white mb-3">Contact</h4>
-                    <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>#123, 70Th Cross, 2Nd Floor, SVA Arcade, 5Th Block Rajajinagara, Bengaluru - 560010
+                    <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>#15/4, 1st Floor, Vishwamanava Double Road, Kuvempu Nagara, Mysuru, Karnataka 570023
 </p>
-                    <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+91 080 23100098</p>
-                    <p className="mb-2"><i className="fa fa-envelope me-3"></i>info@uplsnipe.com</p>
+                    <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+91 97392 01041</p>
+                    <p className="mb-2"><i className="fa fa-envelope me-3"></i>hr@uplsnipe.com</p>
                     <div className="d-flex pt-2">
                         <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-twitter"></i></a>
                         <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-facebook-f"></i></a>
