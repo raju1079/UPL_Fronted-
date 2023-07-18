@@ -198,5 +198,20 @@
         "cost":"25000",
         "instructor": "SNIPE UPL"
       }
+    ],
+    "FlexibleTime": [
+      {
+        "course_type_id":1,
+        "course_type_name": "Full time"
+      },
+      {
+        "course_type_id":2,
+        "course_type_name": "Part time"
+      },
+      {
+        "course_type_id":3,
+        "course_type_name": "Online"
+      }
+
     ]
   }

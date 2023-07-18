@@ -764,6 +764,38 @@
 .css-zqcytf-MuiButtonGroup-root .MuiButtonGroup-grouped{
     font-family: inherit !important;
 }
+/* all programs page */
+.all-program-card{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.all-program-card img{
+    padding: 15px;
+}
+.program-title{
+    text-transform: capitalize;
+}
+.btn-rounder-bor{
+    border-radius: 20px;
+}
+/* new logo positioning */
+.navbar-brand img{
+    width: 200px;
+    margin-top: 50px;
+}
+/* trending courses */
+.trending-courses .testimonial-item{
+    background-color: transparent;
+    box-shadow: none;
+    font-family: "Poppins";
+}
+.trending-courses h1{
+    font-family: "Poppins";
+}
+.trending-courses .testimonial-item img{
+    border-radius: 25px !important;
+    padding: 5px;
+    border: 1px solid #0f8cff;
+}
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {
         width: 100% !important;

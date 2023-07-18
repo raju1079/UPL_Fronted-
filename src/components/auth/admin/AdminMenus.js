@@ -12,6 +12,9 @@ const AdminMenus = () => {
             <Button onClick={()=>navigate('/auth/allPrograms')}>All Programs</Button>
             <Button onClick={()=>navigate('/auth/addNewProgram')}>Upload Program</Button>
             <Button onClick={()=>navigate('/auth/createNewUser')}>Add New User</Button>
+            <Button onClick={()=>navigate('/auth/uploadProgramImage')}>Upload Program Image</Button>
+            <Button >Upload Course Image</Button>
+            <Button onClick={()=>navigate('/auth/imageGallery')}>View All Images</Button>
         </ButtonGroup>
         {/* <div className='addbutton'>
             <Link to={'/createNewUser'}>Add New User</Link>

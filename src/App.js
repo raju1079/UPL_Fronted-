@@ -26,6 +26,8 @@ import UpdateUser from './components/auth/admin/UpdateUser';
 import RouteTop from './RouteTop';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import UploadImage from './components/auth/admin/imagecontrol/UploadImage';
+import ImageGallery from './components/auth/admin/imagecontrol/ImageGallery';
 
 function App() {
   
@@ -60,6 +62,8 @@ function App() {
             <Route  path='allPrograms' element={<AllPrograms />} />
             <Route  path='updateProgram/:id' element={<UpdateProgram />} />
             <Route  path='updateUser/:id' element={<UpdateUser />} />
+            <Route  path='uploadProgramImage' element={<UploadImage />} />
+            <Route  path='imageGallery' element={<ImageGallery />} />
           </Route>
          
           
