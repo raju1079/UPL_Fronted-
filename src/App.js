@@ -28,6 +28,7 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import UploadImage from './components/auth/admin/imagecontrol/UploadImage';
 import ImageGallery from './components/auth/admin/imagecontrol/ImageGallery';
+import AddPromotion from './components/auth/admin/promotion/AddPromotion';
 
 function App() {
   
@@ -64,6 +65,7 @@ function App() {
             <Route  path='updateUser/:id' element={<UpdateUser />} />
             <Route  path='uploadProgramImage' element={<UploadImage />} />
             <Route  path='imageGallery' element={<ImageGallery />} />
+            <Route  path='addPromotion' element={<AddPromotion />} />
           </Route>
          
           

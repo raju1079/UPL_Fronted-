@@ -6,7 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 const AdminMenus = () => {
     const navigate = useNavigate()
   return (
-    <div>
+    <div className='admin-menus'>
+        <Button className='btn-danger' onClick={()=>navigate('/auth/addPromotion')}>Add Promotion</Button>
         <ButtonGroup variant="contained" aria-label="outlined primary button group">
             <Button onClick={()=>navigate('/auth/AdminDashboard')}>All Users</Button>
             <Button onClick={()=>navigate('/auth/allPrograms')}>All Programs</Button>

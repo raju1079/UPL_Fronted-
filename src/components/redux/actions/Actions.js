@@ -2,6 +2,7 @@ import { ActionTypes } from "../constants/action-types"
 import axiosinstance from '../../../api/axiosinstance'
 import axios from "axios"
 import securedInstance from "../../../api/securedInstance"
+import { toast } from "react-toastify"
 
 /* GET ALL PROGRAMS */
 export const fetchProgramList = () =>async (dispatch)=>{
@@ -353,5 +354,38 @@ export const deleteProgramById = (id) => async (dispatch) => {
         }) 
     } catch (error) {
       console.log(error)
+    }
+  };
+
+  //get program course with program id and course id
+  export const getProgramCourseCombo = (details) => async (dispatch) => {
+    
+    try {
+        const response = await axiosinstance.post(`/api/category/combination/`, details)
+        .then((res)=>{   
+            const listData = res.data
+          // console.log("user loaded", listData)
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.GET_PROGRAM_COURSE_COMBINATION,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+  // subscriber register
+  export const registerSubsciber = (userData) => async (dispatch) => {
+    try {
+      const res = await axiosinstance.post('/api/subscribers', userData);
+      dispatch({
+        type: ActionTypes.SUBSCRIBER_REGISTER,
+        payload: res.data,
+      });
+      toast.success("You have submitted Successfully")
+    } catch (error) {
+      toast.error(error.response.data.error + " "+ 'Please TRY again')
     }
   };

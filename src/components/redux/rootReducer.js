@@ -21,6 +21,8 @@ import { UpdateUserStatus } from './reducers/UpdateUserStatus.js';
 import { GetStatusList } from './reducers/GetStatusList.js';
 import GetUserByStatus from './reducers/GetUserByStatus.js';
 import GetVisitorsByStatus from './reducers/GetVisitorsByStatus.js';
+import { ProgramCourseCombination } from './reducers/ProgramCourseCombination.js';
+import { SubscriberReducer } from './reducers/SubscriberReducer.js';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -42,7 +44,9 @@ const rootReducer = combineReducers({
   getAllStatusList: GetStatusList,
   editUserStatus: UpdateUserStatus,
   getUserByStatus:GetUserByStatus,
-  getVisitorsByStatus:GetVisitorsByStatus
+  getVisitorsByStatus:GetVisitorsByStatus,
+  programCourseCombo:ProgramCourseCombination,
+  subscriberRegister: SubscriberReducer
 });
 
 export default rootReducer;

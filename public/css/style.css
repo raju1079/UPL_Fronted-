@@ -846,6 +846,17 @@
     opacity: 1;
     cursor: pointer;
   }
+/* promotion admin control css */  
+.admin-menus .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+    background-color: #dc3545 !important;
+    margin-bottom: 10px !important;
+    color: #fff !important;
+    font-family: inherit !important;
+    border-radius: 15px !important;
+}
+.admin-menus .css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover{
+    background-color: #dc3545 !important;
+}
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {
         width: 100% !important;
