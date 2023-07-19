@@ -30,11 +30,11 @@ const TrendingCourses = () => {
     const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchCourseList())
-    setItem(fetchCourses)
+   // setItem(fetchCourses)
     
-  }, [ dispatch, item,fetchCourses]);
+  }, [ dispatch]);
 
-  //console.log('courses', item.slice(0,10))
+  //console.log('courses', fetchCourses.slice(0,10))
 
   return (
     <div className="trending-courses mt-5 bg-light">
@@ -58,7 +58,7 @@ const TrendingCourses = () => {
             dotListClass="custom-dot-list-style"
             removeArrowOnDeviceType={["tablet", "mobile","desktop","superLargeDesktop"]}
           >
-            {item.map((eachItem) => (
+            {fetchCourses.slice(0,10).map((eachItem) => (
               <div className="trend-course-item testimonial-item text-center" key={eachItem.course_id}>
                 <img
                   className=" "

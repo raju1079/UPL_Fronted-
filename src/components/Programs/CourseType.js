@@ -10,7 +10,7 @@ const CourseType = () => {
   useEffect(() => {
     setItem(jsondata.FlexibleTime)
     
-  }, [setItem]);
+  }, [item]);
 
   //console.log('courses', item)
 
