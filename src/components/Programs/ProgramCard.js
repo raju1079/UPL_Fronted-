@@ -56,7 +56,6 @@ const ProgramCard = (props) => {
             </div>
         </div>
         <TrendingCourses />
-        <CourseType />
     </div>
     </>
   )

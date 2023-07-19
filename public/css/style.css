@@ -672,12 +672,12 @@
     border-radius: 50%;
 }
 .programdetail-wrapper .courseslist-wrapper .coursename{
-    border-radius: 50%;
+    /* border-radius: 50%;
     border: 5px solid #06BBCC;
-    padding: 5px;
+    padding: 5px; */
 }
 .programdetail-wrapper .courseslist-wrapper .team-item .coursename img{
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 .css-1wnsr1i{
     background-color: #06BBCC !important;
@@ -796,6 +796,56 @@
     padding: 5px;
     border: 1px solid #0f8cff;
 }
+/* program details page COURses display */
+.courseslist-wrapper .team-item{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+/* hover overlay */
+.courseslist-wrapper .team-item:hover img {
+    transform:none;
+}
+.courcourseslist-wrapperses .team-item img{
+    display: block;
+    backface-visibility: hidden;
+}
+.hover-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .courseImage {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .course-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: #0B346B;
+  }
+.overlay-hover-btn{
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+  
+  .hover-container:hover .course-overlay {
+    opacity: 1;
+    cursor: pointer;
+  }
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {
         width: 100% !important;
