@@ -49,7 +49,7 @@ const UserList = (props) => {
 
 const columns = [
     { field: 'id', headerName: 'Id', width: 60, disableColumnMenu: true, sortable: false },
-    { field: 'role', headerName: 'Role', width: 60, sortable: false, disableColumnMenu: true },
+    { field: 'role', headerName: 'Role', width: 80, sortable: false, disableColumnMenu: true },
     { field: 'email', headerName: 'Email', width: 160, disableColumnMenu: true },
     { field: 'phone_number', headerName: 'Phone Number', width: 160, disableColumnMenu: true },
     { field: 'status', headerName: 'Status', width: 140, disableColumnMenu: true, sortable: false },
@@ -90,7 +90,7 @@ const columns = [
     return {
       ...row,
       id: index + 1,
-      role: row.role_id,
+      role: row.role_name,
       email: row.email,
       phone_number: row.phone_number,
       status: row.status,

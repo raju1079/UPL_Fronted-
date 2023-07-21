@@ -81,7 +81,7 @@ const columns = [
     return {
       ...row,
       id: index + 1,
-      role: row.role_id,
+      role: row.role_name,
       email: row.email,
       phone_number: row.phone_number,
       status: row.status,

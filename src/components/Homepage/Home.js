@@ -7,6 +7,7 @@ import Popular from './Popular'
 import Testimonials from './Testimonials'
 import { useLocation } from 'react-router-dom'
 import HeroPromotion from '../promotion/HeroPromotion'
+import AllProgramsButton from './AllProgramsButton'
 
 const Home = () => {
   const location = useLocation()
@@ -15,12 +16,13 @@ const Home = () => {
   }, [location]);
   return (
     <>
-    <Hero />
-    {/* <HeroPromotion /> */}
+    {/* <Hero /> */}
+    <HeroPromotion />
     <Services />
     <Category />
     <Testimonials />
     <Popular />
+    <AllProgramsButton />
     </>
   )
 }

@@ -857,8 +857,199 @@
 .admin-menus .css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover{
     background-color: #dc3545 !important;
 }
+/* course details new design */
+.pre-req-bg{
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    padding: 10px;
+    border-radius: 25px;
+}
+.pre-req .css-sghohy-MuiButtonBase-root-MuiButton-root{
+    background-color: #93C3F6;
+    color: black;
+    border-radius: 25px;
+    font-family: inherit !important;
+    font-size: 1.5rem;
+    width: 100%;
+}
+.pre-req .css-sghohy-MuiButtonBase-root-MuiButton-root:hover{
+    background-color: #C1FF72 !important;
+}
+/* styled title */
+.course-bg-gradient{
+    /* background-image: linear-gradient(to right, #FFF4B0, #FFB2F0) ; */
+}
+.pageheadingWrap{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+}
+.pageheading{
+    position: relative;
+    display: inline-block;
+    padding: 0 16px;
+    border: 5px solid #fff;
+}
+.pageheading::after {
+    
+    position: absolute;
+    content: '';
+    top: calc( 50% - 2px);
+    height: 5px;
+    width: 100vw;
+    background: #fff;
+    right: 0;
+    transform: translate3d(100%, 0, 0);
+}
+.pageheading::before{
+    position: absolute;
+    content: '';
+    top: calc( 50% - 2px);
+    height: 5px;
+    width: 100vw;
+    background: #fff;
+    left: 0;
+    transform: translate3d(-100%, 0, 0);
+}
+.heading-box{
+    text-align: center;
+    border: 5px solid white;
+    border-top: 0px;
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.heading-box h3{
+    margin: 0;
+    color: #1B4BAD;
+    font-size: 20px;
+    font-weight: 800;
+}
+.course-detail-downarrow{
+    text-align: center;
+    color: #E12BBE;
+    font-size: 3rem;
+}
+.courseTitle{
+    color: #7843E6;
+}
+.units-heading .css-sghohy-MuiButtonBase-root-MuiButton-root{
+    background-color: #004AAD;
+    color: #C1FF72;
+    border-radius: 25px;
+    font-family: inherit !important;
+    font-size: 1.5rem;
+    width: 100%;    
+    border: 5px solid white;
+    box-shadow: none;
+}
+.project-btn-wrapper-bg{
+    background-color: white;
+    border-radius: 25px;
+    padding: 15px;
+}
+.project-button-wrapper .css-sghohy-MuiButtonBase-root-MuiButton-root{
+    background-color: #93C3F6;
+    color: #000;
+    border-radius: 25px;
+    font-family: inherit !important;
+    font-size: 1.5rem;
+    width: 100%;    
+    box-shadow: none;
+}
+.pre-req .css-s7d5x3-MuiButtonGroup-root{
+    padding: 10px;
+}
+.what-learn .card-group>.card{
+    background-color: transparent;
+    border: 0px !important;   
+}
+.what-learn .card-body{
+    background-color: white;
+    box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+}
+.what-learn .card-group>.card:not(:last-child){
+    margin-right: 20px;
+}
+.what-learn .css-s7d5x3-MuiButtonGroup-root{
+    padding: 10px;
+    width: 100% !important;
+    background-color: transparent;
+    box-shadow: none !important;
+}
+.what-learn .css-s7d5x3-MuiButtonGroup-root .MuiButtonGroup-grouped:hover{
+    background-color: #C1FF72 !important;
+}
+.what-learn .css-s7d5x3-MuiButtonGroup-root .MuiButtonGroup-grouped{
+    width: 100%;
+    border-radius: 25px !important;
+    background-color: #93C3F6 !important;
+    border: 0px !important;
+    color: black !important;
+    font-size: 1.5rem;
+    font-family: inherit !important;
+}
+.what-learn .css-s7d5x3-MuiButtonGroup-root .MuiButtonGroup-grouped:not(:last-of-type){
+    margin-bottom: 15px !important;
+}
+.what-learn .accordion-button{
+    border-radius: 25px !important;
+    background-color: #93C3F6 !important;
+    border: 0px !important;
+    color: black !important;
+    font-size: 1.5rem;
+    font-family: inherit !important;
+    margin-bottom: 10px;
+}
+.what-learn .accordion-item{
+    border: 0px !important;
+}
+.what-learn .accordion-button:hover{
+    background-color: #C1FF72 !important;
+}
+.what-learn .accordion-body{
+    background-color: #C1FF72 !important;
+    margin-bottom: 10px;
+}
+.what-learn .accordion-button:not(.collapsed){
+    background-color: #C1FF72 !important;
+}
+.course-play-btn {
+    background-color : #31B0D5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border-color: #46b8da;
+  }
+  
+  .course-play-wrapper {
+    position: fixed;
+    bottom: -4px;
+    right: 10px;
+  }
+  .course-play-wrapper .css-78trlr-MuiButtonBase-root-MuiIconButton-root{
+    background-color: wheat !important;
+  }
+  .course-play-wrapper .css-i4bv87-MuiSvgIcon-root{
+    height: 5rem !important;
+    width: 5rem !important;
+  }
+  .all-progrm-btn .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+    background-color: #dc3545 !important;
+    border-radius: 25px !important;
+    font-family: inherit !important;
+    color: white !important;
+  }
+
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {
         width: 100% !important;
+    }
+}
+@media (max-width: 575px) {
+    .pre-req .css-sghohy-MuiButtonBase-root-MuiButton-root {
+        margin-bottom: 10px !important;
     }
 }

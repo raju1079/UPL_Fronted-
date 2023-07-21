@@ -115,7 +115,7 @@ export const getEmailId = (email) => async (dispatch) => {
   /* GET VISITORS */
   export const getVisitors = () =>async (dispatch)=>{
    
-    const response = await securedInstance.get('/api/visitor' )
+    const response = await securedInstance.get('/api/visitor/visitorNrole' )
     .then((res)=>{   
         const listData = res.data
         const sortedData = listData.sort((a,b)=> b.user_id - a.user_id)
@@ -207,7 +207,7 @@ export const updateVisitorStatusById = (updatedStatus, id) => async (dispatch) =
 /* GET All Users */
 export const getUsersList = () =>async (dispatch)=>{
    
-    const response = await securedInstance.get('/api/allUsers' )
+    const response = await securedInstance.get('/api/allUsers/userNrole' )
     .then((res)=>{   
         const listData = res.data
         const sortedData = listData.sort((a,b)=> b.user_id - a.user_id)

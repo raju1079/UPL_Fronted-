@@ -29,11 +29,13 @@ import "react-toastify/dist/ReactToastify.css";
 import UploadImage from './components/auth/admin/imagecontrol/UploadImage';
 import ImageGallery from './components/auth/admin/imagecontrol/ImageGallery';
 import AddPromotion from './components/auth/admin/promotion/AddPromotion';
+import { useState } from 'react';
 
 function App() {
-  
+  const[bgcolor,setBgColor] = useState('')
+    
   return (
-    <div className="App learningapp">
+    <div className="App learningapp" style={{backgroundImage: bgcolor}}>
       <ToastContainer theme='colored' position='top-center'></ToastContainer>
         <BrowserRouter>
         <ShowHeader>
@@ -47,7 +49,7 @@ function App() {
           <Route exact path="/programs" element={<Programs />} />     
           <Route exact path="/courses" element={<Courses />} />     
            <Route exact path='/programDetail/:id' element={<ProgramDetail />} />
-          <Route exact path='//courses/:id' element={<CourseDetail />} />
+          <Route exact path='/courses/:id' element={<CourseDetail bgcolor={bgcolor} setBgColor={setBgColor} />} />
           <Route exact path='/register' element={<RegisterForm />} />
           <Route exact path='/login' element={<LoginForm />} />
           <Route exact path='/registerform' element={<RegisterForm />} />

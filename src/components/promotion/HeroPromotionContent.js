@@ -12,7 +12,7 @@ const HeroPromotionContent = (props) => {
                             {/* <img className="img-fluid" src="img/hero/hero5.jpg" alt="" /> */}
                             <div className="d-flex align-items-center pt-5 pb-5">
                             <div className="container">
-                                <div className="row justify-content-start">
+                                <div className="row justify-content-start m-0">
                                     <div className="col-sm-10 col-lg-8">
                                         <h5 className="text-white text-uppercase mb-3 animated slideInDown">{each.event_text}</h5>
                                         <h1 className="display-6 text-white animated slideInDown"> {each.event_heading} </h1>
