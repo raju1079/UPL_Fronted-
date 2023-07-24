@@ -68,7 +68,7 @@ const LoginForm = () => {
     if(userId === 3){
       navigate("/auth/ExecutorDashboard") /* if it is executor, it will take to executor dashboard */
     }else if(userId === 1){
-      navigate("/auth/AdminDashboard")
+      navigate("/AdminCp")
     }else if(userId === 2 || userId === 4 || userId === null){ /* other users: future admin/marketing will have seperate dashborad. then split up the condition */
       navigate("/welcome")
     }else{

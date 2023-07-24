@@ -10,23 +10,27 @@ const ShowHeader = ({children}) => {
     useEffect(()=>{
         if(location.pathname === "/welcome"){
             setShowHeader(false)
-            setShowTopBar(true)
+            //setShowTopBar(true)
         }else if( location.pathname.startsWith("/auth")){
             setShowHeader(false)
-            setShowTopBar(true)
+           // setShowTopBar(true)
         }else if( location.pathname.startsWith("/AdminDashboard/")){
             setShowHeader(false)
-            setShowTopBar(true)
-        }else{
+           // setShowTopBar(true)
+        }else if( location.pathname.startsWith("/AdminCp")){
+            setShowHeader(false)
+          // setShowTopBar(false)
+        }
+        else{
             setShowHeader(true)
-            setShowTopBar(false)
+            //setShowTopBar(false)
         }
     }, [location])
     
   return (
     <div>
         { showHeader && children}    
-        { showTopBar && <TopbarUser />}  
+       {/*  { showTopBar && <TopbarUser />}   */}
     </div>
   )
 }

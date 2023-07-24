@@ -1042,7 +1042,40 @@
     font-family: inherit !important;
     color: white !important;
   }
-
+/* admin dashboard */
+.topbar-cp{
+    width: 100%;
+}
+.topbar-cp .css-hip9hq-MuiPaper-root-MuiAppBar-root{
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+.topbar-cp-toolbar{
+    background-color: transparent !important;
+}
+.user-list .css-19kzrtu{
+    padding: 0 !important;
+}
+.topbar-cp-wrapper{
+    background-color: transparent !important;
+}
+.top-side-wrapper .css-10hburv-MuiTypography-root{
+    font-family: inherit !important;
+    /* color: white; */
+}
+/* .top-side-wrapper .css-wa5fuu-MuiListItemIcon-root{
+    color: white;
+} */
+.css-1hsz34s-MuiDrawer-docked{
+    font-family: 'Poppins';
+       
+}
+.top-side-wrapper .css-1hsz34s-MuiDrawer-docked .MuiDrawer-paper{
+    
+}
+.top-side-wrapper .css-ahj2mt-MuiTypography-root{
+    font-size: 1rem !important;
+}
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {
         width: 100% !important;

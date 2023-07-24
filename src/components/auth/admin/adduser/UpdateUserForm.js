@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../redux/auth/authActions';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Paper, Select } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import TextfieldCustom from '../../common/TextfieldCustom';
-import { getRoles, getUserById, getVisitorById, updateUserById } from '../../redux/actions/Actions';
+import { getRoles, getUserById, getVisitorById, updateUserById } from '../../../redux/actions/Actions';
+import TextfieldCustom from '../../../common/TextfieldCustom';
 
 const statusList = ['Registered', 'Indiscussion', 'Joined', 'Rejected', 'Staff']
 
@@ -53,7 +52,7 @@ const UpdateUserForm = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
       dispatch(updateUserById(updatedData, id));
-      navigate("/auth/AdminDashboard")
+      navigate("/AdminCp/AdminDashboard")
       console.log("formdata", updatedData)        
     };
    

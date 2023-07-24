@@ -1,23 +1,22 @@
+import React from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import WelcomeMenus from '../WelcomeMenus';
-import AllUsersList from './allusers/AllUsersList';
 
-const AdminDashBoard = () => {
+const SubscriberEnquiry = () => {
     const { isAuthenticated, user } = useSelector((state) => state.auth);
     const userId = user?.role_id
     console.log('logged in as',userId)
   return (
     <div>
-      {
-        isAuthenticated && userId === 1 ? (<AllUsersList />) : (
+       {
+        isAuthenticated && userId === 1 ? ("Subscriber Enquiry list") : (
           <WelcomeMenus />
         )
 
       }
-      
+            
     </div>
   )
 }
 
-export default AdminDashBoard
+export default SubscriberEnquiry

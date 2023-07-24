@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteUserById, fetchUserByStatus, getUsersList } from '../../redux/actions/Actions';
+import { deleteUserById, fetchUserByStatus, getUsersList } from '../../../redux/actions/Actions';
 import { Box, Button, FormControl, IconButton, InputLabel, MenuItem, Select, Stack } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
@@ -18,12 +18,6 @@ const UserList = (props) => {
 
     //console.log('all users',fetchUsersList)
 
-    useEffect(()=>{
-        setUserStatus(props.status)
-        dispatch((getUsersList()))
-        dispatch(fetchUserByStatus(userStatus))
-     },  [dispatch,fetchUsersList])
-
      function formatDate(dt){
         const getYear = new Date(dt).getFullYear()
         const getMonth = new Date(dt).getMonth() + 1
@@ -37,15 +31,6 @@ const UserList = (props) => {
         console.log('clicked User is', id)
     }
    // console.log('users by status', fetchUserListByStatus)
-
-   useEffect(()=>{
-    if(userStatus === 'all'){
-        setData(fetchUsersList)
-    }else{
-        setData(fetchUserListByStatus)
-    }
-
-}, [userStatus,fetchUsersList,fetchUserListByStatus])
 
 const columns = [
     { field: 'id', headerName: 'Id', width: 60, disableColumnMenu: true, sortable: false },
@@ -65,7 +50,7 @@ const columns = [
             const onClick = (e) => {
               const currentRow = params.row;
               //return alert(JSON.stringify(currentRow, null, 4));
-              navigate(`/auth/updateUser/${currentRow.user_id}`)
+              navigate(`/AdminCp/updateUser/${currentRow.user_id}`)
             };
             const handleDelete = (e) =>{
                 const currentRow = params.row;
@@ -117,8 +102,23 @@ const columns = [
     );
   }
 
+  useEffect(()=>{
+    setUserStatus(props.status)
+    dispatch((getUsersList()))
+    dispatch(fetchUserByStatus(userStatus))
+ },  [dispatch,fetchUsersList])
+
+  useEffect(()=>{
+    if(userStatus === 'all'){
+        setData(fetchUsersList)
+    }else{
+        setData(fetchUserListByStatus)
+    }
+
+}, [userStatus,fetchUsersList,fetchUserListByStatus,data])
+
   return (
-    <div>
+    <div className='user-list'>
         
         {
             userId === 1 ? (
@@ -142,7 +142,7 @@ const columns = [
                             initialState={{
                             pagination: {
                                 paginationModel: { page: 0, pageSize: 5 },
-                            },
+                            }
                             }}
                             
                         />

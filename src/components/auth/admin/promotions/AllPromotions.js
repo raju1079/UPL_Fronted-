@@ -1,16 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import ProgramDataGrid from './ProgramDataGrid';
 import WelcomeMenus from '../../WelcomeMenus';
 
-const AllPrograms = () => {
-  const { isAuthenticated, user } = useSelector((state) => state.auth);
+const AllPromotions = () => {
+    const { isAuthenticated, user } = useSelector((state) => state.auth);
     const userId = user?.role_id
     console.log('logged in as',userId)
   return (
     <div>
        {
-        isAuthenticated && userId === 1 ? (<ProgramDataGrid />) : (
+        isAuthenticated && userId === 1 ? ("Promotions list") : (
           <WelcomeMenus />
         )
 
@@ -20,4 +19,4 @@ const AllPrograms = () => {
   )
 }
 
-export default AllPrograms
+export default AllPromotions

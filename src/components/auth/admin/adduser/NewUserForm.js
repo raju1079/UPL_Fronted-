@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../redux/auth/authActions';
+import { register } from '../../../redux/auth/authActions';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Paper, Select } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import TextfieldCustom from '../../common/TextfieldCustom';
-import { getRoles } from '../../redux/actions/Actions';
+import { getRoles } from '../../../redux/actions/Actions';
+import TextfieldCustom from '../../../common/TextfieldCustom';
+
 
 
 const NewUserForm = () => {
@@ -50,7 +51,7 @@ const [roleId, setRoleId] = useState([])
       alert('Password and Confirm Password Should Match')
     }else{
       dispatch(register(registerData));
-      //navigate("/auth/AdminDashboard")
+      //navigate("/AdminCp/AdminDashboard")
       //console.log("formdata", registerData)
     }
         

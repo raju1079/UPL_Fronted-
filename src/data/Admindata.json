@@ -1,0 +1,64 @@
+{
+    "userMenus" :[
+        {
+                "menu": "My Profile",
+                "icon" : "Person",
+                "link": "/adminCp/Adminprofile"
+                },
+                {
+                  "menu": "Account settings",
+                  "icon": "Settings",
+                  "link": "/adminCp/Adminprofile"
+                }
+    ],
+    "adminsidebarmenu": [
+      {
+          "key": 1,
+          "title": "All Users",
+          "icon": "VerifiedUser",
+          "link": "/AdminCp/AdminDashboard"
+      },
+      {
+          "key": 2,
+          "title": "Programs",
+          "icon": "Category",
+          "link": "/AdminCp/allPrograms"
+      },
+      {
+          "key": 3,
+          "title": "Courses",
+          "icon": "GolfCourse",
+          "link":"/AdminCp/allCourses"
+      },
+      {
+          "key": 4,
+          "title": "Make Category",
+          "icon": "Category",
+          "link":"/AdminCp/allCategory"
+      },
+      {
+          "key": 5,
+          "title": "Events",
+          "icon": "Event",
+          "link":"/AdminCp/allEvents"
+      },
+      {
+          "key": 6,
+          "title": "Promotions",
+          "icon": "AdsClick",
+          "link":"/AdminCp/allPromotions"
+      },
+      {
+          "key": 7,
+          "title": "Images",
+          "icon": "ImageRounded",
+          "link":"/AdminCp/imageGallery"
+      },
+      {
+          "key": 8,
+          "title": "Subscribers Enquiry",
+          "icon": "MailIcon",
+          "link":"/AdminCp/subscriberEnquiry"
+      }
+  ]
+}

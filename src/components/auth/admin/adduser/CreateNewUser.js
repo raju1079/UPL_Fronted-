@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import NewUserForm from '../adduser/NewUserForm';
-import WelcomeMenus from '../WelcomeMenus';
-import UploadProgramForm from './UploadProgramForm';
+import NewUserForm from './NewUserForm';
+import WelcomeMenus from '../../WelcomeMenus';
 
-const AddNewProgram = () => {
+
+const CreateNewUser = () => {
     const { isAuthenticated, user } = useSelector((state) => state.auth);
     const userId = user?.role_id
     console.log('logged in as', userId)
   return (
     <div>
         {
-            userId === 1 ? (<UploadProgramForm />)            
+            userId === 1 ? <NewUserForm />            
             : (
             <>
-            <h2>Admin Only can Add Programs</h2>
+            <h2>Admin Only can create new User</h2>
             <WelcomeMenus />
             </>
             )
@@ -24,4 +24,4 @@ const AddNewProgram = () => {
   )
 }
 
-export default AddNewProgram
+export default CreateNewUser

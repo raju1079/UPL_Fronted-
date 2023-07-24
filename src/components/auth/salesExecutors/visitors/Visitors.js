@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getVisitorByStatus, getVisitors } from '../../redux/actions/Actions';
+import { getVisitorByStatus, getVisitors } from '../../../redux/actions/Actions';
 import { Box, Button, FormControl, IconButton, InputLabel, MenuItem, Select, Stack } from '@mui/material';
 import { Delete, Edit } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
@@ -63,7 +63,7 @@ const columns = [
             const onClick = (e) => {
               const currentRow = params.row;
               //return alert(JSON.stringify(currentRow, null, 4));
-              navigate(`/auth/updateUser/${currentRow.user_id}`)
+              navigate(`/auth/updateVisitor/${currentRow.user_id}`)
             };
                         
             return (

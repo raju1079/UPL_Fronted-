@@ -1,28 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../redux/auth/authActions';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Paper, Select } from '@mui/material';
-import TextfieldCustom from '../../common/TextfieldCustom';
-import { fetchCourseList, fetchProgramById, fetchProgramId, updateProgramById, uploadNewProgram } from '../../redux/actions/Actions';
+import { uploadNewProgram } from '../../../redux/actions/Actions';
+import TextfieldCustom from '../../../common/TextfieldCustom';
 
-
-const UpdateProgram = () => {
+const UploadProgramForm = () => {
   const { isAuthenticated, user } = useSelector((state) => state.auth);
   const userId = user?.role_id
-  const fetchProgramsById = useSelector((state)=> state.getProgramsId.programsId)
-  const dispatch = useDispatch()
-  const { id } = useParams()
-  const navigate = useNavigate()
-   
-    useEffect(()=>{
-      dispatch(fetchProgramId(id))
-   },  [dispatch,id])
-   console.log('selected course name by id is', fetchProgramsById)
-   
-   const selectedProgram = fetchProgramsById[0]
-   
 
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     program_name: '',
     duration: '',
@@ -65,25 +54,11 @@ const UpdateProgram = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateProgramById(programData,id));
-      navigate("/auth/allPrograms")
+    dispatch(uploadNewProgram(programData));
+      navigate("/AdminCp/allPrograms")
       console.log("formdata", programData)        
   };
-  useEffect(()=>{
-    setFormData({
-      program_name: selectedProgram?.program_name,
-    duration: selectedProgram?.duration,
-    cost: selectedProgram?.cost,
-    target_audience: selectedProgram?.target_audience,
-    program_details:selectedProgram?.program_details,
-    program_coverage:selectedProgram?.program_coverage,
-    outcome:selectedProgram?.outcome,
-    career_opportunities: selectedProgram?.career_opportunities,
-    registration_charge: selectedProgram?.registration_charge,
-    gst:selectedProgram?.gst
 
-    })
-   }, [selectedProgram])
   
   return (
     <div>
@@ -99,8 +74,7 @@ const UpdateProgram = () => {
     >
        <div style={{ width: "inherit"}}>
       <Paper elevation={2} sx={{ padding: 5 }} style={{ marginTop: '50px' }}>
-      <h3>Update Program</h3>
-      <h6>Program name: {selectedProgram?.program_name}</h6>
+      <h3>Upload new Program</h3>
       <Button onClick={()=>navigate(-1)}>Back</Button>
       <Grid container  spacing={2} sx={{border: '1px solid rgba(0,0,0,0.125', zIndex:"3"}} style={{padding: "30px"}}>
           <Grid item xs={6}>
@@ -188,7 +162,7 @@ const UpdateProgram = () => {
            <Grid item xs={12}>
                  <Button variant="contained" style={{backgroundColor: '#3251A3', borderColor: '#FF5E14'}} 
                  fullWidth type="submit">
-                   Update & Save Program
+                   Upload Program
                  </Button>
             </Grid>
       </Grid>
@@ -201,4 +175,4 @@ const UpdateProgram = () => {
   )
 }
 
-export default UpdateProgram
+export default UploadProgramForm
