@@ -1057,7 +1057,7 @@
     padding: 0 !important;
 }
 .topbar-cp-wrapper{
-    background-color: transparent !important;
+    background-color: white !important;
 }
 .top-side-wrapper .css-10hburv-MuiTypography-root{
     font-family: inherit !important;
@@ -1084,5 +1084,15 @@
 @media (max-width: 575px) {
     .pre-req .css-sghohy-MuiButtonBase-root-MuiButton-root {
         margin-bottom: 10px !important;
+    }
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root, 
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
+    font-size: 12px!important;
+}
+@media only screen and (max-width: 600px) {
+    .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root,
+    .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
+        font-size: 10px !important;
     }
 }
