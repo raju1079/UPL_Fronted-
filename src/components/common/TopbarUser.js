@@ -70,7 +70,7 @@ const TopbarUser = () => {
     e.preventDefault();
     
     dispatch(logout());
-    history('/welcome')
+    history('/')
    // console.log("header nav click fn")
   }
 

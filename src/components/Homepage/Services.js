@@ -7,7 +7,7 @@ const Services = () => {
         <div className="container">
             <div className="row g-4 servicesCardWrapper">
                 <div className="col-lg-3 col-sm-6 wow fadeInUp servicesCard" data-wow-delay="0.1s">
-                    <div className="service-item text-center pt-3">
+                    <div className="service-item text-center pt-3 h-100">
                         <div className='service-item-badge-container'>
                             <div className='service-item-badge'>
                                 <div></div>
@@ -20,7 +20,7 @@ const Services = () => {
                     </div>
                 </div>
                 <div className="col-lg-3 col-sm-6 wow fadeInUp servicesCard" data-wow-delay="0.3s">
-                    <div className="service-item text-center pt-3">
+                    <div className="service-item text-center pt-3 h-100">
                     <div className='service-item-badge-container'>
                             <div className='service-item-badge'>
                                 <div></div>
@@ -33,7 +33,7 @@ const Services = () => {
                     </div>
                 </div>
                 <div className="col-lg-3 col-sm-6 wow fadeInUp servicesCard" data-wow-delay="0.5s">
-                    <div className="service-item text-center pt-3">
+                    <div className="service-item text-center pt-3 h-100">
                     <div className='service-item-badge-container'>
                             <div className='service-item-badge'>
                                 <div></div>
@@ -46,7 +46,7 @@ const Services = () => {
                     </div>
                 </div>
                 <div className="col-lg-3 col-sm-6 wow fadeInUp servicesCard" data-wow-delay="0.7s">
-                    <div className="service-item text-center pt-3">
+                    <div className="service-item text-center pt-3 h-100">
                     <div className='service-item-badge-container'>
                             <div className='service-item-badge'>
                                 <div></div>

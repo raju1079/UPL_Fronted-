@@ -16,6 +16,8 @@ const UserList = (props) => {
     const[userStatus,setUserStatus]=useState('')
     const[data,setData] = useState([])
 
+    const[dataRows,setDataRows] = useState('')
+    const[dataColumns,setDataColumns]=useState([])
     //console.log('all users',fetchUsersList)
 
      function formatDate(dt){
@@ -114,8 +116,10 @@ const columns = [
     }else{
         setData(fetchUserListByStatus)
     }
+    setDataColumns(columns)
+    setDataRows(rows)
 
-}, [userStatus,fetchUsersList,fetchUserListByStatus,data])
+}, [userStatus,fetchUsersList])
 
   return (
     <div className='user-list'>
@@ -125,8 +129,8 @@ const columns = [
                 
                         (data.length !== 0 ) ?
                         <DataGrid
-                            rows={rows}
-                            columns={columns}
+                            rows={dataRows}
+                            columns={dataColumns}
                             initialState={{
                             pagination: {
                                 paginationModel: { page: 0, pageSize: 5 },

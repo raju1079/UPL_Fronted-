@@ -74,7 +74,7 @@ export default function Dashboard() {
             }}
           >
             
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme.direction === 'rtl' ? <ChevronRightIcon className='text-dark' /> : <ChevronLeftIcon className='text-dark' />}
           </IconButton>
           <TopbarCp />
         </Toolbar>
