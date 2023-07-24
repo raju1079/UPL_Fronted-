@@ -23,7 +23,8 @@ const CourseDetail = (props) => {
 
     const onDownload = () => {
       //navigate('/download')
-      navigate('/download', {state: {interestedCourse, programInterested}})
+      //navigate('/download', {state: {interestedCourse, programInterested}})
+      navigate('/download', {state: {interestedCourseId,programInterested,interestedCourse}})
     };
 
     useEffect(()=>{
@@ -36,6 +37,7 @@ const CourseDetail = (props) => {
     //console.log("Course Details", fetchCourseById)
     const selectedCourse = fetchCourseById[0]
     const interestedCourse = selectedCourse?.course_name
+    const interestedCourseId = selectedCourse?.course_id
     //console.log("interestedCourse Details", interestedCourse + programInterested)
 
   return (
@@ -52,6 +54,7 @@ const CourseDetail = (props) => {
             </div>
             {/* <GoBackLink /> */}
             <div className=''>
+              <button className="btn btn-primary py-2 mx-3 top-0 end-0 mt-2 me-2" onClick={onDownload}>Download Syllabus</button>
                 <Prerequisite />
                 <div className='heading-box'>
                     <h3>What you will be Learning</h3>

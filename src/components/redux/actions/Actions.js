@@ -100,9 +100,9 @@ export const fetchCoursesById = (id) =>async (dispatch)=>{
     
 }
 /* GET PORTION DOWNLOAD BY SENDING EMAIL ID */
-export const getEmailId = (email) => async (dispatch) => {
+export const getEmailId = (userData) => async (dispatch) => {
     try {
-      const res = await axiosinstance.post('/api/download', email);
+      const res = await axiosinstance.post('/api/download', userData);
       dispatch({
         type: ActionTypes.GET_MAIL_DOWNLOAD,
         payload: res.data,

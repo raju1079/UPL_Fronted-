@@ -1,7 +1,7 @@
 import { ActionTypes } from "../constants/action-types"
 
 const initialState = {
-  mailId: ""
+  mailId: []
 }
 
 const GetMailReducer = (state=initialState, {type, payload})=>{

@@ -11,6 +11,7 @@ import GoBackLink from '../common/GoBackLink';
 const DownloadLesson = () => {
   const location = useLocation()
   const [courseInterested, setCourseInterested] = useState(location.state.interestedCourse)
+  const [courseInterestedId, setCourseInterestedId] = useState(location.state.interestedCourseId)
   const[programInterested, setProgramInterested] = useState(location.state.programInterested)
     const[mail,setMail] = useState('')
     const[mobile,setMobile] = useState('')
@@ -22,8 +23,8 @@ const DownloadLesson = () => {
       email: mail,
       password: "qwe",
       phone_number: mobile,
-        role_id: "2"
-      //  course_interest: courseInterested
+        role_id: "2",
+      course_id: courseInterestedId
     }
     useEffect(()=>{
       setFormData(visitorData)
@@ -31,7 +32,8 @@ const DownloadLesson = () => {
       const handleSubmit = (e)=>{
         e.preventDefault()
         //console.log("enter mail id is", formData)
-        dispatch(register(formData))
+        //dispatch(register(formData))
+        dispatch(getEmailId(formData))
         setMail("")
         setMobile("")
         if(mail !== "" && mobile != ""){
