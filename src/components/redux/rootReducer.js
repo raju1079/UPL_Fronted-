@@ -23,6 +23,10 @@ import GetUserByStatus from './reducers/GetUserByStatus.js';
 import GetVisitorsByStatus from './reducers/GetVisitorsByStatus.js';
 import { ProgramCourseCombination } from './reducers/ProgramCourseCombination.js';
 import { SubscriberReducer } from './reducers/SubscriberReducer.js';
+import { GetLessons } from './reducers/GetLessons.js';
+import { GetUnits } from './reducers/GetUnits.js';
+import { GetCourseWithLesson } from './reducers/GetCourseWithLesson.js';
+import { GetUnitsByLesson } from './reducers/GetUnitsByLesson.js';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -46,7 +50,11 @@ const rootReducer = combineReducers({
   getUserByStatus:GetUserByStatus,
   getVisitorsByStatus:GetVisitorsByStatus,
   programCourseCombo:ProgramCourseCombination,
-  subscriberRegister: SubscriberReducer
+  subscriberRegister: SubscriberReducer,
+  getLessons: GetLessons,
+  getUnits: GetUnits,
+  getUnitsByLesson:GetUnitsByLesson,
+  getCourseWithLesson:GetCourseWithLesson
 });
 
 export default rootReducer;

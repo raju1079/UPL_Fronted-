@@ -115,7 +115,7 @@ export const getEmailId = (userData) => async (dispatch) => {
   /* GET VISITORS */
   export const getVisitors = () =>async (dispatch)=>{
    
-    const response = await securedInstance.get('/api/visitor/visitorNrole' )
+    const response = await securedInstance.get('/api/visitor/visitorRoleProgram' )
     .then((res)=>{   
         const listData = res.data
         const sortedData = listData.sort((a,b)=> b.user_id - a.user_id)
@@ -207,7 +207,7 @@ export const updateVisitorStatusById = (updatedStatus, id) => async (dispatch) =
 /* GET All Users */
 export const getUsersList = () =>async (dispatch)=>{
    
-    const response = await securedInstance.get('/api/allUsers/userNrole' )
+    const response = await securedInstance.get('/api/allUsers/userRoleProgram' )
     .then((res)=>{   
         const listData = res.data
         const sortedData = listData.sort((a,b)=> b.user_id - a.user_id)
@@ -389,3 +389,76 @@ export const deleteProgramById = (id) => async (dispatch) => {
       toast.error(error.response.data.error + " "+ 'Please TRY again')
     }
   };
+
+  // GET lessons
+  export const fetchLessons = () =>async (dispatch)=>{
+   try{
+    
+    const response = await securedInstance.get('/api/lessons' )
+    .then((res)=>{   
+        const listData = res.data
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_LESSONS,
+        payload: response
+    })  
+   }catch(err){
+    console.log(err)
+   }
+    
+}
+  // GET units
+  export const fetchUnits = () =>async (dispatch)=>{
+   
+   try{
+    const response = await securedInstance.get('/api/units' )
+    .then((res)=>{   
+        const listData = res.data
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_UNITS,
+        payload: response
+    })  
+   }catch(err){
+    console.log(err)
+   }
+    
+}
+  // GET units per lessons
+  export const fetchUnitsByLesson = (id) =>async (dispatch)=>{
+   
+    try{
+        const response = await securedInstance.get(`/api/units/unitPerLes/${id}` )
+    .then((res)=>{   
+        const listData = res.data
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_UNITS_BY_LESSON,
+        payload: response
+    })  
+    }catch(err){
+        console.log(err)
+    }
+    
+}
+  // GET course with lessons
+  export const fetchCourseWithLesson = (id) =>async (dispatch)=>{
+   
+    try{
+        const response = await securedInstance.get(`/api/lessons/lessPerCourse/${id}` )
+    .then((res)=>{   
+        const listData = res.data
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_COURSE_WITH_LESSON,
+        payload: response
+    })  
+    }catch(err){
+        console.log(err)
+    }
+    
+}

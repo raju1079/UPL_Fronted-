@@ -50,6 +50,7 @@ const columns = [
     { field: 'role', headerName: 'Role', width: 60, sortable: false, disableColumnMenu: true },
     { field: 'email', headerName: 'Email', width: 160, disableColumnMenu: true },
     { field: 'phone_number', headerName: 'Phone Number', width: 160, disableColumnMenu: true },
+    { field: 'program_name', headerName: 'Program Name', width: 160, disableColumnMenu: true },
     { field: 'status', headerName: 'Status', width: 140, disableColumnMenu: true, sortable: false },
     { field: 'date', headerName: 'Date', width: 140, disableColumnMenu: true },
     {
@@ -84,6 +85,7 @@ const columns = [
       role: row.role_name,
       email: row.email,
       phone_number: row.phone_number,
+      program_name: row.program_name,
       status: row.status,
       date: formatDate(row.modify_date)
 

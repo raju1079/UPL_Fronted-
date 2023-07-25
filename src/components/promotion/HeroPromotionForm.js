@@ -67,8 +67,9 @@ const HeroPromotionForm = () => {
   //pop up modal
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {
-    if (email !== "" && phone_number !== "") {
+    if (formData !== '' && programId !== '' && courseId !== '') {
       setOpen(true);
+      
     }
   };
   const handleClose = () => setOpen(false);
@@ -162,6 +163,7 @@ const HeroPromotionForm = () => {
                   defaultValue={programId}
                   label="Program name"
                   onChange={handleProgramChange}
+                  required
                 >
                   {fetchPrograms.map((eachItem, i) => (
                     <MenuItem
@@ -174,7 +176,9 @@ const HeroPromotionForm = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
+            {
+              (programId !== '') ?
+              <Grid item xs={12}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Courses</InputLabel>
                 <Select
@@ -184,6 +188,7 @@ const HeroPromotionForm = () => {
                   defaultValue={courseId}
                   label="Course"
                   onChange={handleCourseChange}
+                  required
                 >
                   {item?.map((eachItem, i) => (
                     <MenuItem
@@ -196,6 +201,8 @@ const HeroPromotionForm = () => {
                 </Select>
               </FormControl>
             </Grid>
+            : ""
+            }
             <Grid item xs={12} className="text-end">
               <PopUpModal
                 buttonname={"Book Now"}
