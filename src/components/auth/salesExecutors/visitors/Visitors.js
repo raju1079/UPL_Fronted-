@@ -14,14 +14,14 @@ const Visitors = (props) => {
     const { isAuthenticated, user } = useSelector((state) => state.auth);
     const[userStatus,setUserStatus]=useState('')
     const[data,setData] = useState([])
+
+    const[dataRows,setDataRows] = useState('')
+    const[dataColumns,setDataColumns]=useState([])
+
   const userId = user?.role_id
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    useEffect(()=>{
-        setUserStatus(props.status)
-        dispatch(getVisitorByStatus(userStatus))
-        dispatch((getVisitors()))
-     },  [dispatch,fetchVisitorsByStatus])
+    
         
     //console.log('students from db', fetchVisitorsByStatus)
     function formatDate(dt){
@@ -35,15 +35,6 @@ const Visitors = (props) => {
 const handleStatusChange = (e) =>{
     setUserStatus(e.target.value)
 }
-
-useEffect(()=>{
-    if(userStatus === 'all'){
-        setData(fetchVisitors)
-    }else{
-        setData(fetchVisitorsByStatus)
-    }
-
-}, [userStatus,fetchVisitors,fetchVisitorsByStatus])
 
 const columns = [
     { field: 'id', headerName: 'Id', width: 60, disableColumnMenu: true, sortable: false },
@@ -110,6 +101,24 @@ const columns = [
     );
   }
 
+  useEffect(()=>{
+    setUserStatus(props.status)
+    dispatch(getVisitorByStatus(userStatus))
+    dispatch((getVisitors()))
+ },  [dispatch,fetchVisitors])
+
+ useEffect(()=>{
+  if(userStatus === 'all'){
+      setData(fetchVisitors)
+  }else{
+      setData(fetchVisitorsByStatus)
+  }
+  setDataColumns(columns)
+    setDataRows(rows)
+
+}, [userStatus,fetchVisitors])
+
+
   return (
     <>
     { 
@@ -118,8 +127,8 @@ const columns = [
                     {
                         (data.length !== 0 ) ?
                         <DataGrid
-                        rows={rows}
-                        columns={columns}
+                        rows={dataRows}
+                        columns={dataColumns}
                         initialState={{
                         pagination: {
                             paginationModel: { page: 0, pageSize: 5 },
