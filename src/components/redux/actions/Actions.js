@@ -444,8 +444,46 @@ export const deleteProgramById = (id) => async (dispatch) => {
     }
     
 }
-  // GET course with lessons
+  // GET course with lessons and units
   export const fetchCourseWithLesson = (id) =>async (dispatch)=>{
+   
+    try{
+        const response = await securedInstance.get(`/api/lessons/course/${id}` )
+    .then((res)=>{   
+        const listData = res.data
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_COURSE_WITH_LESSON,
+        payload: response
+    })  
+    }catch(err){
+        console.log(err)
+    }
+    
+}
+
+// GET prerequisitions BY courseID
+export const fetchPrerequisiteByCourse = (id) =>async (dispatch)=>{
+   
+    try{
+        const response = await securedInstance.get(`/api/prerequisites/course/${id}` )
+    .then((res)=>{   
+        const listData = res.data
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_PREREQUISITE_BY_COURSE,
+        payload: response
+    })  
+    }catch(err){
+        console.log(err)
+    }
+    
+}
+
+// GET course with lessons and units
+export const fetchLessonByCourseId = (id) =>async (dispatch)=>{
    
     try{
         const response = await securedInstance.get(`/api/lessons/lessPerCourse/${id}` )
@@ -454,7 +492,7 @@ export const deleteProgramById = (id) => async (dispatch) => {
         return listData;
     })
     dispatch({
-        type: ActionTypes.GET_COURSE_WITH_LESSON,
+        type: ActionTypes.GET_LESSONS_BY_COURSE_ID,
         payload: response
     })  
     }catch(err){

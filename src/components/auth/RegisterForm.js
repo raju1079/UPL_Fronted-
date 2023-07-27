@@ -134,162 +134,173 @@ const [roleId, setRoleId] = useState([])
   }, [dispatch]);
   
   return (
-    <form onSubmit={handleSubmit}>
-      <Container maxWidth="sm" className=" d-flex" >
-    
-    <Grid
-      container
-      spacing={2}
-      direction="column"
-      justifyContent="center"
-      
-    >
-       <div style={{ width: "inherit"}}>
-      <Paper elevation={2} sx={{ padding: 5 }} style={{ marginTop: '50px' }}>
-      <h3>Register here</h3>
-      <Grid container  spacing={2} sx={{border: '1px solid rgba(0,0,0,0.125', zIndex:"3"}} style={{padding: "30px"}}>
-          <Grid item xs={12}>
-             <TextfieldCustom
-             type="text"
-             name="username" 
-             value={username} onChange={handleChange} placeholder="Username"
-             required
-             />            
-           </Grid>
-          <Grid item xs={12}>
-             <TextfieldCustom
-             type="email"
-             name="email" 
-             value={email} onChange={handleChange} placeholder="Email" />            
-           </Grid>
-          <Grid item xs={12}>
-            <TextfieldCustom 
-            type={showPassword?"text":"password"}
-             name="password" value={password} onChange={handleChange} placeholder="Password"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                  </IconButton>
-                </InputAdornment>
-              )
-            }}
-            />          
-           </Grid>
-          <Grid item xs={12}>
-            <TextfieldCustom 
-            type={showConfirmPassword?"text":"password"}
-             name="confirmPassword" value={confirmPassword} onChange={handleChange} placeholder="Confirm Password"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowConfirmPassword}
-                    
-                    edge="end"
-                  >
-                    {showConfirmPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                  </IconButton>
-                </InputAdornment>
-              )
-            }}
-            />          
-           </Grid>
-          <Grid item xs={12}>
-             <TextfieldCustom
-             type="tel"
-             name="phone_number" 
-             required
-             value={phone_number} onChange={handleChange} placeholder="Phone Number" />            
-           </Grid>
-           <Grid item xs={12}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Programs</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={programId}
-                  defaultValue={programId}
-                  label="Program name"
-                  onChange={handleProgramChange}
-                  required
-                >
-                  {fetchPrograms.map((eachItem, i) => (
-                    <MenuItem
-                      key={eachItem.program_id}
-                      value={eachItem.program_id}
+    <>
+      <div className='row m-0 align-items-center justify-content-center'>
+        <div className='col-lg-5 '>
+          <img src='img/register-page.png' alt='register page image' className='img-fluid' />
+        </div>
+        <div className='col-lg-7'>
+        <form onSubmit={handleSubmit}>
+          <Container maxWidth="sm" className=" d-flex p-0" >
+        
+        <Grid
+          container
+          spacing={2}
+          direction="column"
+          justifyContent="center"
+          
+        >
+          <div style={{ width: "inherit"}}>
+          <Paper elevation={2} sx={{ padding: 5 }} style={{ marginTop: '50px' }}>
+          <h3>Register here</h3>
+          <Grid container  spacing={2} sx={{border: '1px solid rgba(0,0,0,0.125', zIndex:"3"}} style={{padding: "30px"}}>
+              <Grid item xs={12} md={6}>
+                <TextfieldCustom
+                type="text"
+                name="username" 
+                value={username} onChange={handleChange} placeholder="Username"
+                required
+                />            
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextfieldCustom
+                type="email"
+                name="email" 
+                value={email} onChange={handleChange} placeholder="Email" />            
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextfieldCustom 
+                type={showPassword?"text":"password"}
+                name="password" value={password} onChange={handleChange} placeholder="Password"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+                />          
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextfieldCustom 
+                type={showConfirmPassword?"text":"password"}
+                name="confirmPassword" value={confirmPassword} onChange={handleChange} placeholder="Confirm Password"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowConfirmPassword}
+                        
+                        edge="end"
+                      >
+                        {showConfirmPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+                />          
+              </Grid>
+              <Grid item xs={12}>
+                <TextfieldCustom
+                type="tel"
+                name="phone_number" 
+                required
+                value={phone_number} onChange={handleChange} placeholder="Phone Number" />            
+              </Grid>
+              <Grid item xs={12} md={6}>
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Programs</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={programId}
+                      defaultValue={programId}
+                      label="Program name"
+                      onChange={handleProgramChange}
+                      required
                     >
-                      {eachItem.program_name}
-                    </MenuItem>
-                  ))}
-                   <MenuItem
-                      value={99}
+                      {fetchPrograms.map((eachItem, i) => (
+                        <MenuItem
+                          key={eachItem.program_id}
+                          value={eachItem.program_id}
+                        >
+                          {eachItem.program_name}
+                        </MenuItem>
+                      ))}
+                      <MenuItem
+                          value={99}
+                        >
+                          PG-CET
+                        </MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+                {
+                (programId !== '') ?
+                <Grid item xs={12} md={6}>
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Courses</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={courseId}
+                      defaultValue={courseId}
+                      label="Course"
+                      onChange={handleCourseChange}
+                      required={programId !== 99}
                     >
-                      PG-CET
-                    </MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            {
-            (programId !== '') ?
-            <Grid item xs={12}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Courses</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={courseId}
-                  defaultValue={courseId}
-                  label="Course"
-                  onChange={handleCourseChange}
-                  required={programId !== 99}
-                >
-                  {item?.map((eachItem, i) => (
-                    <MenuItem
-                      key={eachItem.course_id}
-                      value={eachItem.course_id}
-                    >
-                      {eachItem.course_name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Grid>
-            : ""
-            }
-           <Grid item xs={12}>
-           <PopUpModal
-                buttonname={"Register"}
-                buttonClassName="btn btn-primary py-md-3"
-                buttonType="submit"
-                open={open}
-                setOpen={setOpen}
-                handleClose={handleClose}
-                handleOpen={handleOpen}
-              />
-                 {/* <Button variant="contained" style={{backgroundColor: '#3251A3', borderColor: '#FF5E14'}} 
-                 fullWidth type="submit">
-                   Register
-                 </Button> */}
-               </Grid>
-           <Grid item xs={12}>
-                 <Button variant="contained" fullWidth onClick={()=>navigate("/login")}>
-                   Login If you have account
-                 </Button>
-               </Grid>
-      </Grid>
-      </Paper>
+                      {item?.map((eachItem, i) => (
+                        <MenuItem
+                          key={eachItem.course_id}
+                          value={eachItem.course_id}
+                        >
+                          {eachItem.course_name}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Grid>
+                : ""
+                }
+              <Grid item xs={12}>
+              <PopUpModal
+                    buttonname={"Register"}
+                    buttonClassName="btn btn-primary py-md-3"
+                    buttonType="submit"
+                    open={open}
+                    setOpen={setOpen}
+                    handleClose={handleClose}
+                    handleOpen={handleOpen}
+                    style={{backgroundColor: '#3251A3', borderColor: '#FF5E14'}}
+                    fullWidth
+                  />
+                    {/* <Button variant="contained" style={{backgroundColor: '#3251A3', borderColor: '#FF5E14'}} 
+                    fullWidth type="submit">
+                      Register
+                    </Button> */}
+                  </Grid>
+              <Grid item xs={12}>
+                    <Button variant="contained" fullWidth onClick={()=>navigate("/login")}>
+                      Login If you have account
+                    </Button>
+                  </Grid>
+          </Grid>
+          </Paper>
+          </div>
+          </Grid>
+          </Container>
+        </form>
+        </div>
       </div>
-      </Grid>
-      </Container>
-    </form>
+    </>
   );
 };
 

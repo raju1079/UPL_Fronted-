@@ -1012,6 +1012,7 @@
 .what-learn .accordion-body{
     background-color: #C1FF72 !important;
     margin-bottom: 10px;
+    border-radius: 30px;
 }
 .what-learn .accordion-button:not(.collapsed){
     background-color: #C1FF72 !important;

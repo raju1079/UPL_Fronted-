@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import SubHero from '../common/SubHero'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCoursesById } from '../redux/actions/Actions';
+import { fetchCourseWithLesson, fetchCoursesById, fetchLessonByCourseId, fetchPrerequisiteByCourse } from '../redux/actions/Actions';
 import GoBackLink from '../common/GoBackLink';
 import CourseHero from '../common/CourseHero';
 import Prerequisite from './Prerequisite';
@@ -11,12 +11,17 @@ import Lessons from './Lessons';
 import { ArrowDownward, ArrowRight } from '@mui/icons-material';
 import { Button } from 'react-bootstrap';
 import ProjectButtons from './ProjectButtons';
+import LessonCommonMessage from './LessonCommonMessage';
+import PrerequisiteCommon from './PrerequisiteCommon';
 
 const CourseDetail = (props) => {
     const { id } = useParams()
     const location = useLocation()
     const [programInterested, setProgramInterested] = useState(location.state?.interestedProgram)
     const fetchCourseById = useSelector((state)=> state.fetchCourseById.courseById)
+    const fetchCourseWithLessonNunit = useSelector((state)=> state.getCourseWithLesson.courseWithLesson)
+    const prerequisitesByCourse = useSelector((state)=> state.getPrerequisiteByCourse.prerequisiteByCourse)
+    const lessonsByCourseId = useSelector((state)=> state.getLessonsByCourseId.lessonsByCourse)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     //console.log("course id", id)
@@ -29,15 +34,20 @@ const CourseDetail = (props) => {
 
     useEffect(()=>{
       dispatch(fetchCoursesById(id))
+      dispatch(fetchCourseWithLesson(id))
+      dispatch(fetchPrerequisiteByCourse(id))
+      dispatch(fetchLessonByCourseId(id))
       props.setBgColor('linear-gradient(to right, #FFF4B0, #FFB2F0)')
       return () => {
         props.setBgColor('')
     }
-    }, [props])
+    }, [dispatch,props,fetchCourseById])
     //console.log("Course Details", fetchCourseById)
     const selectedCourse = fetchCourseById[0]
     const interestedCourse = selectedCourse?.course_name
     const interestedCourseId = selectedCourse?.course_id
+    //console.log('course with l N u', fetchCourseWithLessonNunit)
+   // console.log('prerequsite',prerequisitesByCourse)
     //console.log("interestedCourse Details", interestedCourse + programInterested)
 
   return (
@@ -55,14 +65,25 @@ const CourseDetail = (props) => {
             {/* <GoBackLink /> */}
             <div className=''>
               <button className="btn btn-primary py-2 mx-3 top-0 end-0 mt-2 me-2" onClick={onDownload}>Download Syllabus</button>
-                <Prerequisite />
+                {
+                  (prerequisitesByCourse.length === 0) ?  
+                  <PrerequisiteCommon data={selectedCourse}  /> :
+                  <Prerequisite prerequisiteData={prerequisitesByCourse} />
+                }
+                
                 <div className='heading-box'>
                     <h3>What you will be Learning</h3>
                 </div>
-                {/* <div className="pageheadingWrap mt-5">
-                        <h3 className="pageheading">What you will be Learning</h3>
-                </div> */}
-                <Lessons data={selectedCourse} />
+                
+                {
+                  (fetchCourseWithLessonNunit.length === 0) ? 
+                  <LessonCommonMessage data={selectedCourse} onDownload={onDownload} /> : 
+                  <Lessons
+                lessonNunits={fetchCourseWithLessonNunit}
+                lessonsByCourseId={lessonsByCourseId}
+                 />
+                }
+                                
                 <div className='heading-box'>
                     <h3>&nbsp;</h3>
                 </div>

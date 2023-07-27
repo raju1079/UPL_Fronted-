@@ -27,6 +27,9 @@ import { GetLessons } from './reducers/GetLessons.js';
 import { GetUnits } from './reducers/GetUnits.js';
 import { GetCourseWithLesson } from './reducers/GetCourseWithLesson.js';
 import { GetUnitsByLesson } from './reducers/GetUnitsByLesson.js';
+import { GetUnitByCourse } from './reducers/GetUnitByCourse.js';
+import { GetPrequisiteByCourse } from './reducers/GetPrequisiteByCourse.js';
+import { GetLessonByCourseId } from './reducers/GetLessonByCourseId.js';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -54,7 +57,10 @@ const rootReducer = combineReducers({
   getLessons: GetLessons,
   getUnits: GetUnits,
   getUnitsByLesson:GetUnitsByLesson,
-  getCourseWithLesson:GetCourseWithLesson
+  getCourseWithLesson:GetCourseWithLesson,
+  getUnitsByCourse:GetUnitByCourse,
+  getPrerequisiteByCourse:GetPrequisiteByCourse,
+  getLessonsByCourseId:GetLessonByCourseId
 });
 
 export default rootReducer;
