@@ -13,11 +13,13 @@ import { Button } from 'react-bootstrap';
 import ProjectButtons from './ProjectButtons';
 import LessonCommonMessage from './LessonCommonMessage';
 import PrerequisiteCommon from './PrerequisiteCommon';
+import Benifits from './Benifits';
 
 const CourseDetail = (props) => {
     const { id } = useParams()
     const location = useLocation()
     const [programInterested, setProgramInterested] = useState(location.state?.interestedProgram)
+    const [programBenefits, setProgramBenefits] = useState(location.state?.interestedProgramBenefits)
     const fetchCourseById = useSelector((state)=> state.fetchCourseById.courseById)
     const fetchCourseWithLessonNunit = useSelector((state)=> state.getCourseWithLesson.courseWithLesson)
     const prerequisitesByCourse = useSelector((state)=> state.getPrerequisiteByCourse.prerequisiteByCourse)
@@ -25,6 +27,7 @@ const CourseDetail = (props) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     //console.log("course id", id)
+    const benifitsColumns=`${programInterested} Certificate; Program Transcript For The Entire Learning Path;Coding Bootcamps Can Open Doors To Exciting Technical CareerOpportunities;Mastering Programming Languages And Associated TechnologiesCan Prepare You To Work As A Software Or Web Developer;Strong Growth Projections And Lucrative Salaries`
 
     const onDownload = () => {
       //navigate('/download')
@@ -49,6 +52,7 @@ const CourseDetail = (props) => {
     //console.log('course with l N u', fetchCourseWithLessonNunit)
    // console.log('prerequsite',prerequisitesByCourse)
     //console.log("interestedCourse Details", interestedCourse + programInterested)
+    //console.log('benefits',programBenefits)
 
   return (
     <>
@@ -62,9 +66,16 @@ const CourseDetail = (props) => {
                   <ArrowRight /> {selectedCourse?.course_name}
                 </h1>
             </div>
+            <div className='course-benifits'>
+              {
+                (programBenefits === null) ? <Benifits data={benifitsColumns} onClick={onDownload} />
+                : <Benifits data={programBenefits} onClick={onDownload} />
+              }
+              
+            </div>
             {/* <GoBackLink /> */}
             <div className=''>
-              <button className="btn btn-primary py-2 mx-3 top-0 end-0 mt-2 me-2" onClick={onDownload}>Download Syllabus</button>
+              {/* <button className="btn btn-primary py-2 mx-3 top-0 end-0 mt-2 me-2" onClick={onDownload}>Download Syllabus</button> */}
                 {
                   (prerequisitesByCourse.length === 0) ?  
                   <PrerequisiteCommon data={selectedCourse}  /> :
@@ -83,13 +94,17 @@ const CourseDetail = (props) => {
                 lessonsByCourseId={lessonsByCourseId}
                  />
                 }
+                <div className='heading-box'>
+                    <h3>&nbsp;</h3>
+                </div>
+                <ProjectButtons buttonName={"Download to know more"} onClick={onDownload} wrapperClass='download-button-wrapper' />
                                 
                 <div className='heading-box'>
                     <h3>&nbsp;</h3>
                 </div>
-                <ProjectButtons buttonName={"Capstone Project"} />
+                <ProjectButtons buttonName={"Capstone Project"} wrapperClass='project-button-wrapper' />
                 
-                <ProjectButtons buttonName={"Live Project"} />
+                <ProjectButtons buttonName={"Live Project"} wrapperClass='project-button-wrapper' />
             </div>
             </div>
     </div>

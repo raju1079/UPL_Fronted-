@@ -11,7 +11,8 @@ const Prerequisite = (props) => {
         <h3>Prerequisite</h3>
         <div className="row pre-req-bg justify-content-center">
             {
-                props?.prerequisiteData.slice(0,4).map((eachSkill,i)=>(
+                /* only 4 prerequisites will display. controlled in backend service limit=4 */
+                props?.prerequisiteData.map((eachSkill,i)=>(
                     <div className="col-lg-3 col-md-3 col-sm-6" key={eachSkill.prerequisite_id}>
                         {
                             (eachSkill?.prerequisite_course_id !== null) ? 

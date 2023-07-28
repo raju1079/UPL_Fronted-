@@ -467,7 +467,7 @@ export const deleteProgramById = (id) => async (dispatch) => {
 export const fetchPrerequisiteByCourse = (id) =>async (dispatch)=>{
    
     try{
-        const response = await securedInstance.get(`/api/prerequisites/course/${id}` )
+        const response = await securedInstance.get(`/api/prerequisites/fourByCourse/${id}` )
     .then((res)=>{   
         const listData = res.data
         return listData;
@@ -486,7 +486,7 @@ export const fetchPrerequisiteByCourse = (id) =>async (dispatch)=>{
 export const fetchLessonByCourseId = (id) =>async (dispatch)=>{
    
     try{
-        const response = await securedInstance.get(`/api/lessons/lessPerCourse/${id}` )
+        const response = await securedInstance.get(`/api/lessons/sixLessPerCourse/${id}` )
     .then((res)=>{   
         const listData = res.data
         return listData;

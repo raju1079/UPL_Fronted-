@@ -958,6 +958,15 @@
     width: 100%;    
     box-shadow: none;
 }
+.download-button-wrapper .css-sghohy-MuiButtonBase-root-MuiButton-root{
+    background-color: red;
+    color: #fff;
+    border-radius: 25px;
+    font-family: inherit !important;
+    font-size: 1.5rem;
+    width: 100%;    
+    box-shadow: none;
+}
 .pre-req .css-s7d5x3-MuiButtonGroup-root{
     padding: 10px;
 }
@@ -1076,6 +1085,22 @@
 }
 .top-side-wrapper .css-ahj2mt-MuiTypography-root{
     font-size: 1rem !important;
+}
+/* program benifits styles */
+.course-benifits .card-wrapper{
+    background-color: white ;
+    box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+    padding: 15px;
+}
+.card-wrapper .bullet-wrapper{
+    background-color: #ff4500;
+    width: 25px;
+    height: 25px;
+}
+.card-wrapper .list-group-item{
+    border: none;
+    background-color: transparent;
 }
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {

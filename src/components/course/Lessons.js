@@ -36,6 +36,7 @@ const Lessons = (props) => {
         {/* Lessons */}
         <div className="row m-0 units-heading justify-content-center">
                 {
+                    /* only 6 lessons will display. controlled in backend service limit=6 */
                     lessons?.map((eachLesson,i)=>(
                         <div className="col-lg-4 col-md-4 col-sm-6" key={i}>
                             <div className='course-detail-downarrow'>
@@ -49,7 +50,8 @@ const Lessons = (props) => {
         <div className="row m-0 justify-content-center">
             
                 {
-                    Object.values(groupByLesson).map((eachLes,evar)=>(
+                    /* only 3 cards will display for units will display. controlled in frontend slice */
+                    Object.values(groupByLesson).slice(0,6).map((eachLes,evar)=>(
                         <div className="col-lg-4 col-md-4 col-sm-6 mt-3" key={evar}>
                             <div className='card-body h-100 '>
                             <div className='course-detail-downarrow'>
@@ -58,7 +60,8 @@ const Lessons = (props) => {
                             <div className='card-body'>
                                  {/* units as per lessons */}
                                 {
-                                    eachLes.map((eachUnit,ind)=>(
+                                    /* only 6 units will display. controlled in frontend slice */
+                                    eachLes.slice(0,6).map((eachUnit,ind)=>(
                                         <div className="accordion" id="accordionExample" key={eachUnit.unit_id}>
                                             <div className="accordion-item">
                                                 <h2 className="accordion-header" id={`heading${eachUnit.unit_id}`}>
