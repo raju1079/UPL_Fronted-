@@ -11,7 +11,7 @@ const Lessons = (props) => {
 
     /* group data by lesson id */
       const[groupByLesson,setGroupByLesson]=useState([])
-      const[lessons,setLessons] = useState([])
+      //const[lessons,setLessons] = useState([])
       function groupBy(objectArray, property) {
         return objectArray.reduce(function (acc, obj) {
           var key = obj[property];
@@ -23,10 +23,14 @@ const Lessons = (props) => {
         }, {});
       }
       useEffect(()=>{
-        setGroupByLesson(groupedBy)
-        setLessons(props?.lessonsByCourseId)
+        try{
+            setGroupByLesson(groupedBy)
+            /* setLessons(props?.lessonsByCourseId) */
+        }catch(err){
+            console.log(err)
+        }
 
-      },[props,groupedBy,lessons])
+      },[props,groupedBy])
       
       var groupedBy = groupBy(props?.lessonNunits, 'lesson_id');
      // console.log('grouped',Object.values(groupByLesson))
@@ -34,26 +38,21 @@ const Lessons = (props) => {
   return (
     <div className='what-learn '>
         {/* Lessons */}
-        <div className="row m-0 units-heading justify-content-center">
-                {
-                    /* only 6 lessons will display. controlled in backend service limit=6 */
-                    lessons?.map((eachLesson,i)=>(
-                        <div className="col-lg-4 col-md-4 col-sm-6" key={i}>
-                            <div className='course-detail-downarrow'>
-                                <i className='fa fa-solid fa-arrow-down'></i>
-                            </div>
-                            <Button variant='contained'> {eachLesson?.lesson_name} </Button>                            
-                        </div>
-                    ))
-                }
-        </div>
+        
         <div className="row m-0 justify-content-center">
             
                 {
                     /* only 3 cards will display for units will display. controlled in frontend slice */
                     Object.values(groupByLesson).slice(0,6).map((eachLes,evar)=>(
                         <div className="col-lg-4 col-md-4 col-sm-6 mt-3" key={evar}>
+                                                          
                             <div className='card-body h-100 '>
+                            <div className="units-heading">
+                                        <div className='course-detail-downarrow'>
+                                            <i className='fa fa-solid fa-arrow-down'></i>
+                                        </div>
+                                        <Button variant='contained'> {eachLes[0]?.lesson_name} </Button>                            
+                                    </div>
                             <div className='course-detail-downarrow'>
                                 <i className='fa fa-solid fa-arrow-down'></i>
                             </div>
