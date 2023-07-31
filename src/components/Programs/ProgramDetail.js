@@ -1,15 +1,11 @@
 import { styled } from '@mui/material/styles';
-import { Avatar, Box, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, List, ListItem, Paper, Typography } from '@mui/material'
-import IconButton from '@mui/material/IconButton';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams, } from 'react-router-dom'
-import jsondata from '../../data/data.json'
-import SubHero from '../common/SubHero';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCourseList, fetchProgramById, fetchProgramId, fetchProgramList } from '../redux/actions/Actions';
-import { Assignment, Folder } from '@mui/icons-material';
+import { fetchCourseList, fetchProgramById, fetchProgramId } from '../redux/actions/Actions';
 import GoBackLink from '../common/GoBackLink';
+import ProgramDetailHero from '../common/ProgramDetailHero';
+import IconButton from '@mui/material/IconButton';
 
 const ExpandMore = styled((props) => {
     
@@ -34,15 +30,6 @@ const ProgramDetail = () => {
 
     const [item, setItem] = useState([]);
 
-    /* useEffect(() => {
-      fetchProgramsById.map((eachCourse, index)=>(
-        console.log('courses from courselink',eachCourse.course_id)
-        //setCourses(eachCourse)
-      ))
-    }, [courses,fetchProgramsById]); */
-    
-    
-    
     useEffect(()=>{
       dispatch(fetchProgramById(id))
       dispatch(fetchCourseList())
@@ -64,7 +51,7 @@ const ProgramDetail = () => {
 
   return (
     <div className='programdetail-wrapper'>
-      <SubHero />
+      <ProgramDetailHero programDetailData={selectedProgram}/>
       <div className="container-xxl py-5">
         <div className="container">
             <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -72,47 +59,11 @@ const ProgramDetail = () => {
                 <h1 className="mb-5">{selectedProgram?.program_name}</h1>
             </div>
             <GoBackLink />
-            <div className='row'>
-            <table className="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col" colSpan={3}>Details of the program</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Category</th>
-              <td>{selectedProgram?.category}</td>
-              
-            </tr>
-            <tr>
-              <th scope="row">Target Audience</th>
-              <td>{selectedProgram?.target_audience}</td>
-              
-            </tr>
-            <tr>
-              <th scope="row">Cost</th>
-              <td>{selectedProgram?.cost}</td>
-            </tr>
-            <tr>
-              <th scope="row">Course Coverage</th>
-              <td>{selectedProgram?.program_coverage}</td>
-            </tr>
-            <tr>
-              <th scope="row">Outcome</th>
-              <td>{selectedProgram?.outcome}</td>
-            </tr>
-            <tr>
-              <th scope="row">Career Opportunities</th>
-              <td>{selectedProgram?.career_opportunities}</td>
-            </tr>
-          </tbody>
-        </table>
-            </div>
+            
             <div className="row g-4">
             {
               item.map((eachItem,index)=>(
-                <div className="col-lg-3 col-md-6 wow fadeInUp courseslist-wrapper" data-wow-delay="0.3s" key={eachItem.course_id}>
+                <div className="col-lg-3 col-md-6 wow fadeInUp courseslist-wrapper" data-wow-delay="0.3s" key={index}>
                     <div className="team-item h-100">
                         {/* <div className="overflow-hidden coursename">
                         <img className="img-fluid" src={`/img/courses/${selectedProgram?.program_name}/${eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")}.png`} alt={eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")} />
