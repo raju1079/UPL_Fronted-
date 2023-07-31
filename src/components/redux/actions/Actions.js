@@ -500,3 +500,21 @@ export const fetchLessonByCourseId = (id) =>async (dispatch)=>{
     }
     
 }
+// GET ACTIVE PROMOTION FOR HOME PAGE HERO
+export const getActivePromotionEvent = () =>async (dispatch)=>{
+   
+    try{
+     const response = await axiosinstance.get('/api/promotions/active/event' )
+     .then((res)=>{   
+         const listData = res.data
+         return listData;
+     })
+     dispatch({
+         type: ActionTypes.GET_ACTIVE_PROMOTION_EVENT,
+         payload: response
+     })  
+    }catch(err){
+     console.log(err)
+    }
+     
+ }
