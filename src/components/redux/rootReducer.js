@@ -16,6 +16,7 @@ import GetVisitorById from './reducers/GetVisitorById.js';
 import GetUserById from './reducers/GetUserById.js';
 import { UpdateUserReducer } from './reducers/UpdateUserReducer.js';
 import FetchProgramId from './reducers/FetchProgramId.js';
+import FetchSubProgramId from './reducers/FetchSubProgramId.js';
 import { FetchProgramWithCourse } from './reducers/FetchProgramWithCourse.js';
 import { UpdateUserStatus } from './reducers/UpdateUserStatus.js';
 import { GetStatusList } from './reducers/GetStatusList.js';
@@ -49,6 +50,7 @@ const rootReducer = combineReducers({
   editProgram:UpdateProgramReducer,
   editUser:UpdateUserReducer,
   getProgramsId: FetchProgramId,
+  fetchSubProgramId: FetchSubProgramId,
   getProgramsWithCourse: FetchProgramWithCourse,
   getAllStatusList: GetStatusList,
   editUserStatus: UpdateUserStatus,

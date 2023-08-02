@@ -20,6 +20,7 @@ import {
   fetchProgramList,
   getProgramCourseCombo,
   registerSubsciber,
+  fetchSubProgramId,
 } from "../redux/actions/Actions";
 
 const HeroPromotionForm = () => {
@@ -32,7 +33,8 @@ const HeroPromotionForm = () => {
   const programCourseId = useSelector(
     (state) => state.programCourseCombo.programCourseCombination
   ); /* program course combo  */
-
+  const subprogramId = useSelector((state) => state.fetchSubProgramId.subprogramId); /* subprogram dropdownlist as per program id */
+  // console.log("Redux State:", fetchSubProgramId)
   const [item, setItem] = useState([]);
 
   const dispatch = useDispatch();
@@ -49,20 +51,25 @@ const HeroPromotionForm = () => {
   const { username, email, phone_number } = formData;
   const [programId, setProgramId] = useState("");
   const [courseId, setCourseId] = useState("");
+  const [subProgramId, setSubProgramId] = useState("");
 
   const handleProgramChange = (e) => {
     setProgramId(e.target.value);
     dispatch(fetchProgramById(e.target.value));
+    dispatch(fetchSubProgramId(e.target.value));
     dispatch(fetchProgramId(e.target.value));
   };
 
   const handleCourseChange = (e) => {
     setCourseId(e.target.value);
   };
+  const handleSubProgramChange = (e) => {
+    setSubProgramId(e.target.value);
+  };
 
   useEffect(() => {
-    setItem(fetchProgramsById);
-  }, [item, fetchProgramsById]);
+    setItem(subprogramId);
+  }, [item, subprogramId]);
 
   //pop up modal
   const [open, setOpen] = React.useState(false);
@@ -82,15 +89,19 @@ const HeroPromotionForm = () => {
     subscriber_name: formData.username,
     email: formData.email,
     phone_number: formData.phone_number,
-    program_course_id: programCourseId[0]?.program_course_id,
+    subprogram_id: subprogramId[0]?.subprogram_id,
+    // program_course_id: programCourseId[0]?.program_course_id,
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (programCourseId !== "") {
+    if (subprogramId !== "") {
       dispatch(registerSubsciber(registerData));
     }
+
+    // if (programCourseId !== "") {
+    //   dispatch(registerSubsciber(registerData));
+    // }
 
     console.log("formdata", registerData);
     setFormData({
@@ -99,6 +110,7 @@ const HeroPromotionForm = () => {
       phone_number: "",
     });
     setProgramId("");
+    setSubProgramId("");
     setCourseId("");
   };
 
@@ -113,7 +125,7 @@ const HeroPromotionForm = () => {
   useEffect(() => {
     dispatch(fetchProgramList());
   }, [dispatch]);
-
+  console.log("items",item)
   return (
     <>
       <form onSubmit={handleSubmit} className="mb-3">
@@ -180,27 +192,50 @@ const HeroPromotionForm = () => {
               (programId !== '') ?
               <Grid item xs={12}>
               <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Courses</InputLabel>
+                <InputLabel id="demo-simple-select-label">SubPrograms</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={courseId}
-                  defaultValue={courseId}
-                  label="Course"
-                  onChange={handleCourseChange}
+                  value={subProgramId}
+                  defaultValue={subProgramId}
+                  label="program"
+                  onChange={handleSubProgramChange}
                   required
                 >
                   {item?.map((eachItem, i) => (
                     <MenuItem
-                      key={eachItem.course_id}
-                      value={eachItem.course_id}
+                      key={eachItem.subprogram_id}
+                      value={eachItem.subprogram_id}
                     >
-                      {eachItem.course_name}
+                      {eachItem.subprogram_name}
                     </MenuItem>
                   ))}
                 </Select>
               </FormControl>
             </Grid>
+            //   <Grid item xs={12}>
+            //   <FormControl fullWidth>
+            //     <InputLabel id="demo-simple-select-label">Courses</InputLabel>
+            //     <Select
+            //       labelId="demo-simple-select-label"
+            //       id="demo-simple-select"
+            //       value={courseId}
+            //       defaultValue={courseId}
+            //       label="Course"
+            //       onChange={handleCourseChange}
+            //       required
+            //     >
+            //       {item?.map((eachItem, i) => (
+            //         <MenuItem
+            //           key={eachItem.course_id}
+            //           value={eachItem.course_id}
+            //         >
+            //           {eachItem.course_name}
+            //         </MenuItem>
+            //       ))}
+            //     </Select>
+            //   </FormControl>
+            // </Grid>
             : ""
             }
             <Grid item xs={12} className="text-end">

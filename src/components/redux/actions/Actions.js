@@ -36,6 +36,21 @@ export const fetchProgramId = (id) =>async (dispatch)=>{
     })  
     
 }
+/* GET PROGRAM BY ID */
+export const fetchSubProgramId = (id) =>async (dispatch)=>{
+   
+    const response = await axiosinstance.get(`/api/subprogram/programid/${id}`)
+    .then((res)=>{   
+        const listData = res.data
+        console.log("subprograms selected", listData)
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.FETCH_SUBPROGRAM_ID,
+        payload: response
+    })  
+    
+}
 /* GET PROGRAM BY ID from programCourseLinking */
 export const fetchProgramswithCourses = () =>async (dispatch)=>{
    
