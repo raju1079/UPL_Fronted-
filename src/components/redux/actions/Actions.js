@@ -389,7 +389,37 @@ export const deleteProgramById = (id) => async (dispatch) => {
       toast.error(error.response.data.error + " "+ 'Please TRY again')
     }
   };
-
+/* GET All Users */
+export const getAllSubscribers = () =>async (dispatch)=>{
+   
+    const response = await securedInstance.get('/api/subscribers/subscriberWithProgram' )
+    .then((res)=>{   
+        const listData = res.data
+        const sortedData = listData.sort((a,b)=> b.user_id - a.user_id)
+      // console.log("programs loaded", sortedData)
+        return sortedData;
+    })
+    dispatch({
+        type: ActionTypes.GET_ALL_SUBSCRIBER,
+        payload: response
+    })  
+    
+}
+//delete a program
+export const deleteSubscriberById = (id) => async (dispatch) => {    
+    try {
+        const response = await securedInstance.delete(`/api/subscribers/${id}`)
+        .then((res)=>{
+           console.log(`Program deleted with Id:${id}`)            
+        })
+        dispatch({
+            type: ActionTypes.DELETE_PROGRAM,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
   // GET lessons
   export const fetchLessons = () =>async (dispatch)=>{
    try{

@@ -1,4 +1,7 @@
 /********** Template CSS **********/
+h1,h2,h3,h4,h5,h6,p{
+    font-family: "poppins";
+}
 :root {
     --primary: #3251A3;
     --light: #F0FBFC;
@@ -934,6 +937,9 @@
 .courseTitle{
     color: #7843E6;
 }
+.courseTitle a{
+    color: wheat;
+}
 .units-heading .css-sghohy-MuiButtonBase-root-MuiButton-root{
     background-color: #004AAD;
     color: #C1FF72;
@@ -1102,6 +1108,16 @@
     border: none;
     background-color: transparent;
 }
+.toll-bg{
+    background-color: #0f8cff;
+}
+.toll-free-text{
+    font-family: "Oswald";
+}
+.events-strip .strip-content{
+    animation: Color 4s linear infinite;
+  -webkit-animation: Color 4s ease-in-out infinite;
+}
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {
         width: 100% !important;
@@ -1122,3 +1138,49 @@
         font-size: 10px !important;
     }
 }
+@media only screen and (max-width: 500px) {
+    .toll-free-text{
+        margin-top: 15px;
+    }
+}
+
+/* text color animation EVENTs */
+@keyframes Color{
+    0%{
+      color:#000;
+    }    
+    60%{
+      color:#004AAD;
+    }
+    
+    100%{
+      color:#dc3545;
+    }
+  }
+  
+  @-moz-keyframes Color{
+    0%{
+        color:#000;
+      }    
+      60%{
+        color:#004AAD;
+      }
+      
+      100%{
+        color:#dc3545;
+      }
+  }
+  
+  @-webkit-keyframes Color{
+    0%{
+        color:#000;
+      }    
+      60%{
+        color:#004AAD;
+      }
+      
+      100%{
+        color:#dc3545;
+      }
+  }
+  

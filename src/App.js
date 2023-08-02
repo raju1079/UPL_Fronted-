@@ -38,6 +38,7 @@ import AddPromotion from './components/auth/admin/addpromotion/AddPromotion';
 import SubscriberEnquiry from './components/auth/subscriberenquiry/SubscriberEnquiry';
 import AddNewProgram from './components/auth/admin/addprogram/AddNewProgram';
 import CreateNewUser from './components/auth/admin/adduser/CreateNewUser';
+import LatestEvent from './components/events/LatestEvent';
 
 function App() {
   const[bgcolor,setBgColor] = useState('')
@@ -67,6 +68,7 @@ function App() {
           <Route exact path='/welcome' element={<Welcome />}></Route>
           <Route exact path='/download' element={<DownloadLesson />} />
           <Route exact path='/contact' element={<Contact />} />
+          <Route exact path='/latestEvent/:id' element={<LatestEvent />} />
           
           <Route path='/auth' >
             <Route  path='ExecutorDashboard' element={<ExecutorDashboard />} />

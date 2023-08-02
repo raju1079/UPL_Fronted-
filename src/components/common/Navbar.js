@@ -19,6 +19,7 @@ const Navbar = () => {
         <Link to={"/"} className="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <img src='/img/upllogo.png' alt='unlimited power of learning' />
         </Link>
+        <h6 className="text-danger p-1 px-3 toll-free-text"> Toll Free <i className="fa fa-phone"></i>+91 84316 63025</h6>
         <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span className="navbar-toggler-icon"></span>
         </button>

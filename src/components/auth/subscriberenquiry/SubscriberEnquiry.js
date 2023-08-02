@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import WelcomeMenus from '../WelcomeMenus';
+import SubscribersList from './SubscribersList';
 
 const SubscriberEnquiry = () => {
     const { isAuthenticated, user } = useSelector((state) => state.auth);
@@ -9,9 +10,8 @@ const SubscriberEnquiry = () => {
   return (
     <div>
        {
-        isAuthenticated && userId === 1 ? ("Subscriber Enquiry list") : (
-          <WelcomeMenus />
-        )
+        isAuthenticated && userId === 1 ? <SubscribersList />
+         : (<WelcomeMenus />)
 
       }
             

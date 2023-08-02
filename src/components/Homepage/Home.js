@@ -8,6 +8,7 @@ import Testimonials from './Testimonials'
 import { useLocation } from 'react-router-dom'
 import HeroPromotion from '../promotion/HeroPromotion'
 import AllProgramsButton from './AllProgramsButton'
+import EventsAd from '../common/EventsAd'
 
 const Home = () => {
   const location = useLocation()
@@ -17,6 +18,7 @@ const Home = () => {
   return (
     <>
     {/* <Hero /> */}
+    {/* <EventsAd /> */}
     <HeroPromotion />
     <Services />
     <Category />

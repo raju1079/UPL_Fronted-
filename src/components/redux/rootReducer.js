@@ -31,6 +31,7 @@ import { GetUnitByCourse } from './reducers/GetUnitByCourse.js';
 import { GetPrequisiteByCourse } from './reducers/GetPrequisiteByCourse.js';
 import { GetLessonByCourseId } from './reducers/GetLessonByCourseId.js';
 import { GetActivePromotionEvent } from './reducers/GetActivePromotionEvent.js';
+import { GetSubscriberList } from './reducers/GetSubscriberList.js';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -55,6 +56,7 @@ const rootReducer = combineReducers({
   getVisitorsByStatus:GetVisitorsByStatus,
   programCourseCombo:ProgramCourseCombination,
   subscriberRegister: SubscriberReducer,
+  getAllSubscribersNprogram: GetSubscriberList,
   getLessons: GetLessons,
   getUnits: GetUnits,
   getUnitsByLesson:GetUnitsByLesson,

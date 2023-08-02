@@ -40,7 +40,7 @@ const CourseDetail = (props) => {
       dispatch(fetchCourseWithLesson(id))
       dispatch(fetchPrerequisiteByCourse(id))
       dispatch(fetchLessonByCourseId(id))
-      props.setBgColor('linear-gradient(to right, #FFF4B0, #FFB2F0)')
+      props.setBgColor('radial-gradient( #fff, #0f8cff)')
       return () => {
         props.setBgColor('')
     }
