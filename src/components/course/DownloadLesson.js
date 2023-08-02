@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { saveAs } from "file-saver";
 import TextfieldCustom from '../common/TextfieldCustom'
 import { Button, Container, Grid, Paper, TextField } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { getEmailId } from '../redux/actions/Actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { getEmailId, getProgramCourseCombo } from '../redux/actions/Actions';
 import { register } from '../redux/auth/authActions';
 import { useLocation } from 'react-router-dom';
 import GoBackLink from '../common/GoBackLink';
 
 const DownloadLesson = () => {
   const location = useLocation()
+  const programCourseId = useSelector((state) => state.programCourseCombo.programCourseCombination); /* program course combo  */
   const [courseInterested, setCourseInterested] = useState(location.state.interestedCourse)
   const [courseInterestedId, setCourseInterestedId] = useState(location.state.interestedCourseId)
+  const [programInterestedId, setProgramInterestedId] = useState(location.state.programInterestedId)
   const[programInterested, setProgramInterested] = useState(location.state.programInterested)
     const[mail,setMail] = useState('')
     const[mobile,setMobile] = useState('')
@@ -24,6 +26,7 @@ const DownloadLesson = () => {
       password: "qwe",
       phone_number: mobile,
         role_id: "2",
+        program_course_id: programCourseId[0]?.program_course_id,
       course_id: courseInterestedId
     }
     useEffect(()=>{
@@ -31,8 +34,7 @@ const DownloadLesson = () => {
     },[visitorData])
       const handleSubmit = (e)=>{
         e.preventDefault()
-        //console.log("enter mail id is", formData)
-        //dispatch(register(formData))
+       // console.log("enter mail id is", formData)
         dispatch(getEmailId(formData))
         setMail("")
         setMobile("")
@@ -41,6 +43,12 @@ const DownloadLesson = () => {
         }
         
       }
+      //console.log('program course',courseInterestedId,programInterestedId)
+      useEffect(()=>{
+        if (formData !== "") {
+          dispatch(getProgramCourseCombo({ program_id: programInterestedId, course_id: courseInterestedId }));
+        }
+      },[formData,programInterestedId,courseInterestedId])
       
   return (
     <>

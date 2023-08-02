@@ -19,6 +19,8 @@ const CourseDetail = (props) => {
     const { id } = useParams()
     const location = useLocation()
     const [programInterested, setProgramInterested] = useState(location.state?.interestedProgram)
+    const [programInterestedId, setProgramInterestedId] = useState(location.state?.interestedProgramId)
+
     const [programBenefits, setProgramBenefits] = useState(location.state?.interestedProgramBenefits)
     const fetchCourseById = useSelector((state)=> state.fetchCourseById.courseById)
     const fetchCourseWithLessonNunit = useSelector((state)=> state.getCourseWithLesson.courseWithLesson)
@@ -32,7 +34,7 @@ const CourseDetail = (props) => {
     const onDownload = () => {
       //navigate('/download')
       //navigate('/download', {state: {interestedCourse, programInterested}})
-      navigate('/download', {state: {interestedCourseId,programInterested,interestedCourse}})
+      navigate('/download', {state: {interestedCourseId,programInterestedId,programInterested,interestedCourse}})
     };
 
     useEffect(()=>{

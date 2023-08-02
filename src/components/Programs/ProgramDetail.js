@@ -41,6 +41,7 @@ const ProgramDetail = () => {
    //const selectedProgram = fetchProgramsById[0]
    const selectedProgram = fetchProgramsdetail[0]
    const interestedProgram = selectedProgram?.program_name
+   const interestedProgramId = selectedProgram?.program_id
    const interestedProgramBenefits = selectedProgram?.program_benefits
 
    useEffect(()=>{
@@ -71,7 +72,7 @@ const ProgramDetail = () => {
                         <div className="hover-container">
                         <img className="img-fluid" src={`/img/courses/${selectedProgram?.program_name}/${eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")}.png`} alt={eachItem.course_name.replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")} />
                         <div className="course-overlay">
-                        <Link className="btn btn-lg btn-warning mx-1 overlay-hover-btn" to={`/courses/${eachItem.course_id}`} state={{interestedProgram,interestedProgramBenefits}}>Explore</Link>
+                        <Link className="btn btn-lg btn-warning mx-1 overlay-hover-btn" to={`/courses/${eachItem.course_id}`} state={{interestedProgram,interestedProgramBenefits,interestedProgramId}}>Explore</Link>
                         </div>
                       </div>
                         {/* <div className="position-relative d-flex justify-content-center" style={{marginTop: "-23px"}}>
