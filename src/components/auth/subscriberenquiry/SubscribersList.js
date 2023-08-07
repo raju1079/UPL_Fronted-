@@ -74,7 +74,7 @@ const SubscribersList = () => {
           subscriber_name: row.subscriber_name,
           email: row.email,
           phone_number: row.phone_number,
-          program_name: row.program_name,
+          program_name: row.subprogram_name, // to display program name use program_name
           registered_date: formatDate(row.registered_date)
     
         }

@@ -406,8 +406,8 @@ export const deleteProgramById = (id) => async (dispatch) => {
   };
 /* GET All Users */
 export const getAllSubscribers = () =>async (dispatch)=>{
-   
-    const response = await securedInstance.get('/api/subscribers/subscriberWithProgram' )
+   // to display subscriber with program name use api='subscriberWithProgram', subscriber with subprogram='subscriberWithSubProgram'
+    const response = await securedInstance.get('/api/subscribers/subscriberWithSubProgram' )
     .then((res)=>{   
         const listData = res.data
         const sortedData = listData.sort((a,b)=> b.user_id - a.user_id)
@@ -420,7 +420,7 @@ export const getAllSubscribers = () =>async (dispatch)=>{
     })  
     
 }
-//delete a program
+//delete 
 export const deleteSubscriberById = (id) => async (dispatch) => {    
     try {
         const response = await securedInstance.delete(`/api/subscribers/${id}`)
