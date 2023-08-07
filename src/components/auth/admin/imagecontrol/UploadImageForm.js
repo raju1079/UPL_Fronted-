@@ -41,7 +41,13 @@ const UploadImageForm = () => {
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} />
+      <div className="container-xxl">
+        <div className="container">
+            <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 className="section-title bg-white text-center text-primary px-3">Upload Image</h6>
+            </div>
+            <div className='p-5'>
+            <input type="file" onChange={handleFileChange} />
       <input
         type="text"
         placeholder="Course ID"
@@ -61,6 +67,10 @@ const UploadImageForm = () => {
         onChange={(e) => setType(e.target.value)}
       />
       <button onClick={handleUpload}>Upload</button>
+            </div>
+        </div>
+      </div>
+      
     </div>
   );
 };

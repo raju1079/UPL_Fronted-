@@ -39,6 +39,8 @@ import SubscriberEnquiry from './components/auth/subscriberenquiry/SubscriberEnq
 import AddNewProgram from './components/auth/admin/addprogram/AddNewProgram';
 import CreateNewUser from './components/auth/admin/adduser/CreateNewUser';
 import LatestEvent from './components/events/LatestEvent';
+import Register from './components/channelpartners/auth/Register';
+import ImageManagement from './components/auth/admin/imagecontrol/ImageManagement';
 
 function App() {
   const[bgcolor,setBgColor] = useState('')
@@ -94,8 +96,9 @@ function App() {
             <Route  path='allPrograms' element={<AllPrograms />} />
             <Route  path='updateProgram/:id' element={<UpdateProgram />} />
             {/* admin CRUD image */}
-            <Route  path='uploadProgramImage' element={<UploadImage />} />
+            <Route  path='uploadImage' element={<UploadImage />} />
             <Route  path='imageGallery' element={<ImageGallery />} />
+            <Route  path='imageControl' element={<ImageManagement />} />
             
             <Route  path='dashboard' element={<Dashboard />} />
             {/* admin CRUD course */}
@@ -115,6 +118,7 @@ function App() {
             
           </Route>
          
+         <Route path='/channelPartnerRegister' element={<Register />} />
           
         </Routes>
         </div>

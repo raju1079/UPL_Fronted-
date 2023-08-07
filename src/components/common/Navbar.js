@@ -16,10 +16,10 @@ const Navbar = () => {
   return (
     <div className="fixed-top">
     <nav className="navbar navbar-expand-lg bg-white navbar-light pb-3">
-        <Link to={"/"} className="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <Link to={"/"} className="navbar-brand d-flex align-items-center ">
             <img src='/img/upllogo.png' alt='unlimited power of learning' />
         </Link>
-        <h6 className="text-danger p-1 px-3 toll-free-text"> Toll Free <i className="fa fa-phone"></i>+91 84316 63025</h6>
+        <h6 className="text-primary p-1 px-3 toll-free-text"> Toll Free <i className="fa fa-phone"></i>+91 84316 63025</h6>
         <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span className="navbar-toggler-icon"></span>
         </button>
@@ -42,6 +42,7 @@ const Navbar = () => {
                 </div>
                 <Link to="/contact" className="nav-item nav-link">Contact</Link>
                 <Link to="/login" className="nav-item nav-link">Login</Link>
+                <Link to={"/channelPartnerRegister"} className="nav-item nav-link">OnBoarding</Link>
             </div>
             <Link to={"/registerform"} className="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Enroll Now<i className="fa fa-arrow-right ms-3"></i></Link>
         </div>

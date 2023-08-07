@@ -13,9 +13,6 @@ const UploadImage = () => {
         {
             userId === 1 ?
        <>
-       <div className='mb-3'>
-        <AdminMenus />
-       </div>
         <UploadImageForm />
        </>    
        : <WelcomeMenus />

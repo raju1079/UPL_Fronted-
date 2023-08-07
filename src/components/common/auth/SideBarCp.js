@@ -160,7 +160,7 @@ const SideBarCp = ({ open, handleDrawerClose,theme }) => {
         component="main"
         className="sidemuicontainer"
       >
-        <DrawerHeader />
+        {/* <DrawerHeader /> */}  {/* if any UI issues. enable this */}
         <Outlet />
       </Box>
       

@@ -52,7 +52,7 @@
           "key": 7,
           "title": "Images",
           "icon": "ImageRounded",
-          "link":"/AdminCp/imageGallery"
+          "link":"/AdminCp/imageControl"
       },
       {
           "key": 8,
