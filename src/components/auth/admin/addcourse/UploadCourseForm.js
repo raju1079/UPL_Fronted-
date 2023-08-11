@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Paper, Select } from '@mui/material';
+import { Button, Container, Grid, Paper } from '@mui/material';
 import TextfieldCustom from '../../../common/TextfieldCustom';
+import { uploadNewCourse } from '../../../redux/actions/Actions';
 
 
 const UploadCourseForm = () => {
@@ -14,7 +15,7 @@ const UploadCourseForm = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     course_name: '', 
-    instructor_id: '', 
+    instructor_id: null, 
     description: '', 
     duration: '', 
     start_date: null, 
@@ -38,6 +39,7 @@ const UploadCourseForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(uploadNewCourse(courseData));
       navigate("/AdminCp/allCourses")
       console.log("formdata", courseData)        
   };
@@ -68,6 +70,14 @@ const UploadCourseForm = () => {
              required
              />            
            </Grid>
+      {/*   <Grid item xs={6}>
+             <TextfieldCustom
+             type="text"
+             name=" instructor_id" 
+             value={ instructor_id} onChange={handleChange} placeholder=" instructor_id"
+             required
+             />            
+           </Grid>    */}          
            <Grid item xs={6}>
              <TextfieldCustom
              type="text"

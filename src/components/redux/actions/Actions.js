@@ -563,3 +563,138 @@ export const getActivePromotionEvent = () =>async (dispatch)=>{
     }
      
  }
+
+ //Upload new course
+export const uploadNewCourse = (newCourseData) => async (dispatch) => {
+    
+    try {
+        const response = await securedInstance.post('/api/courses', newCourseData)
+        .then((res)=>{   
+            const listData = res.data
+          console.log("courses loaded", listData)
+          toast.success("You have successfully uploaded course")  
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.UPLOAD_COURSE,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+   //delete a course
+export const deleteCourseById = (id) => async (dispatch) => {    
+    try {
+        const response = await securedInstance.delete(`/api/courses/${id}`)
+        .then((res)=>{
+           //console.log(`Course deleted with Id:${id}`)
+           toast.success("You have successfully deleted course")            
+        })
+        dispatch({
+            type: ActionTypes.DELETE_COURSE,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  }; 
+
+//update  course by id
+export const updateCourseById = (updatedCourseData, id) => async (dispatch) => {
+    
+    try {
+        const response = await securedInstance.put(`/api/courses/${id}`, updatedCourseData)
+        .then((res)=>{   
+            const listData = res.data
+          // console.log("courses loaded", listData)
+          toast.success("You have successfully updated course") 
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.EDIT_COURSE,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+
+   //Upload new lesson
+export const uploadNewLesson = (newLessonData) => async (dispatch) => {
+    
+    try {
+        const response = await securedInstance.post('/api/lessons', newLessonData)
+        .then((res)=>{   
+            const listData = res.data
+          console.log("lessons loaded", listData)
+          toast.success("You have successfully uploaded lessons")  
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.UPLOAD_LESSON,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+   //Upload new unit
+export const uploadNewUnit = (newUnitData) => async (dispatch) => {
+    
+    try {
+        const response = await securedInstance.post('/api/units', newUnitData)
+        .then((res)=>{   
+            const listData = res.data
+          console.log("units loaded", listData)
+          toast.success("You have successfully uploaded unit")  
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.UPLOAD_UNIT,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+    /* GET Lesson BY ID */
+export const fetchLessonId = (id) =>async (dispatch)=>{
+   
+    const response = await axiosinstance.get(`/api/lessons/${id}`)
+    .then((res)=>{   
+        const listData = res.data
+       // console.log("lessons selected", listData)
+        return listData;
+    })
+    //console.log("test")
+    dispatch({
+        type: ActionTypes.FETCH_LESSON_ID,
+        payload: response
+    })  
+};
+
+   //Upload new Prerequisite
+   export const uploadNewPrerequisite = (newPrerequisiteData) => async (dispatch) => {
+    
+    try {
+        const response = await securedInstance.post('/api/Prerequisites', newPrerequisiteData)
+        .then((res)=>{   
+            const listData = res.data
+          console.log("units loaded", listData)
+          toast.success("You have successfully uploaded Prerequisite")  
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.UPLOAD_PREREQUISITE,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+

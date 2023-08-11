@@ -41,6 +41,11 @@ import CreateNewUser from './components/auth/admin/adduser/CreateNewUser';
 import LatestEvent from './components/events/LatestEvent';
 import Register from './components/channelpartners/auth/Register';
 import ImageManagement from './components/auth/admin/imagecontrol/ImageManagement';
+import UpdateCourse from './components/auth/admin/addcourse/UpdateCourse';
+import AddNewLesson from './components/auth/admin/addlesson/AddNewLesson';
+import AddNewUnit from './components/auth/admin/addunit/AddNewUnit';
+import AddNewPrerequisite from './components/auth/admin/addprerequsite/AddNewPrerequisite';
+
 
 function App() {
   const[bgcolor,setBgColor] = useState('')
@@ -104,6 +109,10 @@ function App() {
             {/* admin CRUD course */}
             <Route  path='allCourses' element={<AllCourses />} />
             <Route  path='addNewCourse' element={<AddNewCourse />} />
+            <Route  path='updateCourse/:id' element={<UpdateCourse />} />
+            <Route  path='addNewLesson' element={<AddNewLesson />} />
+            <Route  path='addNewUnit' element={<AddNewUnit />} />
+            <Route  path='addNewPrerequisite' element={<AddNewPrerequisite />} />
             {/* admin CRUD programcourse linking */}
             <Route  path='allCategory' element={<MakeCategory />} />
             

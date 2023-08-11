@@ -33,6 +33,14 @@ import { GetPrequisiteByCourse } from './reducers/GetPrequisiteByCourse.js';
 import { GetLessonByCourseId } from './reducers/GetLessonByCourseId.js';
 import { GetActivePromotionEvent } from './reducers/GetActivePromotionEvent.js';
 import { GetSubscriberList } from './reducers/GetSubscriberList.js';
+import { UploadCourse } from './reducers/UploadCourse.js';
+import { UpdateCourseReducer } from './reducers/UpdateCourseReducer.js';
+import { UploadLesson } from './reducers/UploadLesson.js';
+import { UploadUnit } from './reducers/UploadUnit.js';
+import FetchLessonId from './reducers/FetchLessonId.js';
+import { UploadPrerquisite } from './reducers/UploadPrerquisite.js';
+
+
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -66,7 +74,13 @@ const rootReducer = combineReducers({
   getUnitsByCourse:GetUnitByCourse,
   getPrerequisiteByCourse:GetPrequisiteByCourse,
   getLessonsByCourseId:GetLessonByCourseId,
-  fetchActivePromotionEvent:GetActivePromotionEvent
+  fetchActivePromotionEvent:GetActivePromotionEvent,
+  addNewCourse: UploadCourse,
+  editCourse:UpdateCourseReducer,
+  addNewLesson:UploadLesson,
+  addNewUnit:UploadUnit,
+  getLessonsId: FetchLessonId,
+  addNewPrerequisite:UploadPrerquisite
 });
 
 export default rootReducer;
