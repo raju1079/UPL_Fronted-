@@ -130,6 +130,7 @@ export const getEmailId = (userData) => async (dispatch) => {
   /* GET VISITORS */
   export const getVisitors = () =>async (dispatch)=>{
    
+   try{
     const response = await securedInstance.get('/api/visitor/visitorRoleProgram' )
     .then((res)=>{   
         const listData = res.data
@@ -140,7 +141,10 @@ export const getEmailId = (userData) => async (dispatch) => {
     dispatch({
         type: ActionTypes.GET_VISITORS,
         payload: response
-    })  
+    })
+   }  catch(err){
+    console.log(err)
+   }
     
 }
   export const getVisitorById = (id) =>async (dispatch)=>{
@@ -406,7 +410,8 @@ export const deleteProgramById = (id) => async (dispatch) => {
   };
 /* GET All Users */
 export const getAllSubscribers = () =>async (dispatch)=>{
-   // to display subscriber with program name use api='subscriberWithProgram', subscriber with subprogram='subscriberWithSubProgram'
+   try{
+    // to display subscriber with program name use api='subscriberWithProgram', subscriber with subprogram='subscriberWithSubProgram'
     const response = await securedInstance.get('/api/subscribers/subscriberWithSubProgram' )
     .then((res)=>{   
         const listData = res.data
@@ -418,6 +423,9 @@ export const getAllSubscribers = () =>async (dispatch)=>{
         type: ActionTypes.GET_ALL_SUBSCRIBER,
         payload: response
     })  
+   }catch(error){
+    console.log(error)
+   }
     
 }
 //delete 

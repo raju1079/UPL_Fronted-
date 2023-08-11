@@ -79,24 +79,21 @@ const SubscribersList = () => {
     
         }
       });
-      function NoRowsOverlay() {
-        return (
-          <Stack height="100%" alignItems="center" justifyContent="center">
-            No rows in DataGrid
-            <pre>(rows=&#123;[]&#125;)</pre>
-          </Stack>
-        );
-      }
       
-      function NoResultsOverlay() {
-        return (
-          <Stack height="100%" alignItems="center" justifyContent="center">
-            No results in DataGrid
-            <pre>(rows=&#123;rowData&#125;)</pre>
-            But local filter returns no result
-          </Stack>
-        );
-      }
+      const rowsEmpty = [
+        {id: 0, subscriber_name: "Nothing to display"}
+      ]
+      const columnGroupingModel = [
+        {
+          groupId: 'NoData',
+          children: [
+            {
+              groupId: 'Nothing to Disaply',
+              children: [{ field: 'id' }, { field: 'subscriber_name' }, {field: 'email'},{field: 'phone_number'},{field: 'program_name'},{field: 'registered_date'}],
+            }
+          ],
+        },
+      ];
 
     useEffect(()=>{
         dispatch(getAllSubscribers())
@@ -110,11 +107,11 @@ const SubscribersList = () => {
     }, [fetchSubscribers])
    // console.log('subscribers with program name', rows)
   return (
-    <div>
+    <div className='container'>
         {
             userId === 1 ? (
                 
-                        (data.length !== 0 ) ?
+                        (dataRows?.length !== 0 ) ?
                         <DataGrid
                             rows={dataRows}
                             columns={dataColumns}
@@ -127,9 +124,9 @@ const SubscribersList = () => {
                             checkboxSelection
                         />:
                         <DataGrid
-                            rows={rows}
+                            rows={rowsEmpty}
                             columns={columns}
-                            components={{ NoRowsOverlay, NoResultsOverlay }}
+                           columnGroupingModel={columnGroupingModel}
                             initialState={{
                             pagination: {
                                 paginationModel: { page: 0, pageSize: 5 },
