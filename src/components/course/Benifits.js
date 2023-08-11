@@ -13,7 +13,7 @@ const Benifits = (props) => {
   return (
     <div>
       <ul className="list-group mx-auto card-wrapper">
-      <h3>Benifits</h3>
+      <h3>Benefits</h3>
       {
         benifitList?.map((eachPoint,index)=>(
         <div className="list-group-item" key={index}>
