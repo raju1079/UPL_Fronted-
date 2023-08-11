@@ -45,6 +45,8 @@ import UpdateCourse from './components/auth/admin/addcourse/UpdateCourse';
 import AddNewLesson from './components/auth/admin/addlesson/AddNewLesson';
 import AddNewUnit from './components/auth/admin/addunit/AddNewUnit';
 import AddNewPrerequisite from './components/auth/admin/addprerequsite/AddNewPrerequisite';
+import GetAllProgramswithImage from './components/Programs/GetAllProgramswithImage';
+import ProgramDetailwithImages from './components/Programs/ProgramDetailwithImages';
 
 
 function App() {
@@ -76,6 +78,8 @@ function App() {
           <Route exact path='/download' element={<DownloadLesson />} />
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/latestEvent/:id' element={<LatestEvent />} />
+          <Route exact path='/programsWithImage' element={<GetAllProgramswithImage />} /> {/* TESTING remove this route/component later */}
+          <Route exact path='/programDetailImage/:id' element={<ProgramDetailwithImages />} /> {/* TESTING remove this route/component later */}
           
           <Route path='/auth' >
             <Route  path='ExecutorDashboard' element={<ExecutorDashboard />} />

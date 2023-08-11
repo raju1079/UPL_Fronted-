@@ -42,7 +42,13 @@ const CourseDetail = (props) => {
       dispatch(fetchCourseWithLesson(id))
       dispatch(fetchPrerequisiteByCourse(id))
       dispatch(fetchLessonByCourseId(id))
-      props.setBgColor('radial-gradient( #fff, #0f8cff)')
+      //props.setBgColor('linear-gradient(to right, #A2C5FE, #4C7DFE)')
+      //props.setBgColor('linear-gradient(to right, #3C68AC, #108EF0)')
+      //props.setBgColor('linear-gradient(to right, #C8BFFB, #3AA4F7)')
+      props.setBgColor('linear-gradient(to right, #8BF3EE, #4BB0F9)')
+      //props.setBgColor('linear-gradient(to right, #3554A3, #4262A3)')
+      //props.setBgColor('linear-gradient(to right, #2961F4, #022990)')
+      
       return () => {
         props.setBgColor('')
     }
@@ -61,12 +67,15 @@ const CourseDetail = (props) => {
       <div className='course-bg-gradient'>
       <div className="container-xxl py-5">
         <div className="container">
-            <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-                {/* <h6 className="section-title bg-white text-center text-primary px-3">Details</h6> */}
-                <h1 className="mb-5 courseTitle">
+            <div className="wow fadeInUp" data-wow-delay="0.1s">
+                <h3 className="mb-5 courseTitle courseTitleBg">
                   <Link onClick={()=>navigate(-1)}>{programInterested} </Link>
                   <ArrowRight /> {selectedCourse?.course_name}
-                </h1>
+                </h3>
+                {/* <h6 className="text-center text-primary px-3 courseTitleBg">
+                <Link onClick={()=>navigate(-1)}>{programInterested} </Link>
+                  <ArrowRight /> {selectedCourse?.course_name}
+                </h6> */}
             </div>
             <div className='course-benifits'>
               {

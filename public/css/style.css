@@ -938,7 +938,7 @@ h1,h2,h3,h4,h5,h6,p{
     color: #7843E6;
 }
 .courseTitle a{
-    color: wheat;
+    color: #004AAD;
 }
 .units-heading .css-sghohy-MuiButtonBase-root-MuiButton-root{
     background-color: #004AAD;
@@ -1117,6 +1117,15 @@ h1,h2,h3,h4,h5,h6,p{
 .events-strip .strip-content{
     animation: Color 4s linear infinite;
   -webkit-animation: Color 4s ease-in-out infinite;
+}
+.courseTitleBg{
+    background-color: white;
+    box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+    padding: 15px;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
 }
 @media (min-width: 500px) {
     .homeHero .react-multi-carousel-item {

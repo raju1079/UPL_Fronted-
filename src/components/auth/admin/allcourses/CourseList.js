@@ -113,7 +113,7 @@ const CourseList = () => {
     setData(fetchCourses)
     setDataColumns(columns)
     setDataRows(rows)
-}, [fetchCourses,rows,columns])
+}, [data])
 
   return (
     <div className='course-list'>

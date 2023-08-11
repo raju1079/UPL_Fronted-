@@ -70,7 +70,7 @@ const UploadLessonForm= () => {
       <Grid container  spacing={2} sx={{border: '1px solid rgba(0,0,0,0.125', zIndex:"3"}} style={{padding: "30px"}}>
       <Grid item xs={6}>
               <FormControl fullWidth>
-                <InputLabel id="course-id-label">course_id</InputLabel>
+                <InputLabel id="course-id-label">Course</InputLabel>
                 <Select
                   labelId="course-id-label"
                   id="course-id-label"
@@ -96,7 +96,7 @@ const UploadLessonForm= () => {
              <TextfieldCustom
              type="text"
              name="lesson_name" 
-             value={lesson_name} onChange={handleChange} placeholder="lesson_name"
+             value={lesson_name} onChange={handleChange} placeholder="Lesson name"
              required
              />            
            </Grid>

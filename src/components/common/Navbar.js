@@ -42,7 +42,7 @@ const Navbar = () => {
                 </div>
                 <Link to="/contact" className="nav-item nav-link">Contact</Link>
                 <Link to="/login" className="nav-item nav-link">Login</Link>
-                <Link to={"/channelPartnerRegister"} className="nav-item nav-link">OnBoarding</Link>
+                <Link to={"/registerform"} className="nav-item nav-link">OnBoarding</Link> {/* later change to /channelPartnerRegister */}
             </div>
             <Link to={"/registerform"} className="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Enroll Now<i className="fa fa-arrow-right ms-3"></i></Link>
         </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import AdminMenus from '../AdminMenus'
 import WelcomeMenus from '../../WelcomeMenus';
 import { useSelector } from 'react-redux';
+import ImageTable from './ImageTable';
 
 const ImageManagement = () => {
     const { isAuthenticated, user } = useSelector((state) => state.auth);
@@ -17,6 +18,7 @@ const ImageManagement = () => {
                 </div>
                 <div className='mb-3'>
                 <AdminMenus buttonName='Upload Image' pageName='uploadImage' />
+                <ImageTable />
                 </div>
             </div>
         </div>  
