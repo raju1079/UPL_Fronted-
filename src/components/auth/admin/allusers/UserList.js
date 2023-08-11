@@ -81,7 +81,7 @@ const columns = [
       role: row.role_name,
       email: row.email,
       phone_number: row.phone_number,
-      program_name: row.program_name,
+      program_name: row.subprogram_name,
       status: row.status,
       date: formatDate(row.modify_date)
 

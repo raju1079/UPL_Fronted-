@@ -14,9 +14,13 @@ import securedInstance from '../../../api/securedInstance';
 
 // Register user
 export const register = (userData) => async (dispatch) => {
+  
+  const headers = {
+    'Content-Type': 'application/json',
+    };
   try {
-    const res = await axiosinstance.post('/api/auth/register', userData);
-    dispatch({
+    const res = await axiosinstance.post('/api/auth/register', userData,{headers});
+  dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data,
     });

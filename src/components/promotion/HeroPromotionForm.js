@@ -89,7 +89,7 @@ const HeroPromotionForm = () => {
     subscriber_name: formData.username,
     email: formData.email,
     phone_number: formData.phone_number,
-    subprogram_id: subprogramId[0]?.subprogram_id,
+    subprogram_id: subProgramId,
     // program_course_id: programCourseId[0]?.program_course_id,
   };
 
