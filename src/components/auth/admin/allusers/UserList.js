@@ -57,8 +57,8 @@ const columns = [
             };
             const handleDelete = (e) =>{
                 const currentRow = params.row;
-                dispatch(deleteUserById(currentRow.user_id))
-                console.log('clicked User is', currentRow.user_id)
+                //dispatch(deleteUserById(currentRow.user_id)) /* enable this once foreign key resolved */
+                console.log(`clicked User is${currentRow.user_id}:${currentRow.email}`)
             }
             
             return (
@@ -66,9 +66,15 @@ const columns = [
                 <IconButton onClick={onClick}>
                     <Edit />
                 </IconButton>
-                <IconButton onClick={()=>handleDelete()}>
-                    <Delete />
-                </IconButton>
+                {
+                  params.row?.role_id !== 1 ? 
+                  <IconButton onClick={()=>handleDelete()} disabled> {/* remove disabled once the foreign key issue resolved */}
+                  <Delete />  
+                </IconButton> : 
+                <IconButton disabled>
+                  <Delete />
+              </IconButton>
+                }
               </Stack>
             );
         },
