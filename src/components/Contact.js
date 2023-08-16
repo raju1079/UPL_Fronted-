@@ -20,15 +20,13 @@ const Contact = () => {
 </p>
                     <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+91 97392 01041</p>
                     <p className="mb-2"><i className="fa fa-envelope me-3"></i>hr@uplsnipe.com</p>
-                    <div className="d-flex pt-2">
-                        <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-twitter"></i></a>
-                        <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-facebook-f"></i></a>
-                        <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-youtube"></i></a>
-                        <a className="btn btn-outline-light btn-social" href=""><i className="fab fa-linkedin-in"></i></a>
+                    <div className="d-flex pt-2 contact-social">
+                    <a className="btn btn-outline-primary btn-social" href="https://www.facebook.com/profile.php?id=100091713887746" target='_blank'><i className="fab fa-facebook-f"></i></a>
+                        <a className="btn btn-outline-primary btn-social" href="https://youtube.com/@uplsnipe" target='_blank'><i className="fab fa-youtube" ></i></a>
+                        <a className="btn btn-outline-primary btn-social" href="https://www.linkedin.com/company/upl-snipe/" target='_blank'><i className="fab fa-linkedin-in" ></i></a>
+                        <a className="btn btn-outline-primary btn-social" href="https://www.instagram.com/uplsnipe/?igshid=NjIwNzIyMDk2Mg%3D%3D" target='_blank'><i className="fab fa-instagram"></i></a>
                     </div>
                     
-                    
-                    <a className="btn btn-primary py-3 px-5 mt-2" href="">Register Here</a>
                 </div>
             </div>
         </div>
