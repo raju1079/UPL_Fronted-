@@ -3,30 +3,28 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import ProgramDetailHero from '../common/ProgramDetailHero';
 import GoBackLink from '../common/GoBackLink';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllDetailsForProgramById } from '../redux/actions/Actions';
+import {LIVE_IMG_URL, DUMMY_URL} from '../../data/constants'
 
 const ProgramDetailwithImages = () => {
+  const getDetailProgram = useSelector((state)=> state.loadImageCourseForProgramDetail.imageCourseForProgramDetail)
   const { id } = useParams();
+  const dispatch = useDispatch()
   
-    const [imagesAWS, setImagesAWS] = useState([]);
-    
+    const [imagesAWS, setImagesAWS] = useState([]);   
 
     useEffect(() => {
-        fetchImagesAWS();
-    }, []);
+        setImagesAWS(getDetailProgram)
+        dispatch(getAllDetailsForProgramById(id))
+    }, [dispatch,getDetailProgram]);
 
-    const fetchImagesAWS = async () => {
-        try {
-        const responseSelectedProgram = await axios.get(`http://localhost:8000/api/category/detail/${id}`) // all details of selected program
-        setImagesAWS(responseSelectedProgram.data);
-        } catch (error) {
-        console.log(error);
-        }
-    };
+    
     const selectedProgram = imagesAWS[0]
     
-    console.log('images',imagesAWS)
+    //console.log('images',imagesAWS)
 
-    const imgURL = 'https://upl-snipe.ap-south-1.linodeobjects.com';
+    const imgURL = LIVE_IMG_URL;
 
   return (
     <div className='programdetail-wrapper'>

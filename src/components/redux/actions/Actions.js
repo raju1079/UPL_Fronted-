@@ -706,3 +706,150 @@ export const fetchLessonId = (id) =>async (dispatch)=>{
     }
   };
 
+  /* upload PROGRAMcourse - programCourseLinking */
+export const createNewProgramCourse = (programImageData) =>async (dispatch)=>{
+   
+    try{
+        const response = await securedInstance.post(`/api/category`,programImageData)
+    .then((res)=>{   
+        const listData = res.data
+        console.log("response", listData)
+        return listData;
+    })
+    //console.log("test")
+    dispatch({
+        type: ActionTypes.CREATE_PROGRAMCOURSE,
+        payload: response
+    })  
+    }
+    catch(error){
+        console.log(error)
+    }
+    
+}
+
+//Upload new image
+export const uploadNewImage = (imageData) => async (dispatch) => {
+
+    const headers = {
+      'Content-Type': 'multipart/form-data',
+    };
+       
+    try {
+        const response = await axiosinstance.post('/api/awsimage', imageData, {headers})
+        .then((res)=>{   
+            const listData = res.data
+          console.log("units loaded", listData)
+          toast.success("You have successfully uploaded")  
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.UPLOAD_IMAGE,
+            payload: response
+        }) 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
+//   GET all images localed in images folder. from cloud folder: root directory 
+export const getImagesList = () =>async (dispatch)=>{
+   
+    try{
+        const response = await axiosinstance.get('/api/awsimage/list' )
+    .then((res)=>{   
+        const listData = res.data
+       // console.log("images loaded", listData)
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_IMAGE_LIST,
+        payload: response
+    })
+    } catch(error){
+        console.log(error)
+    } 
+    
+}
+//   GET images for all programs page
+export const getImageAllPrograms = () =>async (dispatch)=>{
+   
+    try{
+        const response = await axiosinstance.get('/api/awsimage/category' )
+    .then((res)=>{   
+        const listData = res.data
+       // console.log("images loaded", listData)
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_IMAGE_PROGRAM,
+        payload: response
+    })
+    } catch(error){
+        console.log(error)
+    } 
+    
+}
+//   GET images,courses and program detail for program detail page - program by id
+export const getAllDetailsForProgramById = (id) =>async (dispatch)=>{
+   
+    try{
+        const response = await axiosinstance.get(`/api/category/detail/${id}` )
+    .then((res)=>{   
+        const listData = res.data
+       // console.log("loaded", listData)
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_IMGAGE_COURSE_FOR_PROGRAMDETAIL,
+        payload: response
+    })
+    } catch(error){
+        console.log(error)
+    } 
+    
+}
+
+//Upload new image
+export const sendEmailNotification = (emailData) => async (dispatch) => {
+
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+       
+    try {
+        const response = await axiosinstance.post('/api/email/send/1', emailData, {headers}) /* here 1 is email template modal. 1 0r 2 */
+        .then((res)=>{   
+            const listData = res.data
+          console.log("submitted", listData)
+            
+            return listData;
+        })
+        dispatch({
+            type: ActionTypes.SEND_EMAIL_NOTIFICATION,
+            payload: response
+        }) 
+        toast.success(`Email successfully Sent to: ${emailData.emailId}`)
+    } catch (error) {
+      console.log(error)
+    }
+  };
+  //get user by email to send mail notification - dispatch is commented in register page.
+export const findUserByEmail = (registeredEmail) =>async (dispatch)=>{
+   
+    try{
+        const response = await axiosinstance.get(`/api/allUsers/lastEmail/${registeredEmail}` )
+    .then((res)=>{   
+        const listData = res.data
+       console.log("selected user data", listData)
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_USER_BY_EMAIL,
+        payload: response
+    })  
+    }catch(error){
+        console.log(error)
+    }
+    
+}

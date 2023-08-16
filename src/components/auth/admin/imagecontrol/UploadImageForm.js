@@ -3,9 +3,12 @@ import axios from 'axios';
 import { Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Paper, Select } from '@mui/material';
 import TextfieldCustom from '../../../common/TextfieldCustom';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { uploadNewImage } from '../../../redux/actions/Actions';
 
 const UploadImageForm = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [file, setFile] = useState(null);
   const [courseId, setCourseId] = useState('');
   const [programId, setProgramId] = useState('');
@@ -21,9 +24,7 @@ const UploadImageForm = () => {
       alert('Please select a file.');
       return;
     }
-    const headers = {
-      'Content-Type': 'multipart/form-data',
-    };
+   
     const formData = new FormData();
     formData.append('file', file);
     formData.append('courseId', courseId);
@@ -34,21 +35,8 @@ const UploadImageForm = () => {
   for (const [key, value] of formData.entries()) {
     console.log(`****${key}:`, value);
   }
-    await axios
-      .post('http://localhost:8000/api/awsimage', formData, { headers })
-      .then((response) => {
-        console.log(response.data);
-        // Handle successful upload
-        setFile(null)
-        setCourseId('')
-        setProgramId('')
-        setfilePath('')
-        setType('')
-      })
-      .catch((error) => {
-        console.error(error);
-        // Handle error
-      });
+  dispatch(uploadNewImage(formData))
+    
   };
   /* useEffect(()=>{
     if (!file) {

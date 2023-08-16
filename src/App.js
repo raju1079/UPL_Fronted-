@@ -47,6 +47,8 @@ import AddNewUnit from './components/auth/admin/addunit/AddNewUnit';
 import AddNewPrerequisite from './components/auth/admin/addprerequsite/AddNewPrerequisite';
 import GetAllProgramswithImage from './components/Programs/GetAllProgramswithImage';
 import ProgramDetailwithImages from './components/Programs/ProgramDetailwithImages';
+import AllPromotions from './components/auth/admin/promotions/AllPromotions';
+import GetImagesAws from './components/Programs/GetImagesAws';
 
 
 function App() {
@@ -78,6 +80,7 @@ function App() {
           <Route exact path='/download' element={<DownloadLesson />} />
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/latestEvent/:id' element={<LatestEvent />} />
+          <Route exact path='/imageList' element={<GetImagesAws />} /> {/* TESTING remove this route/component later */}
           <Route exact path='/programsWithImage' element={<GetAllProgramswithImage />} /> {/* TESTING remove this route/component later */}
           <Route exact path='/programDetailImage/:id' element={<ProgramDetailwithImages />} /> {/* TESTING remove this route/component later */}
           
@@ -123,7 +126,7 @@ function App() {
             {/* admin CRUD promotion */}
               {/* Events */}
               <Route  path='allEvents' element={<AllEvents />} />
-              <Route  path='allPromotions' element={<MakeCategory />} />
+              <Route  path='allPromotions' element={<AllPromotions />} />
               <Route  path='addPromotion' element={<AddPromotion />} />
 
             {/* subscribers enquiry from promotion banner */}  

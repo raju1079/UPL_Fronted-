@@ -39,6 +39,16 @@ import { UploadLesson } from './reducers/UploadLesson.js';
 import { UploadUnit } from './reducers/UploadUnit.js';
 import FetchLessonId from './reducers/FetchLessonId.js';
 import { UploadPrerquisite } from './reducers/UploadPrerquisite.js';
+import { UploadImage } from './reducers/UploadImage.js';
+import { UploadImageProgram } from './reducers/UploadImageProgram.js';
+import { UploadImageCourse } from './reducers/UploadImageCourse.js';
+import { GetImageList } from './reducers/GetImageList.js';
+import { GetImageProgram } from './reducers/GetImageProgram.js';
+import { GetImageCourse } from './reducers/GetImageCourse.js';
+import { CreateProgramCourse } from './reducers/CreateProgramCourse.js';
+import { GetImageCourseForProgramDetail } from './reducers/GetImageCourseForProgramDetail.js';
+import { SendEmail } from './reducers/SendEmail.js';
+import GetUserByEmail from './reducers/GetUserByEmail.js';
 
 
 
@@ -80,7 +90,17 @@ const rootReducer = combineReducers({
   addNewLesson:UploadLesson,
   addNewUnit:UploadUnit,
   getLessonsId: FetchLessonId,
-  addNewPrerequisite:UploadPrerquisite
+  uploadNewProgramCourse: CreateProgramCourse,
+  addNewPrerequisite:UploadPrerquisite,
+  addNewImage: UploadImage,
+  addImageProgram:UploadImageProgram,
+  addImageCourse:UploadImageCourse,
+  loadImageList:GetImageList,
+  loadImageProgram:GetImageProgram,
+  loadImageCourse:GetImageCourse,
+  loadImageCourseForProgramDetail:GetImageCourseForProgramDetail,
+  emailNotification:SendEmail,
+  getUsersByEmail:GetUserByEmail
 });
 
 export default rootReducer;

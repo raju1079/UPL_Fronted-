@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container, FormControl, Grid, IconButton, InputAdornment, InputLabel, MenuItem, Paper, Select } from '@mui/material';
-import { fetchCourseList, uploadNewProgram } from '../../../redux/actions/Actions';
+import { createNewProgramCourse, fetchCourseList, uploadNewImage, uploadNewProgram } from '../../../redux/actions/Actions';
 import TextfieldCustom from '../../../common/TextfieldCustom';
 import axios from 'axios';
 import securedInstance from '../../../../api/securedInstance';
@@ -48,9 +48,7 @@ const ProgramCourseUpload = () => {
         alert('Please select a file.');
         return;
       }
-      const headers = {
-        'Content-Type': 'multipart/form-data',
-      };
+      
       const formData = new FormData();
       formData.append('file', file);
       formData.append('courseId', courseId);
@@ -61,27 +59,15 @@ const ProgramCourseUpload = () => {
     for (const [key, value] of formData.entries()) {
       console.log(`****${key}:`, value);
     }
-    await axios
-      .post('http://localhost:8000/api/awsimage', formData, { headers })
-      .then((response) => {
-        console.log(response.data);
-        // Handle successful upload
-        setFile(null)
-        setfilePath('')
-        setType('')
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    await securedInstance.post(`http://localhost:8000/api/category`,programCourseData)
-    .then((res)=>{
-        console.log("formdata", res.data);
-        setCourseId('')
-        setProgramId('')
-    })
-    .catch((error) => {
-        console.error(error);
-      });
+
+    dispatch(uploadNewImage(formData))
+    dispatch(createNewProgramCourse(programCourseData))
+    
+    setFile(null)
+    setfilePath('')
+    setType('')
+    setCourseId('')
+    setProgramId('')
   };
   //console.log('form data', programCourseData)
 

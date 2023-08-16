@@ -1,25 +1,24 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getImageAllPrograms } from '../redux/actions/Actions';
+import {LIVE_IMG_URL, DUMMY_URL} from '../../data/constants'
 
 const GetAllProgramswithImage = () => {
   
+    const getImageProgram = useSelector((state)=> state.loadImageProgram.imageProgram)
+
+    const dispatch = useDispatch()
     const [imagesAWS, setImagesAWS] = useState([]);
 
     useEffect(() => {
-        fetchImagesAWS();
-    }, []);
+        dispatch(getImageAllPrograms())
+        setImagesAWS(getImageProgram)
+    }, [dispatch,getImageProgram]);
 
-    const fetchImagesAWS = async () => {
-        try {
-        const response = await axios.get('http://localhost:8000/api/awsimage/category'); 
-        setImagesAWS(response.data);
-        } catch (error) {
-        console.log(error);
-        }
-    };
-    console.log('images',imagesAWS)
-    const imgURL = 'https://upl-snipe.ap-south-1.linodeobjects.com';
+       //console.log('images',imagesAWS)
+    const imgURL =LIVE_IMG_URL;
   return (
     <div>
         <h3>Get images AWS</h3>

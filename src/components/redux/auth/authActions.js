@@ -24,6 +24,7 @@ export const register = (userData) => async (dispatch) => {
       type: REGISTER_SUCCESS,
       payload: res.data,
     });
+    //console.log('Registered As',res.config.data);
     toast.success("You have Registered Successfully")
   } catch (error) {
     toast.error(error.response.data.error + " "+ 'Please TRY again')

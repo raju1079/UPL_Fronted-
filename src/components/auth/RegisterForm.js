@@ -7,16 +7,24 @@ import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import TextfieldCustom from '../common/TextfieldCustom';
 import { fetchProgramById, fetchProgramId, fetchProgramList,
-    getRoles, fetchSubProgramId, } from '../redux/actions/Actions';
+    getRoles, fetchSubProgramId, sendEmailNotification, getUserById, findUserByEmail, } from '../redux/actions/Actions';
 import PopUpModal from '../common/PopUpModal';
+import axios from 'axios';
 
 
 const RegisterForm = () => {
-//  const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const {isAuthenticated, user} = useSelector((state) => state.auth);
+  const fetchUsersById = useSelector((state)=> state.getUsersById.userById)
 const allRole = useSelector((state)=>state.getAllRoles.roles)
 const fetchPrograms = useSelector((state) => state.fetchAllPrograms.programs); /* programs dropdown */
 const fetchProgramsById = useSelector((state) => state.fectchProgramById.programById); /* courses dropdownlist as per program id */
 //const programCourseId = useSelector((state) => state.programCourseCombo.programCourseCombination); /* program course combo  */
+
+const fetchUserByEmail = useSelector((state) => state.getUsersByEmail.userByEmail);
+
+//const lastRegisterUser = fetchUsersById[0];
+const [isRegister,setIsRegister] = useState(false)
+const [lastRegisterUser,setLastRegisterUser] = useState('')
 
 const [roleId, setRoleId] = useState([])
   const [roleName, setRoleName] = useState('')
@@ -74,13 +82,21 @@ const [roleId, setRoleId] = useState([])
   };
    const registerData = {
     username: formData.username,
-    password: formData.password,
+    //password: formData.password,
     email: formData.email,
     phone_number: formData.phone_number,
     role_id: "2",
     subprogram_id:subProgramId,
     //program_course_id: (courseId !== "") ? programCourseId[0]?.program_course_id : programId,
   } 
+  
+  const emailData = {
+    emailId:lastRegisterUser
+  }
+  const emailData2 = {
+    userId:fetchUserByEmail[0]?.user_id,
+    emailId: fetchUserByEmail[0]?.email
+  }
    
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,7 +105,9 @@ const [roleId, setRoleId] = useState([])
       alert('Password and Confirm Password Should Match')
     } else{
      dispatch(register(registerData));
-      //navigate("/")
+     setLastRegisterUser(formData.email)
+     setIsRegister(true)
+     
       console.log("formdata", registerData)
       setFormData({
         username: "",
@@ -149,9 +167,49 @@ const [roleId, setRoleId] = useState([])
   
   };
 
+  useEffect(()=>{
+    if(formData !== ""){
+      //setLastRegisterUser(formData.email)
+      console.log('email data', emailData)
+      console.log('email data with user id', emailData2)
+      console.log('user by email', fetchUserByEmail)
+      if(isRegister){
+        console.log('clicked register', isRegister)
+        setTimeout(() => {
+          dispatch(findUserByEmail(lastRegisterUser))
+          console.log('email data isregister true', emailData2)
+          console.log('user by email', fetchUserByEmail)
+          dispatch(sendEmailNotification(emailData))
+          /* 
+          // send with USER ID 
+          dispatch(sendEmailNotification(
+            {
+              userId:fetchUserByEmail[0]?.user_id,
+              emailId: fetchUserByEmail[0]?.email
+            }
+          )) */
+        }, 0);
+        //dispatch(sendEmailNotification(emailData))
+      
+      }else{
+        console.log('else,initial',isRegister)
+      }
+    }
+
+    return () => {
+      setIsRegister(false);
+      //console.log(`Goodbye, ${isRegister}`);
+    };
+
+  },[formData,dispatch,fetchUserByEmail])
+
+ 
+
+  
+
   useEffect(() => {
     setItem(getSubprogramId);
-  }, [item, getSubprogramId]);
+  }, [item, getSubprogramId]); 
 
   //pop up modal
   const [open, setOpen] = React.useState(false);
@@ -195,7 +253,7 @@ const [roleId, setRoleId] = useState([])
                           name="email"
                           value={email} onChange={handleChange} placeholder="Email" />
                       </Grid>
-                      <Grid item xs={12} md={6}>
+                      {/* <Grid item xs={12} md={6}>
                         <TextfieldCustom
                           type={showPassword ? "text" : "password"}
                           name="password" value={password} onChange={handleChange} placeholder="Password"
@@ -214,8 +272,8 @@ const [roleId, setRoleId] = useState([])
                             )
                           }}
                         />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
+                      </Grid> */}
+                      {/* <Grid item xs={12} md={6}>
                         <TextfieldCustom
                           type={showConfirmPassword ? "text" : "password"}
                           name="confirmPassword" value={confirmPassword} onChange={handleChange} placeholder="Confirm Password"
@@ -234,7 +292,7 @@ const [roleId, setRoleId] = useState([])
                             )
                           }}
                         />
-                      </Grid>
+                      </Grid> */}
                       <Grid item xs={12}>
                         <TextfieldCustom
                           type="tel"
