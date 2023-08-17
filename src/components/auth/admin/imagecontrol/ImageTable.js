@@ -5,9 +5,11 @@ import { Delete, Edit } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import axios from 'axios';
+import { getImagesTable } from '../../../redux/actions/Actions';
 
 const ImageTable = () => {
     const { isAuthenticated, user } = useSelector((state) => state.auth);
+    const getImageTable = useSelector((state) => state.loadImageTable.imageTable)
     const userId = user?.role_id
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -20,20 +22,7 @@ const ImageTable = () => {
         const dateFormat = getMyDay + "/" + getMonth + "/" + getYear
         return dateFormat;
     }
-    const fetchImagesAWS = async () => {
-        try {
-        const response = await axios.get('http://localhost:8000/api/awsimage/list'); // from cloud bucket
-        const responseTable = await axios.get('http://localhost:8000/api/awsimage') // from local table
-        const responseTableWithName = await axios.get('http://localhost:8000/api/awsimage/program') // from local table with program name
-        const responseProgramId = await axios.get('http://localhost:8000/api/awsimage/program/2') // local table by programid
-        //setImagesAWS(response.data);
-        setImagesAWS(responseTableWithName.data);
-        //setImagesAWS(responseProgramId.data);
-        } catch (error) {
-        console.log(error);
-        }
-    };
-    
+       
     console.log('images',imagesAWS)
 
     const columns = [
@@ -91,8 +80,9 @@ const ImageTable = () => {
         }
       });
       useEffect(() => {
-        fetchImagesAWS();
-    }, []);
+       dispatch(getImagesTable());
+       setImagesAWS(getImageTable)
+    }, [dispatch]);
 
   return (
     <div>

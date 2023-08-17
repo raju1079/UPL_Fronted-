@@ -771,6 +771,25 @@ export const getImagesList = () =>async (dispatch)=>{
     } 
     
 }
+// Get image list for admin panel. table with image name, program name and course name
+export const getImagesTable = () =>async (dispatch)=>{
+   
+    try{
+        const response = await axiosinstance.get('/api/awsimage/program' ) //controller: getAllImagesWithProgramName
+    .then((res)=>{   
+        const listData = res.data
+       // console.log("images loaded", listData)
+        return listData;
+    })
+    dispatch({
+        type: ActionTypes.GET_IMAGE_TABLE,
+        payload: response
+    })
+    } catch(error){
+        console.log(error)
+    } 
+    
+}
 //   GET images for all programs page
 export const getImageAllPrograms = () =>async (dispatch)=>{
    

@@ -49,6 +49,7 @@ import { CreateProgramCourse } from './reducers/CreateProgramCourse.js';
 import { GetImageCourseForProgramDetail } from './reducers/GetImageCourseForProgramDetail.js';
 import { SendEmail } from './reducers/SendEmail.js';
 import GetUserByEmail from './reducers/GetUserByEmail.js';
+import { GetImageTable } from './reducers/GetImageTable.js';
 
 
 
@@ -96,6 +97,7 @@ const rootReducer = combineReducers({
   addImageProgram:UploadImageProgram,
   addImageCourse:UploadImageCourse,
   loadImageList:GetImageList,
+  loadImageTable: GetImageTable,
   loadImageProgram:GetImageProgram,
   loadImageCourse:GetImageCourse,
   loadImageCourseForProgramDetail:GetImageCourseForProgramDetail,
