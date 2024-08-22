@@ -1,22 +1,31 @@
 pipeline {
     agent any
+
     stages {
         stage('build') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
+
         stage('Test') {
             steps {
-                bat 'npm test'
+                sh 'npm test'
             }
         }
+
         stage('Deploy') {
             steps {
-                // Replace with appropriate npm or deployment commands as needed
-                bat 'npm run deploy'
+                // Replace with appropriate shell deployment commands
+                sh 'npm run deploy'
             }
         }
     }
-}
 
+    post {
+        always {
+            echo 'Cleaning up...'
+            cleanWs()
+        }
+    }
+}
