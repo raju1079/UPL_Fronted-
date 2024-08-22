@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                bat 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                bat 'npm test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Replace with appropriate npm or deployment commands as needed
+                bat 'npm run deploy'
+            }
+        }
+    }
+}
+
