@@ -2,26 +2,29 @@ pipeline {
     agent {
         docker {
             image 'node:18-alpine'
-            label 'docker-agent'
+            args '-v /var/lib/jenkins/.npm:/root/.npm' // Optional: to persist npm cache
         }
     }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
                 sh 'npm install'
             }
         }
-
         stage('Test') {
             steps {
                 sh 'npm test'
             }
         }
-
         stage('Deploy') {
             steps {
                 sh 'npm run deploy'
             }
+        }
+    }
+    post {
+        always {
+            cleanWs() // Clean up workspace
         }
     }
 }
